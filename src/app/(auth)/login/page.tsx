@@ -1,3 +1,4 @@
+import TestCard from "@/components/Testcard";
 
 
 
@@ -9,10 +10,9 @@ export default function Login() {
           login
           </div>
       </div>
-      <form>
-        <label ></label>
-        <input ></input>
-      </form>
+      
+      
+        
     </main>
   );
 }

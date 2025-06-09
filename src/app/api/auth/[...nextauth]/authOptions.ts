@@ -14,27 +14,16 @@ export const authOptions: AuthOptions = {
        if (credentials?.username === "testuser" && credentials?.password === "testpass") {
           const user = {
             id: "1",
-            name: "Test User",
+            name: "test",
             email: "test@example.com",
-            image: "https://www.gravatar.com/avatar/a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1?s=200" // รูปโปรไฟล์ (Optional)
           };
           console.log("Mock Login Successful for:", user.email);
           return user; 
         }
 
       
-      const res = await fetch("/your/endpoint", {
-        method: 'POST',
-        body: JSON.stringify(credentials),
-        headers: { "Content-Type": "application/json" }
-      })
-      const user = await res.json()
-
-      
-      if (res.ok && user) {
-        return user
-      }
-      
+     
+      console.log("Invalid login attempt");  
       return null
     } 
       })
