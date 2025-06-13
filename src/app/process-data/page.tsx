@@ -62,7 +62,7 @@ export default function ProcessData() {
       <div className="flex flex-row ">
         
           <div className="mx-2" >
-            <Radio  value="option1" name="name" checked={selectedOption==='option1'} onChange={handleOptionChange}/>
+            <Radio  value="option1" label="option1" name="name" checked={selectedOption==='option1'} onChange={handleOptionChange} />
           </div>
           <div className="mx-2" >
                        <Radio value="option2"  name="name" checked={selectedOption==='option2'} onChange={handleOptionChange}/>
