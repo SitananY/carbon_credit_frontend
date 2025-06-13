@@ -7,17 +7,18 @@ type InputFieldProps = {
     helper:string,
     success?:boolean,
     disabled?:boolean,
-    icon?:boolean
+    icon?:boolean,
+    className?:string
 };
 
 
 
 
 
-export default function InputField({placeholder,error=false,helper,success=false,disabled=false,icon=true}:InputFieldProps){
+export default function InputField({placeholder,error=false,helper,success=false,disabled=false,icon=true,className="h-[44px] w-[245px]"}:InputFieldProps){
     return(
         <div className="relative h-[44px] w-[245px] ">
-            <input  type="text" disabled={disabled} placeholder={placeholder} className={`h-[44px] w-[245px] pl-[35px] rounded-xl   placeholder:text-sm placeholder:font-prompt    
+            <input  type="text" disabled={disabled} placeholder={placeholder} className={` ${className} pl-[35px] rounded-xl   placeholder:text-sm placeholder:font-prompt    
              
             ${disabled ? "bg-[#DDDDDC] border-[#DDDDDC] placeholder-[#7C7C77] border-2 " : 
             error ? "border-[#E64341] border-2 placeholder-[#B6B6A8] focus:outline-none" : 

@@ -122,7 +122,7 @@ export default function ProcessData() {
         <Button disabled={true} variant="primary" text="Button" />
       </div>
 
-      <div className="flex flex-col ">
+      <div className="flex flex-col items-center  justify-center ">
         <div className="m-2">
           <InputField
             placeholder="Placeholder"
@@ -159,7 +159,7 @@ export default function ProcessData() {
             disabled={true}
           />
         </div>
-          <div className="m-2 ">
+          <div className="">
           <InputField
             placeholder="Placeholder"
             helper="Helper Text"
@@ -167,6 +167,7 @@ export default function ProcessData() {
             success={false}
             disabled={false}
             icon={false}
+            className="h-[40px] w-[300px]"
           />
         </div>
       </div>
