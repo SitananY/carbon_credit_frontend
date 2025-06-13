@@ -2,6 +2,20 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+import { Prompt } from 'next/font/google';
+
+
+const prompt = Prompt({
+  subsets: ['latin'], 
+  weight: [
+    '100', '200', '300', '400', '500', '600', '700', '800', '900',
+  ],
+  style: ['normal', 'italic'],
+  variable: '--font-prompt', 
+  display: 'swap', 
+});
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
