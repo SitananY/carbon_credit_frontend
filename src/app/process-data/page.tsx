@@ -79,7 +79,7 @@ export default function ProcessData() {
       
       <div className="flex flex-col ">
         <div className="my-2">
-          <Switch onClick={()=>setSwitch(!isSwitchOpen)} isOpen={isSwitchOpen}  />
+          <Switch onClick={()=>setSwitch(!isSwitchOpen)} isOpen={isSwitchOpen} scale="100" />
         </div>
       </div>
 
