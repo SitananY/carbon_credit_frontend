@@ -1,15 +1,29 @@
+'use client'
+import { useState, useEffect } from 'react';
+import { LongdoMap, longdo, map } from './components/LongdoMap';
 
+export default function MapPage() {
+  const [mapLoaded, setMapLoaded] = useState(false);
 
+  const initMap = () => {
+    if (map && longdo) {
+      map.Layers.setBase(longdo.Layers.GRAY);
+      setMapLoaded(true);
+    }
+  };
 
-export default function Map() {
   return (
-    <main className="flex  items-center justify-center p-4 sm:p-6 md:p-8">
-      <div className="w-full max-w-md h-64 bg-white rounded-xl shadow-2xl flex items-center justify-center p-4">
-          <div className=" font-mono text-3xl font-bold text-center">
-          Map
-          </div>
-      </div>
-      
-    </main>
+    <div className='flex flex-col items-center  p-4 sm:p-6 md:p-8 w-[auto] h-full'>
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <LongdoMap 
+        id="longdo-map" 
+        mapKey="0800e8205f7fc97314bd67673c0e7a11" 
+        callback={initMap} 
+      />
+      {mapLoaded && (
+        <div>Map Loaded Successfully!</div>
+      )}
+    </div>
+    </div>
   );
 }

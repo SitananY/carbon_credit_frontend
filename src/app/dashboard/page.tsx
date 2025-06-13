@@ -2,6 +2,7 @@
 import { PieChart } from '@mui/x-charts';
 import PieChartWithCustomLegendAndTooltip from './components/PieChartDemo';
 import PieChartDemo from './components/PieChartDemo';
+import Button from '@/components/Button';
 
 export default function Dashboard() {
   return (
@@ -14,8 +15,7 @@ export default function Dashboard() {
       <div className='my-10 w-full max-w-md h-64 bg-white rounded-xl shadow-2xl flex items-center justify-center p-4'>
         <PieChartDemo/>
       </div>
-      
-
+ 
     </main>
   );
 }
