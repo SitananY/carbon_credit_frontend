@@ -28,15 +28,18 @@ type ButtonProps = {
   text:string,
   disabled?: boolean,
   onClick?:()=>void,
+  children?: React.ReactNode;
+  className?:string,
 };
 
 
 
-export default function Button({variant='primary',text,disabled = false,onClick}:ButtonProps){
+export default function Button({variant='primary',text,disabled = false,onClick,children,className="w-[72px] h-[48px] rounded-2xl"}:ButtonProps){
     return(
-        <button onClick={onClick} disabled={disabled} className={` w-[72px] h-[48px] //p-3 rounded-2xl font-prompt text-base flex items-center justify-center ${getVariantStyles(variant, disabled)} 
+        <button onClick={onClick} disabled={disabled} className={` ${className}  font-prompt text-base flex items-center justify-center ${getVariantStyles(variant, disabled)} 
         // ${disabled ? "" : "active:scale-95 cursor-pointer"} transition-all duration-100 ease-in-out` }>
-            {text}
+            <div className={`flex items-center gap-2 `}>{children}{text}</div>
+            
         </button>
     );
 }

@@ -10,6 +10,9 @@ import Radio from "@/components/Radio";
 import Switch from "@/components/Switch";
 import ViewButton from "@/components/ViewButton";
 import { useState } from "react";
+import Icons from "@/components/svgs/SvgExports";
+
+
 
 
 export default function ProcessData() {
@@ -113,7 +116,9 @@ export default function ProcessData() {
 
 
       <div className="my-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-        <Button disabled={false} variant="primary" text="Button" />
+        <Button disabled={false} variant="primary" text="Add" className="w-[80px] h-[40px] rounded-xl">
+          <Icons.Add/>
+        </Button>
         <Button disabled={false} variant="secondary" text="Button" />
         <Button disabled={false} variant="tonal" text="Button" />
         <Button disabled={false} variant="confirm" text="Button" />
