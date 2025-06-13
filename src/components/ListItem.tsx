@@ -4,9 +4,8 @@ type ListItemProps = {
   selected?: boolean;
   disabled?: boolean;
   onClick?: () => void;
-  className?:string,
+  className?: string;
 };
-
 
 export default function ListItem({
   item,
@@ -18,6 +17,8 @@ export default function ListItem({
 }: ListItemProps) {
   return (
     <div
+      // title={disabled ? "ไม่พร้อมใช้งาน" : undefined}
+      
       onClick={!disabled ? onClick : undefined}
       className={`relative ${className} border-b border-[#B6B6A8] transition-all duration-100
     ${
@@ -46,14 +47,20 @@ export default function ListItem({
           </div>
         )}
 
-        {children && <div className={`flex items-center gap-3 ${
-            disabled
-              ? "text-[#27272A]"
-              : selected
-              ? "text-[#FAFCFE]"
-              : "text-[#3E3E3C]"
-          } `}>{children}</div>}
-        </div>
+        {children && (
+          <div
+            className={`flex items-center gap-3 ${
+              disabled
+                ? "text-[#27272A]"
+                : selected
+                ? "text-[#FAFCFE]"
+                : "text-[#3E3E3C]"
+            } `}
+          >
+            {children}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
