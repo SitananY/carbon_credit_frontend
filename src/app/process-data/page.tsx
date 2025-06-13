@@ -87,7 +87,7 @@ export default function ProcessData() {
 
       <div className="flex flex-col ">
           <div className="my-2">
-            <ListItem item="item" onClick={()=>setSelected(!isSelected)} selected={isSelected}> 
+            <ListItem item="item" onClick={()=>setSelected(!isSelected)} selected={isSelected} className="w-[300px] h-[37px]"> 
               <ViewButton /> 
               <EditButton />  
               <DeleteButton/>

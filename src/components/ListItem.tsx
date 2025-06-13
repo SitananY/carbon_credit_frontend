@@ -4,6 +4,7 @@ type ListItemProps = {
   selected?: boolean;
   disabled?: boolean;
   onClick?: () => void;
+  className?:string,
 };
 
 
@@ -13,11 +14,12 @@ export default function ListItem({
   disabled,
   children,
   onClick,
+  className = "w-[240px] h-[37px]",
 }: ListItemProps) {
   return (
     <div
       onClick={!disabled ? onClick : undefined}
-      className={`relative w-[240px] h-[37px] border-b border-[#B6B6A8] transition-all duration-100
+      className={`relative ${className} border-b border-[#B6B6A8] transition-all duration-100
     ${
       disabled
         ? "bg-[#DDDDDC] cursor-default"
