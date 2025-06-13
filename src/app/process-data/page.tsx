@@ -33,7 +33,7 @@ export default function ProcessData() {
       
       <div className=" flex  flex-col">
         <div className="my-2">
-            <Label label="Label" />
+            <Label label="Label" size="base"/>
         </div>
         <div className="my-2">
             <Label label="Label" required/>
