@@ -31,7 +31,8 @@ export default function ProcessData() {
         </div>
       </div>
       
-      <div className=" flex  flex-col">
+      <div className=" flex  flex-col items-center justify-center  w-full md:w-[50%] bg-white rounded-xl p-2 m-4">
+        <p className="font-prompt font-medium text-2xl">LABEL</p>
         <div className="my-2">
             <Label label="Label" size="base"/>
         </div>
@@ -44,7 +45,8 @@ export default function ProcessData() {
 
       </div>
 
-      <div className="flex flex-row ">
+      <div className="flex flex-row items-center justify-center  w-full md:w-[50%] bg-white rounded-xl p-2 m-4">
+        <p className="font-prompt font-medium text-2xl pr-3">ICON BUTTON</p>
         <div className="mx-2 my-1">
           <IconButton icon="Add"  size="w-[44px] h-[44px]" iconSize="w-[24px] h-[24px]"  />
         </div>
@@ -59,25 +61,27 @@ export default function ProcessData() {
         </div>
       </div>
 
-      <div className="flex flex-row ">
+      <div className="flex flex-row items-center justify-center  w-full md:w-[50%] bg-white rounded-xl p-2 m-4 ">
+        <p className="font-prompt font-medium text-2xl pr-4">RADIO</p>
         
           <div className="mx-2" >
-            <Radio  value="option1" label="option1" name="name" checked={selectedOption==='option1'} onChange={handleOptionChange} />
+            <Radio  value="option1"  name="name" checked={selectedOption==='option1'} onChange={handleOptionChange} />
           </div>
           <div className="mx-2" >
-                       <Radio value="option2"  name="name" checked={selectedOption==='option2'} onChange={handleOptionChange}/>
+            <Radio value="option2"  name="name" checked={selectedOption==='option2'} onChange={handleOptionChange}/>
           </div>
           <div className="mx-2" >
-            <Radio disabled value="option3" name="name" checked={selectedOption==='option3'} onChange={handleOptionChange}/>
+            <Radio disabled value="option3"  name="name" checked={selectedOption==='option3'} onChange={handleOptionChange}/>
           </div>
           
         
       </div>
       
-      <p className="font-prompt text-xl font-[400] ">Prompt test</p>
-      <p className="font-prompt text-xl  font-[500]">Prompt test</p>
+      {/* <p className="font-prompt text-xl font-[400] ">Prompt test</p>
+      <p className="font-prompt text-xl  font-[500]">Prompt test</p> */}
       
-      <div className="flex flex-col ">
+      <div className="flex flex-col items-center justify-center  w-full md:w-[50%] bg-white rounded-xl p-2 m-4 ">
+        <p className="font-prompt font-medium text-2xl ">SWITCH</p>
         <div className="my-2">
           <Switch onClick={()=>setSwitch(!isSwitchOpen)} isOpen={isSwitchOpen} scale="100" />
         </div>
@@ -85,9 +89,11 @@ export default function ProcessData() {
 
 
 
-      <div className="flex flex-col ">
+      <div className="flex flex-col items-center justify-center  w-full md:w-[50%] bg-white rounded-xl p-2 m-4">
+        <p className="font-prompt font-medium text-2xl ">ITEM LIST</p>
+          
           <div className="my-2">
-            <ListItem item="item" onClick={()=>setSelected(!isSelected)} selected={isSelected} className="w-[300px] h-[37px]"> 
+            <ListItem item="item" onClick={()=>setSelected(!isSelected)} selected={isSelected} > 
               <ViewButton /> 
               <EditButton />  
               <DeleteButton/>
@@ -115,8 +121,10 @@ export default function ProcessData() {
 
 
 
-      <div className="my-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-        <Button disabled={false} variant="primary" text="Add" className="w-[80px] h-[40px] rounded-xl">
+      <div className="my-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4  md:w-[50%] bg-white rounded-xl p-2 m-4 ">
+        <p className=" col-span-full text-center font-prompt font-medium text-2xl ">BUTTON</p>
+        
+        <Button disabled={false} variant="primary" text="Add" >
           <Icons.Add/>
         </Button>
         <Button disabled={false} variant="secondary" text="Button" />
@@ -127,7 +135,9 @@ export default function ProcessData() {
         <Button disabled={true} variant="primary" text="Button" />
       </div>
 
-      <div className="flex flex-col items-center  justify-center ">
+      <div className="flex flex-col items-center justify-center  w-full md:w-[50%] bg-white rounded-xl p-2 m-4 ">
+        <p className="font-prompt font-medium text-2xl ">INPUT FIELD</p>
+        
         <div className="m-2">
           <InputField
             placeholder="Placeholder"
@@ -172,7 +182,7 @@ export default function ProcessData() {
             success={false}
             disabled={false}
             icon={false}
-            className="h-[40px] w-[300px]"
+            
           />
         </div>
       </div>
