@@ -48,16 +48,40 @@ export default function ProcessData() {
       <div className="flex flex-row items-center justify-center  w-full md:w-[50%] bg-white rounded-xl p-2 m-4">
         <p className="font-prompt font-medium text-2xl pr-3">ICON BUTTON</p>
         <div className="mx-2 my-1">
-          <IconButton icon="Add"  size="w-[44px] h-[44px]" iconSize="w-[24px] h-[24px]"  />
+          <IconButton >
+            <Icons.Add className="w-[24px] h-[24px]"></Icons.Add>
+            </IconButton>
         </div>
         <div className="mx-2 my-1">
-          <IconButton icon="Add" disabled />
+          <IconButton  outlined>
+            <Icons.Add className="w-[24px] h-[24px]"></Icons.Add>
+          </IconButton>
         </div>
          <div className="mx-2 my-1">
-          <IconButton icon="Add" filled/>
+          <IconButton filled>
+            <Icons.Add className="w-[24px] h-[24px]"></Icons.Add>
+            </IconButton>
         </div>
          <div className="mx-2 my-1">
-          <IconButton icon="Add" outlined/>
+          <IconButton disabled>
+            <Icons.Add className="w-[24px] h-[24px]"></Icons.Add>
+            </IconButton>
+        </div>
+      </div>
+      
+       <div className="flex flex-row items-center justify-center  w-full md:w-[50%] bg-white rounded-xl p-2 m-4">
+        <p className="font-prompt font-medium text-2xl pr-3">PAGINATION</p>
+        <div className="mx-2 my-1">
+          <IconButton   size="w-[37px] h-[37px]" > <div className="w-[6px] h-[8px] text-center flex items-center justify-center ">1</div></IconButton>
+        </div>
+        <div className="mx-2 my-1">
+          <IconButton  outlined size="w-[37px] h-[37px]" > <div className="w-[6px] h-[8px] text-center flex items-center justify-center ">1</div></IconButton>
+        </div>
+         <div className="mx-2 my-1">
+          <IconButton  filled size="w-[37px] h-[37px]" > <div className="w-[6px] h-[8px] text-center flex items-center justify-center ">1</div> </IconButton>
+        </div>
+         <div className="mx-2 my-1">
+          <IconButton  disabled size="w-[37px] h-[37px]" > <div className="w-[6px] h-[8px] text-center flex items-center justify-center ">1</div> </IconButton>
         </div>
       </div>
 

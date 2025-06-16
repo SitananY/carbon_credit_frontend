@@ -1,9 +1,10 @@
 import Image from "next/image";
 
 import Icons from "./svgs/SvgExports";
+import { Children } from "react";
 
 type IconButtonProps = {
-  icon: keyof typeof Icons;
+  // icon: keyof typeof Icons;
   filled?: boolean;
   outlined?: boolean;
   disabled?: boolean;
@@ -11,20 +12,21 @@ type IconButtonProps = {
   onClick?: () => void;
   size?: string;
   iconSize?: string;
-
+  children?: React.ReactNode;
 };
 
 export default function IconButton({
-  icon,
+  // icon,
   filled,
   outlined,
   disabled,
   onClick,
   isClicked,
   size="w-[44px] h-[44px]",
-  iconSize="w-[24px] h-[24px]"
+  iconSize="w-[24px] h-[24px]" ,
+  children
 }: IconButtonProps) {
-  const IconComponent = Icons[icon];
+  // const IconComponent = Icons[icon];
   return (
     <div onClick={onClick} className={` `}>
       <div
@@ -40,7 +42,7 @@ export default function IconButton({
              }   
              `}
       >
-        {IconComponent && (
+        {/* {IconComponent && (
           <IconComponent
             className={` ${iconSize} pointer-events-none
             ${
@@ -54,7 +56,19 @@ export default function IconButton({
             }
             `}
           />
-        )}
+        )} */}
+
+        <div className={`  pointer-events-none text-sm font-prompt  text-center flex items-center justify-center
+            ${
+              disabled
+                ? "text-[#DDDDDC]"
+                : filled
+                ? "text-[#FAFCFE]"
+                : outlined
+                ? " text-[#397832] "
+                : "text-[#397832]"
+            }
+            `}>{children} </div> 
       </div>
     </div>
   );
