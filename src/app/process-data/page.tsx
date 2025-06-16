@@ -46,7 +46,7 @@ export default function ProcessData() {
 
       <div className="flex flex-row ">
         <div className="mx-2 my-1">
-          <IconButton icon="Add"  size="44" iconSize="24"  />
+          <IconButton icon="Add"  size="w-[44px] h-[44px]" iconSize="w-[24px] h-[24px]"  />
         </div>
         <div className="mx-2 my-1">
           <IconButton icon="Add" disabled />

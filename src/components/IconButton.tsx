@@ -21,14 +21,14 @@ export default function IconButton({
   disabled,
   onClick,
   isClicked,
-  size="44",
-  iconSize="24"
+  size="w-[44px] h-[44px]",
+  iconSize="w-[24px] h-[24px]"
 }: IconButtonProps) {
   const IconComponent = Icons[icon];
   return (
     <div onClick={onClick} className={` `}>
       <div
-        className={` w-[${size}px] h-[${size}px] flex items-center justify-center rounded-full active:scale-95  transition-all duration-100 ease-in-out 
+        className={` ${size}  flex items-center justify-center rounded-full active:scale-95  transition-all duration-100 ease-in-out 
              ${
                disabled
                  ? null
@@ -42,7 +42,7 @@ export default function IconButton({
       >
         {IconComponent && (
           <IconComponent
-            className={`w-[${iconSize}px] h-[${iconSize}px] pointer-events-none
+            className={` ${iconSize} pointer-events-none
             ${
               disabled
                 ? "text-[#DDDDDC]"
