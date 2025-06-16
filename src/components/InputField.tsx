@@ -20,7 +20,7 @@ export default function InputField({
   success = false,
   disabled = false,
   icon = true,
-  className = "h-[44px] w-[245px]",
+  className = "h-[44px] w-[245px] rounded-xl",
   onChange,
   value
 }: InputFieldProps) {
@@ -32,7 +32,7 @@ export default function InputField({
         onChange={onChange}
         disabled={disabled}
         placeholder={placeholder}
-        className={` ${className} pl-[35px] rounded-xl   placeholder:text-sm placeholder:font-prompt    
+        className={` ${className} pl-[35px]    placeholder:text-sm placeholder:font-prompt    
              
             ${
               disabled
