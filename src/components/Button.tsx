@@ -27,6 +27,7 @@ type ButtonProps = {
   onClick?: () => void;
   children?: React.ReactNode;
   className?: string;
+  textClassName?:string;
   type?: "button" | "submit" | "reset";
 };
 
@@ -38,13 +39,14 @@ export default function Button({
   children,
   className = "w-[72px] h-[48px] rounded-2xl",
   type = "button",
+  textClassName = "text-base ",
 }: ButtonProps) {
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={` ${className}  font-prompt text-base flex items-center justify-center ${getVariantStyles(
+      className={` ${className} ${textClassName} font-prompt  flex items-center justify-center ${getVariantStyles(
         variant,
         disabled
       )} 

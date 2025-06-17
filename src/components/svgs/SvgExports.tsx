@@ -23,6 +23,10 @@ import Left_panel_close from "./icons/left_panel_close.svg";
 import Double_arrow_right from "./icons/double_arrow_right.svg";
 import Double_arrow_left from "./icons/double_arrow_left.svg";
 import Dehaze from "./icons/dehaze.svg";
+import Color_png1 from "./icons/color_png1.svg";
+import Data_table from "./icons/data_table.svg";
+import Chart from "./icons/chart.svg";
+
 
 
 export default {
@@ -50,5 +54,8 @@ export default {
   Left_panel_close,
   Double_arrow_left,
   Double_arrow_right,
-  Dehaze
+  Dehaze,
+  Color_png1,
+  Data_table,
+  Chart
 };
