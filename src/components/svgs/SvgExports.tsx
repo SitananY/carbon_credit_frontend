@@ -18,6 +18,12 @@ import Search from "./icons/search.svg";
 import Visibility_off from "./icons/visibility_off.svg";
 import Visibility from "./icons/visibility.svg";
 import Detail from "./icons/detail.svg";
+import Process from "./icons/process.svg";
+import Left_panel_close from "./icons/left_panel_close.svg";
+import Double_arrow_right from "./icons/double_arrow_right.svg";
+import Double_arrow_left from "./icons/double_arrow_left.svg";
+import Dehaze from "./icons/dehaze.svg";
+
 
 export default {
   Add,
@@ -39,5 +45,10 @@ export default {
   Up,
   Visibility_off,
   Visibility,
-  Detail
+  Detail,
+  Process,
+  Left_panel_close,
+  Double_arrow_left,
+  Double_arrow_right,
+  Dehaze
 };
