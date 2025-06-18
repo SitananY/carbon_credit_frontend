@@ -34,7 +34,7 @@ export default function ListItem({
     }
   `}
     >
-      <div className="absolute inset-0 flex items-center justify-between px-3 px-[20px]">
+      <div className="absolute inset-0 flex items-center justify-between px-3 px-[30px]">
         {item && (
           <div
             className={` ${textClassName} font-prompt pointer-events-none

@@ -34,7 +34,7 @@ export default function InputField({
         onChange={onChange}
         disabled={disabled}
         placeholder={placeholder}
-        className={`  pl-[35px]    placeholder:text-sm placeholder:font-prompt    
+        className={` ${className} pl-[35px]    placeholder:text-sm placeholder:font-prompt    
              
             ${
               disabled
@@ -45,7 +45,7 @@ export default function InputField({
                 ? "border-[#4FC65F] border-2 placeholder-[#B6B6A8] focus:outline-none"
                 : "bg-[#FAFCFE]  border-[#B6B6A8] border-1 placeholder-[#B6B6A8] focus:outline-[#3E3E3C]"
             }
-            ${className}`}
+            `}
       />
 
       {error && !disabled && (
