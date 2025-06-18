@@ -1,10 +1,8 @@
-import DeleteButton from "@/components/DeleteButton";
-import EditButton from "@/components/EditButton";
-import ListItem from "@/components/ListItem";
-import ViewButton from "@/components/ViewButton";
+
 import DataTableItem from "./DataTableItem";
 import { DataGroup } from "../../../../types";
 import DataTableGroupItem from "./DataTableGroupItem";
+import Icons from "@/components/svgs/SvgExports";
 
 type DataTableCardProps ={
     data:DataGroup[],
@@ -25,8 +23,8 @@ export default function DataTableCard({data,group=false}:DataTableCardProps){
                     </div>
                 </div>
             
-               
-              {data?.map((dataGroupItem) => {
+               <div className="w-full h-[520px] bg-[#FAFCFE]">
+                    {data?.map((dataGroupItem) => {
                 return group ? (
                     <DataTableGroupItem
                     key={dataGroupItem.id}
@@ -45,6 +43,25 @@ export default function DataTableCard({data,group=false}:DataTableCardProps){
                     />
                 );
                 })}
+               </div>
+              
+
+                <div className="w-full h-[40px] flex flex-row  justify-between items-center text-base font-prompt px-[20px]  whitespace-nowrap">
+                    <div className="max-md:hidden">แสดงรายการที่ 1 ถึง 38 จากทั้งหมด 127 รายการ</div>
+                    <div className="flex flex-row justify-between items-center gap-8 max-md:gap-5 ">
+                        <Icons.Double_arrow_left/>
+                        <Icons.Backward/>
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <Icons.Forward/>
+                        <Icons.Double_arrow_right/>
+
+
+                        
+                    </div>
+                </div>
 
 
         </div>
