@@ -25,17 +25,20 @@ export default function DataTableGroupItem({group_data }:DataTableGroupItemProps
         <>
         
                 <ListItem onClick={handleClick} selected={isClick} key={group_data.id} className="w-full h-[56px] " textClassName="text-base" item={group_data.name} childGap="gap-10">
-                
-                    <Link href={`/manage-data/${group_data.forestData ? "forest":"land"}/${group_data.id}/view`} >
-                            <Icons.Detail className={`h-[18px] w-[18px]  `} />
-                    </Link>
 
+                    <div onClick={(e) => e.stopPropagation()}>
+                        <Link href={`/manage-data/${group_data.forestData ? "forest":"land"}/${group_data.id}/view`} >
+                                <Icons.Detail className={`h-[18px] w-[18px]  `} />
+                        </Link>
+                    </div>
+                    <div onClick={(e) => e.stopPropagation()}>
                     <Link href={`/manage-data/${group_data.forestData ? "forest":"land"}/${group_data.id}/edit`} >
                             <Icons.Edit className={`h-[18px] w-[18px]  `} />
                     </Link> 
-                    
+                    </div>
+                    <div onClick={(e) => e.stopPropagation()}>
                     <Icons.Delete className={`h-[18px] w-[18px]  `} />
-                
+                    </div>                
                 </ListItem>
 
            
