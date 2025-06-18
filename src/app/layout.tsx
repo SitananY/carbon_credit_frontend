@@ -47,9 +47,10 @@ export default function RootLayout({
       <body
         className={`${prompt.variable}antialiased`}
       >
-        <div className="flex h-screen">
-              
+        <div className="flex h-screen ">
+           <div className="max-md:hidden">
           <SideBarCard  />          
+            </div>   
           <main className="flex-1  overflow-auto">
             {children}
           </main>
