@@ -7,14 +7,16 @@ import Icons from "@/components/svgs/SvgExports";
 type DataTableCardProps ={
     data:DataGroup[],
     group?:boolean,
+    forest?:boolean,
+    
 }
 
 
-export default function DataTableCard({data,group=false}:DataTableCardProps){
+export default function DataTableCard({data,group=false,forest=false}:DataTableCardProps){
 
     return(
         <div className="w-full h-[600px] bg-[#7C7C77] flex flex-col rounded-3xl font-propmt">
-                <div className="w-full h-[40px] flex flex-row justify-between items-center text-base font-prompt px-[20px]">
+                <div className="w-full h-[40px]  flex flex-row justify-between items-center text-base font-prompt px-[31px]">
                     <div className="">ชื่อข้อมูล</div>
                     <div className="flex flex-row justify-between items-center gap-8 ">
                         <div>ดู</div>
@@ -23,7 +25,7 @@ export default function DataTableCard({data,group=false}:DataTableCardProps){
                     </div>
                 </div>
             
-               <div className="w-full h-[520px] bg-[#FAFCFE]">
+               <div className="w-full h-[520px] bg-[#DDDDDC]">
                     {data?.map((dataGroupItem) => {
                 return group ? (
                     <DataTableGroupItem
@@ -32,21 +34,42 @@ export default function DataTableCard({data,group=false}:DataTableCardProps){
                     
                     />
                 ) : (
-                    <DataTableItem
-                    key={dataGroupItem.id}
-                    land_data={dataGroupItem.LandData?.length ? dataGroupItem.LandData : undefined}
-                    forest_data={
-                        !dataGroupItem.LandData?.length && dataGroupItem.forestData?.length
-                        ? dataGroupItem.forestData
+                    forest
+                    ?
+                        dataGroupItem.forestData?.length 
+                        ? 
+                        <DataTableItem
+                            key={dataGroupItem.id}
+                            land_data={dataGroupItem.LandData?.length ? dataGroupItem.LandData : undefined}
+                            forest_data={
+                                !dataGroupItem.LandData?.length && dataGroupItem.forestData?.length
+                                ? dataGroupItem.forestData
+                                : undefined
+                            }
+                        /> 
                         : undefined
-                    }
-                    />
+                        
+                    :
+
+                        dataGroupItem.LandData?.length 
+                        ? 
+                        <DataTableItem
+                            key={dataGroupItem.id}
+                            land_data={dataGroupItem.LandData?.length ? dataGroupItem.LandData : undefined}
+                            forest_data={
+                                !dataGroupItem.LandData?.length && dataGroupItem.forestData?.length
+                                ? dataGroupItem.forestData
+                                : undefined
+                            }
+                        /> 
+                        : undefined
+                    
                 );
                 })}
                </div>
               
 
-                <div className="w-full h-[40px] flex flex-row  justify-between items-center text-base font-prompt px-[20px]  whitespace-nowrap">
+                <div className="w-full h-[40px] flex flex-row  justify-between items-center text-sm font-prompt px-[20px]  whitespace-nowrap">
                     <div className="max-md:hidden">แสดงรายการที่ 1 ถึง 38 จากทั้งหมด 127 รายการ</div>
                     <div className="flex flex-row justify-between items-center gap-8 max-md:gap-5 ">
                         <Icons.Double_arrow_left/>

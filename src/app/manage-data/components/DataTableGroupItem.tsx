@@ -17,7 +17,7 @@ export default function DataTableGroupItem({group_data }:DataTableGroupItemProps
     const router = useRouter();
     let isClick = false;
     const handleClick = () => {
-        const path = `/manage-data/${group_data.forestData ? "forest":"land"}`;
+        const path = `/manage-data/${group_data.forestData?.length ? "forest":"land"}`;
         router.push(path);
         isClick = true;
     }
