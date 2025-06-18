@@ -169,6 +169,8 @@ export default function ProcessData() {
             error={false}
             success={false}
             disabled={false}
+            iconSearch
+            iconDown
           />
         </div>
         <div className="m-2">
@@ -178,6 +180,8 @@ export default function ProcessData() {
             error={false}
             success={true}
             disabled={false}
+            iconSearch
+            iconDown
           />
         </div>
          <div className="m-2">
@@ -187,6 +191,8 @@ export default function ProcessData() {
             error={true}
             success={false}
             disabled={false}
+            iconSearch
+            iconDown
           />
         </div>
          <div className="m-2 my-4">
@@ -196,6 +202,8 @@ export default function ProcessData() {
             error={true}
             success={false}
             disabled={true}
+            iconSearch
+            iconDown
           />
         </div>
           <div className="">
@@ -205,7 +213,7 @@ export default function ProcessData() {
             error={false}
             success={false}
             disabled={false}
-            icon={false}
+            
             
           />
         </div>

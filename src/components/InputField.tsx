@@ -2,12 +2,13 @@ import Image from "next/image";
 import Icons from "./svgs/SvgExports";
 
 type InputFieldProps = {
-  placeholder: string;
+  placeholder?: string;
   error?: boolean;
-  helper: string;
+  helper?: string;
   success?: boolean;
   disabled?: boolean;
-  icon?: boolean;
+  iconSearch?: boolean;
+  iconDown?: boolean;
   className?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -19,20 +20,21 @@ export default function InputField({
   helper,
   success = false,
   disabled = false,
-  icon = true,
+  iconSearch = false,
+  iconDown = false,
   className = "h-[44px] w-[245px] rounded-xl",
   onChange,
   value
 }: InputFieldProps) {
   return (
-    <div className="relative h-[44px] w-[245px] ">
+    <div className="relative  ">
       <input
         type="text"
         value={value}
         onChange={onChange}
         disabled={disabled}
         placeholder={placeholder}
-        className={` ${className} pl-[35px]    placeholder:text-sm placeholder:font-prompt    
+        className={`  pl-[35px]    placeholder:text-sm placeholder:font-prompt    
              
             ${
               disabled
@@ -41,9 +43,9 @@ export default function InputField({
                 ? "border-[#E64341] border-2 placeholder-[#B6B6A8] focus:outline-none"
                 : success
                 ? "border-[#4FC65F] border-2 placeholder-[#B6B6A8] focus:outline-none"
-                : "bg-[#FAFCFE]  border-[#B6B6A8] border-2 placeholder-[#B6B6A8] focus:outline-[#3E3E3C]"
+                : "bg-[#FAFCFE]  border-[#B6B6A8] border-1 placeholder-[#B6B6A8] focus:outline-[#3E3E3C]"
             }
-            `}
+            ${className}`}
       />
 
       {error && !disabled && (
@@ -51,10 +53,10 @@ export default function InputField({
           {helper}
         </p>
       )}
-      {icon && (
+      {iconSearch && (
         <Icons.Search className="text-[#7C7C77] absolute left-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] pointer-events-none  " />
       )}
-      {icon && (
+      {iconDown && (
         <Icons.Down className="text-[#7C7C77] absolute right-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] pointer-events-none" />
       )}
     </div>

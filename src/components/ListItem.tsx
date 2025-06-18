@@ -5,6 +5,8 @@ type ListItemProps = {
   disabled?: boolean;
   onClick?: () => void;
   className?: string;
+  textClassName? :string;
+  childGap? :string
 };
 
 export default function ListItem({
@@ -14,6 +16,8 @@ export default function ListItem({
   children,
   onClick,
   className = "w-[240px] h-[37px]",
+  textClassName = " text-sm",
+  childGap= "gap-3",
 }: ListItemProps) {
   return (
     <div
@@ -30,10 +34,10 @@ export default function ListItem({
     }
   `}
     >
-      <div className="absolute inset-0 flex items-center justify-between px-3">
+      <div className="absolute inset-0 flex items-center justify-between px-3 px-[20px]">
         {item && (
           <div
-            className={`font-prompt text-sm pointer-events-none
+            className={` ${textClassName} font-prompt pointer-events-none
           ${
             disabled
               ? "text-[#27272A]"
@@ -49,7 +53,7 @@ export default function ListItem({
 
         {children && (
           <div
-            className={`flex items-center gap-3 ${
+            className={`flex items-center ${childGap} ${
               disabled
                 ? "text-[#27272A]"
                 : selected
