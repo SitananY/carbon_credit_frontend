@@ -3,14 +3,14 @@ export type ForestData={
     number:number,
     name:string,
     tree_type:string
-
+    
 }
 
 export type LandData={
     id:number,
     number:number,
     name:string,
-    Land_type:string
+    land_type:string
 }
 export type DataGroup={
     id:number,
