@@ -70,14 +70,14 @@ export default function SectionBelowHeader({
                     
                 : edit
                 ?
-                    <div className="w-full h-[32px]  flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+                    <div className="w-full h-[32px]  flex flex-row md:justify-between md:items-center gap-4">
                       
-                                <div className=" text-base md:text-xl font-prompt font-medium text-[#27272A]">
+                                <div className=" text-base md:text-xl font-prompt font-medium text-[#27272A] flex items-center ">
                                    {land ?"แก้ไขข้อมูลแปลงที่ " :"แก้ไขข้อมูลพรรณที่ " }  {data?.number}
                                 </div>
                     
                                 
-                                <div className=" h-[30px] w-[201px] flex gap-[16px] flex-row items-center justify-center  ">
+                                <div className=" h-[30px] w-[201px] flex gap-[16px] max-md:gap-[6px] flex-row items-center justify-center     ">
                                   <div className="md:text-xl text-base font-prompt font-medium text-[#27272A] w-full h-[24px]">แสดงบนแผนที่</div>
                                   <Switch onClick={()=>setSwitch(!isSwitchOpen)} isOpen={isSwitchOpen}/>
                                   
