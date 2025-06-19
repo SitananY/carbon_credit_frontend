@@ -25,7 +25,7 @@ export default function DataTableItem({forest_data,land_data}:DataTableItemProps
     }
             
             return(
-                <ListItem onClick={handleClick} key={item.id} className="w-full h-[56px] " textClassName="text-base" item={forest_data ? `พรรณไม้ ${item.number}` : `แปลงที่ดิน ${item.number}`} childGap="gap-10">
+                <ListItem onClick={handleClick} key={item.id} className="w-full h-[56px] " textClassName="text-base" item={forest_data ? `พรรณไม้ ${item.number}` : `แปลงที่ ${item.number}`} childGap="gap-10">
                 
                     <div onClick={(e) => e.stopPropagation()}>
                         <Link href={`/manage-data/${forest_data ? "forest":"land"}/${item.id}/view`} >
