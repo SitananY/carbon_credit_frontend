@@ -35,15 +35,16 @@ export default function SectionBelowHeader({
     return(
      <>
         {manageData ?
-            <div className=" w-full h-[40px]  font-prompt text-[#27272A] items-center  flex  flex-row justify-between my-[24px] whitespace-nowrap ">
-                          <div className="w-auto h-[40px]  font-medium items-center flex text-base md:text-xl">จัดการข้อมูล</div>
+            <div className=" w-full h-[40px]  font-prompt text-[#27272A] items-center  flex  flex-row justify-between my-[24px] max-sm:flex-col  max-sm:gap-3 max-sm:h-[auto] ">
+                          <div className="w-auto h-[40px]  font-medium items-center flex text-xl">จัดการข้อมูล</div>
                           <div className="w-auto h-[40px] items-center flex"><InputField iconSearch  className="h-[34px] w-[287px] rounded-2xl" /></div>
                           <div className="w-auto h-[40px] items-center flex"><Button text="เพิ่มข้อมูล" className="w-[113px] h-[40px] rounded-lg " onClick={handleClick}><Icons.Add /></Button></div>
             </div>
         :
             viewSubGroup 
-            ? <div className=" w-full h-[40px] max-md:w-[50%] font-prompt text-[#27272A] items-center  flex  flex-row justify-between my-[24px] whitespace-nowrap ">
-                          <div className="flex flex-row items-center text-base md:text-xl ">
+            ? <div className=" w-full h-[40px]  font-prompt text-[#27272A] items-center  flex  flex-row justify-between my-[24px]  
+            max-md:flex-col max-md:gap-3 max-md:h-[auto] max-md:w-[auto] max-md:items-center   whitespace-nowrap ">
+                          <div className="flex flex-row items-center md:text-base text-xl  ">
                               <div className=" md:pr-[12px] w-auto h-[24px]  font-medium items-center flex">จัดการข้อมูล</div>
                               <Icons.Forward className=" w-[28px] h-[28px]"/>
                               <div className="md:pl-[12px] w-auto h-[24px]  font-medium items-center flex">{land ? "ข้อมูลแปลงที่ดิน":"ข้อมูลพรรณไม้" }</div>                
