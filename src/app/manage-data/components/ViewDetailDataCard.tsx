@@ -25,7 +25,7 @@ export default function ViewDetailDataCard({ data , isForest}: ViewDetailDataCar
         </div>
 
         <div className="w-[43%] max-lg:w-[90%] h-[32px] flex flex-row items-center font-prompt text-base">
-            <ViewDetailDataItem key={0} text={isForest ?"ชื่อพรรณไม้":"ชื่อแปลง"} defaultValue={data?.name ?? ""}  textClass="w-[40%]" boxClass="w-[60%]"/>
+            <ViewDetailDataItem key={1} text={isForest ?"ชื่อพรรณไม้":"ชื่อแปลง"} defaultValue={data?.name ?? ""}  textClass="w-[40%]" boxClass="w-[60%]"/>
         </div>
       </div>
 
@@ -35,16 +35,25 @@ export default function ViewDetailDataCard({ data , isForest}: ViewDetailDataCar
           {leftItems.map(([key, value], index) => (
             <ViewDetailDataItem key={index} text={key} defaultValue={String(value ?? "")} />
           ))}
+            <ViewDetailDataItem key={901} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
+            <ViewDetailDataItem key={902} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
+            <ViewDetailDataItem key={905} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
+        
         </div>
         <div className="w-[43%] max-lg:w-[90%] flex flex-col gap-4 ">
           {rightItems.map(([key, value], index) => (
             <ViewDetailDataItem key={index + midpoint} text={key} defaultValue={String(value ?? "")} />
           ))}
+            <ViewDetailDataItem key={903} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
+            <ViewDetailDataItem key={904} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
+            <ViewDetailDataItem key={906} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
+            <ViewDetailDataItem key={907} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
+
         </div>
       </div>
 
       {/* กล่องล่าง */}
-      <div className="mb-6 w-full h-[40px] font-prompt text-base flex flex-row justify-between items-center px-6">
+      <div className="mb-6  w-full h-[40px] font-prompt text-base flex flex-row justify-between items-center ">
         <div>ผู้บันทึกข้อมูล user1 วันที่ 12 มิถุนายน 2568 เวลา 9:18 น.</div>
         <div className="flex flex-row justify-between items-center gap-8 max-md:gap-5">
           <Button text="ยืนยัน" variant="confirm" className="w-[85px] h-[40px] rounded-lg" />
