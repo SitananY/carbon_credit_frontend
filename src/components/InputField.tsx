@@ -12,6 +12,7 @@ type InputFieldProps = {
   className?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  inputClassName:string;
 };
 
 export default function InputField({
@@ -22,19 +23,20 @@ export default function InputField({
   disabled = false,
   iconSearch = false,
   iconDown = false,
-  className = "h-[44px] w-[245px] rounded-xl",
+  className = "h-[44px] w-[245px]  ",
+  inputClassName = "rounded-xl pl-[35px]",
   onChange,
   value
 }: InputFieldProps) {
   return (
-    <div className="relative  ">
+    <div className={`relative ${className} `}>
       <input
         type="text"
         value={value}
         onChange={onChange}
         disabled={disabled}
         placeholder={placeholder}
-        className={` ${className} pl-[35px]    placeholder:text-sm placeholder:font-prompt    
+        className={` ${inputClassName} w-full h-full    placeholder:text-sm placeholder:font-prompt    
              
             ${
               disabled
