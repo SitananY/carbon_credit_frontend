@@ -5,6 +5,8 @@ import { ForestData, LandData } from "../../../../../../types";
 import SectionBelowHeader from "@/app/manage-data/components/SectionBelowHeader";
 import SectionHeader from "@/app/manage-data/components/SectionHeader";
 import ViewDetailDataCard from "@/app/manage-data/components/ViewDetailDataCard";
+import Popup from "@/app/manage-data/components/Popup";
+import { useState } from "react";
 
 
 
@@ -24,27 +26,37 @@ export default function Edit() {
       if (matchedItem) break;
     }
   }
+
   if(!matchedItem) return null;
-    const isForest = "tree_type" in matchedItem;
-    const router = useRouter();
+  const isForest = "tree_type" in matchedItem;
+  const router = useRouter();
+  const [isShow,setIsShow] = useState(false); 
+
+  const handleClick = () => {
+        const path = `/manage-data/${isForest ? "forest":"land"}/${fid}/view`;
+        router.push(path);
+  }
 
   return (
-    <div className=" flex flex-col  justify-center">
-    <div className="w-full  flex flex-col  p-[32px]  ">
-        
-    <div className="mb-[24px] ">
-        <SectionHeader title="จัดการข้อมูลแปลงที่ดิน" backHref="/manage-data/land"/> 
-    </div>
-    <div className="mb-[24px] ">
-        <SectionBelowHeader edit land data={matchedItem} />
-    </div>
+    <div className="w-full h-full ">
+        <div className=" flex flex-col  justify-center">
+        <div className="w-full  flex flex-col  p-[32px]  ">
+            
+            <div className="mb-[24px] ">
+                <SectionHeader title="จัดการข้อมูลแปลงที่ดิน" backHref={`/manage-data/forest/${fid}/view`}/> 
+            </div>
+            <div className="mb-[24px] ">
+                <SectionBelowHeader edit land data={matchedItem} />
+            </div>
 
-    <ViewDetailDataCard data={matchedItem} isForest={isForest}/>
-        
+            <ViewDetailDataCard data={matchedItem} isForest={isForest} onConfirm={()=>setIsShow(!isShow)} onCancle={handleClick}/>
+                
 
+        </div>
+        </div>
+        <Popup isShow={isShow} onCancle={()=>setIsShow(!isShow)} onConfirm={handleClick} edit/>
     </div>
-    </div>
-    
+        
   
   
   );
