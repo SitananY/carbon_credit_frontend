@@ -4,8 +4,6 @@ import { useParams, useRouter } from "next/navigation";
 import { ForestData, LandData } from "../../../../../../types";
 import SectionBelowHeader from "@/app/manage-data/components/SectionBelowHeader";
 import SectionHeader from "@/app/manage-data/components/SectionHeader";
-import InputField from "@/components/InputField";
-import Button from "@/components/Button";
 import ViewDetailDataCard from "@/app/manage-data/components/ViewDetailDataCard";
 
 
@@ -41,7 +39,7 @@ export default function Edit() {
         <SectionBelowHeader edit land data={matchedItem} />
     </div>
 
-    <ViewDetailDataCard/>
+    <ViewDetailDataCard data={matchedItem} isForest={isForest}/>
         
 
     </div>

@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { ForestData, LandData } from "../../../../../../types";
 import SectionBelowHeader from "@/app/manage-data/components/SectionBelowHeader";
 import SectionHeader from "@/app/manage-data/components/SectionHeader";
+import ViewDetailDataCard from "@/app/manage-data/components/ViewDetailDataCard";
 
 
 
@@ -24,17 +25,21 @@ export default function Edit() {
     }
   }
   if(!matchedItem) return null;
-  const isForest = "tree_type" in matchedItem;
-  const router = useRouter();
+    const isForest = "tree_type" in matchedItem;
+    const router = useRouter();
 
   return (
     <div className=" flex flex-col  justify-center">
-    <div className="w-full  flex flex-col  p-[32px]  bg-gray-400">
+    <div className="w-full  flex flex-col  p-[32px]  ">
         
+    <div className="mb-[24px] ">
         <SectionHeader title="จัดการข้อมูลพรรณไม้" backHref="/manage-data/forest"/> 
-       <SectionBelowHeader edit  data={matchedItem} />
+    </div>
+    <div className="mb-[24px] ">
+        <SectionBelowHeader edit data={matchedItem} />
+    </div>
 
-        
+    <ViewDetailDataCard data={matchedItem} isForest={isForest}/>
         
 
     </div>
