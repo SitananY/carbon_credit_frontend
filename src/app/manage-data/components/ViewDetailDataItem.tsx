@@ -3,7 +3,7 @@ import { useState } from "react";
 
 type ViewDetailDataItemProps ={
     text:string,
-    defaultValue:string,
+    defaultValue?:string,
     textClass?:string,
     boxClass?:string
 }

@@ -5,14 +5,15 @@ import { ForestData, LandData } from "../../../../types";
 
 
 type ViewDetailDataCardProps = {
-    data: ForestData | LandData;
-    isForest:boolean;
+    data?: ForestData | LandData;
+    isForest?:boolean;
     onConfirm?: ()=>void;
     onCancle? : ()=>void
+    add?:boolean,
 
 }
 
-export default function ViewDetailDataCard({ data , isForest , onConfirm , onCancle}: ViewDetailDataCardProps) {
+export default function ViewDetailDataCard({ data , isForest , onConfirm , onCancle,add}: ViewDetailDataCardProps) {
   
   const entries = data ? Object.entries(data) : []; //แปลง object ให้กลายเป็น array คู่ [key,value]
   const midpoint = Math.ceil(entries.length / 2);
@@ -24,11 +25,11 @@ export default function ViewDetailDataCard({ data , isForest , onConfirm , onCan
       {/* กล่องบน */}
       <div className="mb-6 rounded-lg bg-[#B6B6A8] h-[56px] max-lg:h-[112px]  px-8 flex flex-row max-lg:flex-col items-center justify-center gap-[66px] max-lg:gap-5">
         <div className="w-[43%] max-lg:w-[90%] h-[32px] flex flex-row items-center font-prompt text-base">
-            <ViewDetailDataItem key={0} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
+            <ViewDetailDataItem key={0} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={add ?  "" : String(data?.number ?? "") } />
         </div>
 
         <div className="w-[43%] max-lg:w-[90%] h-[32px] flex flex-row items-center font-prompt text-base">
-            <ViewDetailDataItem key={1} text={isForest ?"ชื่อพรรณไม้":"ชื่อแปลง"} defaultValue={data?.name ?? ""}  textClass="w-[40%]" boxClass="w-[60%]"/>
+            <ViewDetailDataItem key={1} text={isForest ?"ชื่อพรรณไม้":"ชื่อแปลง"} defaultValue={add  ? " ": data?.name ?? "" }  textClass="w-[40%]" boxClass="w-[60%]"/>
         </div>
       </div>
 
@@ -36,21 +37,21 @@ export default function ViewDetailDataCard({ data , isForest , onConfirm , onCan
       <div className="mb-6 bg-[#B6B6A8] w-full h-auto max-lg:h-auto rounded-lg px-[32px] py-[16px] flex flex-row max-lg:flex-col max-lg:items-center justify-center max-lg:gap-4 gap-[66px]">
         <div className="w-[43%] max-lg:w-[90%] flex flex-col gap-4">
           {leftItems.map(([key, value], index) => (
-            <ViewDetailDataItem key={index} text={key} defaultValue={String(value ?? "")} />
+            <ViewDetailDataItem key={index} text={key} defaultValue={add  ? " ": String(value ?? "")} />
           ))}
-            <ViewDetailDataItem key={901} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
-            <ViewDetailDataItem key={902} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
-            <ViewDetailDataItem key={905} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
+            <ViewDetailDataItem key={901} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={add  ? " ": String(data?.number ?? "")} />
+            <ViewDetailDataItem key={902} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={add  ? " ": String(data?.number ?? "")} />
+            <ViewDetailDataItem key={905} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={add  ? " ": String(data?.number ?? "")} />
         
         </div>
         <div className="w-[43%] max-lg:w-[90%] flex flex-col gap-4 ">
           {rightItems.map(([key, value], index) => (
-            <ViewDetailDataItem key={index + midpoint} text={key} defaultValue={String(value ?? "")} />
+            <ViewDetailDataItem key={index + midpoint} text={key} defaultValue={add  ? " ": String(value ?? "")} />
           ))}
-            <ViewDetailDataItem key={903} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
-            <ViewDetailDataItem key={904} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
-            <ViewDetailDataItem key={906} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
-            <ViewDetailDataItem key={907} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={String(data?.number ?? "")} />
+            <ViewDetailDataItem key={903} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={add  ? " ": String(data?.number ?? "")} />
+            <ViewDetailDataItem key={904} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={add  ? " ": String(data?.number ?? "")} />
+            <ViewDetailDataItem key={906} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={add  ? " ": String(data?.number ?? "")} />
+            <ViewDetailDataItem key={907} text={isForest ?"ลำดับพรรณไม้":"ลำดับแปลง"} defaultValue={add  ? " ": String(data?.number ?? "")} />
 
         </div>
       </div>

@@ -14,6 +14,7 @@ type SectionBelowHeaderProps ={
     edit?:boolean,
     data?:ForestData|LandData|null,
     handleClick?:()=>void,
+    add?:boolean
 }
 
 
@@ -25,6 +26,7 @@ export default function SectionBelowHeader({
     edit,
     data,
     handleClick,
+    add
 }:SectionBelowHeaderProps){
     const [isSwitchOpen,setSwitch] = useState(false);
     
@@ -34,7 +36,7 @@ export default function SectionBelowHeader({
             <div className=" w-full h-[40px]  font-prompt text-[#27272A] items-center  flex  flex-row justify-between my-[24px] whitespace-nowrap ">
                           <div className="w-auto h-[40px]  font-medium items-center flex text-base md:text-xl">จัดการข้อมูล</div>
                           <div className="w-auto h-[40px] items-center flex"><InputField iconSearch  className="h-[34px] w-[287px] rounded-2xl" /></div>
-                          <div className="w-auto h-[40px] items-center flex"><Button text="เพิ่มข้อมูล" className="w-[113px] h-[40px] rounded-lg "><Icons.Add /></Button></div>
+                          <div className="w-auto h-[40px] items-center flex"><Button text="เพิ่มข้อมูล" className="w-[113px] h-[40px] rounded-lg " onClick={handleClick}><Icons.Add /></Button></div>
             </div>
         :
             viewSubGroup 
@@ -45,7 +47,7 @@ export default function SectionBelowHeader({
                               <div className="md:pl-[12px] w-auto h-[24px]  font-medium items-center flex">{land ? "ข้อมูลแปลงที่ดิน":"ข้อมูลพรรณไม้" }</div>                
                           </div>
                           <div className="w-auto h-[40px] items-center flex"><InputField iconSearch  className="h-[34px] w-[287px] rounded-2xl" /></div>
-                          <div className="w-auto h-[40px] items-center flex"><Button text="เพิ่มข้อมูล" className="w-[113px] h-[40px] rounded-lg "><Icons.Add /></Button></div>
+                          <div className="w-auto h-[40px] items-center flex"><Button text="เพิ่มข้อมูล" className="w-[113px] h-[40px] rounded-lg  " onClick={handleClick}><Icons.Add /></Button></div>
                     </div> 
             
             : 
@@ -85,7 +87,21 @@ export default function SectionBelowHeader({
                             </div>
                     
                 
-                : undefined
+                :add
+                ? <div className="w-full h-[32px]  flex flex-row md:justify-between md:items-center gap-4">
+                      
+                                <div className=" text-base md:text-xl font-prompt font-medium text-[#27272A] flex items-center ">
+                                   นำเข้าข้อมูล
+                                </div>
+                    
+                                
+                                <div className=" h-[30px] w-[201px] flex gap-[16px] max-md:gap-[6px] flex-row items-center justify-center     ">
+                                  <div className="md:text-xl text-base font-prompt font-medium text-[#27272A] w-full h-[24px]">แสดงบนแผนที่</div>
+                                  <Switch onClick={()=>setSwitch(!isSwitchOpen)} isOpen={isSwitchOpen}/>
+                                  
+                                </div>
+                            </div>
+                :undefined
 
         }
     

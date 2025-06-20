@@ -12,7 +12,7 @@ type InputFieldProps = {
   className?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  inputClassName:string;
+  inputClassName?:string;
 };
 
 export default function InputField({
