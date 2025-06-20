@@ -17,7 +17,7 @@ export default function New( ) {
   const [isShow,setIsShow] = useState(false); 
 
   const handleClick = () => {
-        const path = `/manage-data/land`;
+        const path = `/manage-data/`;
         router.push(path);
   }
 
@@ -27,7 +27,7 @@ export default function New( ) {
         <div className="w-full  flex flex-col  p-[32px]  ">
             
             <div className="mb-[24px] ">
-                <SectionHeader title="จัดการข้อมูลแปลงที่ดิน" backHref={`/manage-data/land`}/> 
+                <SectionHeader title="จัดการข้อมูลแปลงที่ดิน" backHref={`/manage-data/`}/> 
             </div>
             <div className="mb-[24px] ">
                 <SectionBelowHeader add land  />

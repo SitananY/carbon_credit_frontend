@@ -1,15 +1,47 @@
+'use client'
+import {  useRouter } from "next/navigation";
+import SectionBelowHeader from "@/app/manage-data/components/SectionBelowHeader";
+import SectionHeader from "@/app/manage-data/components/SectionHeader";
+import ViewDetailDataCard from "@/app/manage-data/components/ViewDetailDataCard";
+import Popup from "@/app/manage-data/components/Popup";
+import { useState } from "react";
 
 
 
-export default function New() {
+
+
+export default function New( ) {
+
+
+  const router = useRouter();
+  const [isShow,setIsShow] = useState(false); 
+
+  const handleClick = () => {
+        const path = `/manage-data/forest`;
+        router.push(path);
+  }
+
   return (
-    <main className="flex  items-center justify-center p-4 sm:p-6 md:p-8">
-      <div className="w-full max-w-md h-64 bg-white rounded-xl shadow-2xl flex items-center justify-center p-4">
-          <div className=" font-mono text-3xl font-bold text-center">
-          Form add data
-          </div>
-      </div>
-      
-    </main>
+    <div className="w-full h-full ">
+        <div className=" flex flex-col  justify-center">
+        <div className="w-full  flex flex-col  p-[32px]  ">
+            
+            <div className="mb-[24px] ">
+                <SectionHeader title="จัดการข้อมูลพรรณไม้" backHref={`/manage-data/forest`}/> 
+            </div>
+            <div className="mb-[24px] ">
+                <SectionBelowHeader add  />
+            </div>
+
+            <ViewDetailDataCard  isForest onConfirm={()=>setIsShow(!isShow)} onCancle={handleClick} add/>
+                
+
+        </div>
+        </div>
+        <Popup isShow={isShow} onCancle={()=>setIsShow(!isShow)} onConfirm={handleClick} add/>
+    </div>
+        
+  
+  
   );
 }
