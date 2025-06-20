@@ -8,13 +8,16 @@ import { useParams, useRouter } from "next/navigation";
 import { ForestData, LandData } from "../../../../../../types";
 import SectionHeader from "@/app/manage-data/components/SectionHeader";
 import SectionBelowHeader from "@/app/manage-data/components/SectionBelowHeader";
+import { useState } from "react";
+import Popup from "@/app/manage-data/components/Popup";
 
 
 
 export default function View() {
   const { fid } = useParams();
   const idFromParam = Number(fid);; // สมมุติได้มาจาก router.query หรือ useParams()
-
+  const [isShow,setIsShow] = useState(false); 
+  
   let matchedItem: ForestData | LandData | null = null;
 
   for (const group of mockDataGroups) {
@@ -46,10 +49,12 @@ export default function View() {
     <div className="w-full  flex flex-col  py-[32px] xl:px-[148px] px-[32px]">
         
         <SectionHeader title="จัดการข้อมูลพรรณไม้" backHref="/manage-data/forest" />
-        <SectionBelowHeader view data={matchedItem} handleClick={handleClick} />
+        <SectionBelowHeader view data={matchedItem} handleClick={handleClick} handleDeleteButton={()=>setIsShow(!isShow)}/>
         <ViewDataCard data={matchedItem}/>
 
     </div>
+        <Popup isShow={isShow} onCancle={()=>setIsShow(!isShow)} remove onConfirm={()=>setIsShow(!isShow)}/>
+    
     </div>
     
   

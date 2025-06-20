@@ -4,11 +4,15 @@ import DataTableCard from ".././components/DataTableCard";
 import { mockDataGroups } from ".././components/mockDataGroups";
 import SectionBelowHeader from "../components/SectionBelowHeader";
 import SectionHeader from "../components/SectionHeader";
+import { useState } from "react";
+import Popup from "../components/Popup";
 
 
 
 export default function Land() {
   const router = useRouter();
+  const [isShow,setIsShow] = useState(false); 
+  
   const handleClick = () => {
         const path = `/manage-data/land/new`;
         router.push(path);
@@ -18,8 +22,9 @@ export default function Land() {
     <div className="w-full  flex flex-col  py-[32px] xl:px-[148px] px-[32px]">
         <SectionHeader title="ระบบฐานข้อมูลการสำรวจศักยภาพการกักเก็บคาร์บอนในพื้นที่ป่าไม้" backHref="/manage-data"/>
         <SectionBelowHeader viewSubGroup land handleClick={handleClick}/>
-        <DataTableCard data={mockDataGroups} />
+        <DataTableCard data={mockDataGroups} handleDeleteButton={()=>setIsShow(!isShow)} />
     </div>
+        <Popup isShow={isShow} onCancle={()=>setIsShow(!isShow)} remove onConfirm={()=>setIsShow(!isShow)}/>
     </div>
     
   

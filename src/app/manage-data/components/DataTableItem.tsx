@@ -9,9 +9,10 @@ import { useRouter } from "next/navigation";
 type DataTableItemProps ={
     forest_data?:ForestData[],
     land_data?:LandData[],
+    handleDeleteButton?:()=>void
 }
 
-export default function DataTableItem({forest_data,land_data}:DataTableItemProps){
+export default function DataTableItem({forest_data,land_data,handleDeleteButton}:DataTableItemProps){
     const dataToUse = forest_data?.length ? forest_data : land_data;
     const type = forest_data?.length ? "forest" : "land";
     return(
@@ -38,7 +39,7 @@ export default function DataTableItem({forest_data,land_data}:DataTableItemProps
                     </Link> 
                     </div>
                     <div onClick={(e) => e.stopPropagation()}>
-                    <Icons.Delete className={`h-[18px] w-[18px]  `} />
+                    <Icons.Delete className={`h-[18px] w-[18px]  `} onClick={handleDeleteButton}  />
                     </div>       
                 
                 </ListItem>

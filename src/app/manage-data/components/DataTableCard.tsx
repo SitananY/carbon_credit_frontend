@@ -8,11 +8,11 @@ type DataTableCardProps ={
     data:DataGroup[],
     group?:boolean,
     forest?:boolean,
-    
+    handleDeleteButton?:()=>void
 }
 
 
-export default function DataTableCard({data,group=false,forest=false}:DataTableCardProps){
+export default function DataTableCard({data,group=false,forest=false,handleDeleteButton}:DataTableCardProps){
 
     return(
         <div className="w-full h-[600px] bg-[#7C7C77] flex flex-col rounded-3xl font-propmt">
@@ -31,7 +31,7 @@ export default function DataTableCard({data,group=false,forest=false}:DataTableC
                     <DataTableGroupItem
                     key={dataGroupItem.id}
                     group_data={dataGroupItem}
-                    
+                    handleDeleteButton={handleDeleteButton}
                     />
                 ) : (
                     forest
@@ -46,6 +46,7 @@ export default function DataTableCard({data,group=false,forest=false}:DataTableC
                                 ? dataGroupItem.forestData
                                 : undefined
                             }
+                            handleDeleteButton={handleDeleteButton}
                         /> 
                         : undefined
                         
@@ -61,6 +62,7 @@ export default function DataTableCard({data,group=false,forest=false}:DataTableC
                                 ? dataGroupItem.forestData
                                 : undefined
                             }
+                            handleDeleteButton={handleDeleteButton}
                         /> 
                         : undefined
                     

@@ -5,11 +5,14 @@ import { mockDataGroups } from ".././components/mockDataGroups";
 import SectionHeader from "../components/SectionHeader";
 import SectionBelowHeader from "../components/SectionBelowHeader";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Popup from "../components/Popup";
 
 
 
 export default function Forest() {
     const router = useRouter();
+    const [isShow,setIsShow] = useState(false); 
     const handleClick = () => {
           const path = `/manage-data/forest/new`;
           router.push(path);
@@ -20,8 +23,10 @@ export default function Forest() {
       
         <SectionHeader title="ระบบฐานข้อมูลการสำรวจศักยภาพการกักเก็บคาร์บอนในพื้นที่ป่าไม้"  backHref="/manage-data"/>
         <SectionBelowHeader viewSubGroup handleClick={handleClick}/>
-        <DataTableCard data={mockDataGroups} forest />
+        <DataTableCard data={mockDataGroups} forest  handleDeleteButton={()=>setIsShow(!isShow)}  />
     </div>
+        <Popup isShow={isShow} onCancle={()=>setIsShow(!isShow)} remove onConfirm={()=>setIsShow(!isShow)}/>
+    
     </div>
     
   

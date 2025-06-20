@@ -11,9 +11,10 @@ import { useRouter } from "next/navigation";
 
 type DataTableGroupItemProps ={
     group_data:DataGroup,
+    handleDeleteButton?:()=>void
 }
 
-export default function DataTableGroupItem({group_data }:DataTableGroupItemProps){
+export default function DataTableGroupItem({group_data ,handleDeleteButton}:DataTableGroupItemProps){
     const router = useRouter();
     let isClick = false;
     const handleClick = () => {
@@ -37,7 +38,7 @@ export default function DataTableGroupItem({group_data }:DataTableGroupItemProps
                     </Link> 
                     </div>
                     <div onClick={(e) => e.stopPropagation()}>
-                    <Icons.Delete className={`h-[18px] w-[18px]  `} />
+                    <Icons.Delete className={`h-[18px] w-[18px]  `}  onClick={handleDeleteButton}  />
                     </div>                
                 </ListItem>
 

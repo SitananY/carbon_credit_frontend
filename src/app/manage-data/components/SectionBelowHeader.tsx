@@ -14,6 +14,7 @@ type SectionBelowHeaderProps ={
     edit?:boolean,
     data?:ForestData|LandData|null,
     handleClick?:()=>void,
+    handleDeleteButton?:()=>void,
     add?:boolean
 }
 
@@ -26,7 +27,8 @@ export default function SectionBelowHeader({
     edit,
     data,
     handleClick,
-    add
+    add,
+    handleDeleteButton
 }:SectionBelowHeaderProps){
     const [isSwitchOpen,setSwitch] = useState(false);
     
@@ -64,7 +66,7 @@ export default function SectionBelowHeader({
                                   <Button onClick={handleClick} text="แก้ไข" className="w-[86px] h-[40px] rounded-lg">
                                     <Icons.Edit />
                                   </Button>
-                                  <Button text="ลบ" className="w-[86px] h-[40px] rounded-lg" variant="delete">
+                                  <Button text="ลบ" className="w-[86px] h-[40px] rounded-lg" variant="delete" onClick={handleDeleteButton}>
                                     <Icons.Delete />
                                   </Button>
                                 </div>
