@@ -7,6 +7,7 @@ import { Prompt } from 'next/font/google';
 import SideBarCard from "@/components/SideBarCard";
 import { useState } from "react";
 import IconButton from "@/components/IconButton";
+import ClientLayout from "@/components/ClientLayout";
 
 
 const prompt = Prompt({
@@ -47,15 +48,7 @@ export default function RootLayout({
       <body
         className={`${prompt.variable}antialiased`}
       >
-        <div className="flex h-screen ">
-           <div className="max-md:hidden">
-          <SideBarCard  />          
-            </div>   
-          <main className="flex-1  overflow-auto">
-            {children}
-          </main>
-          
-        </div>
+        <ClientLayout>{children}</ClientLayout>
        
       </body>
     </html>
