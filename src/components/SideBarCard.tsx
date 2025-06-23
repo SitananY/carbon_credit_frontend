@@ -1,23 +1,32 @@
 'use client'
-import { useState } from "react";
-import IconButton from "./IconButton";
+import { useEffect, useState } from "react";
 import Icons from "./svgs/SvgExports";
 import Link from "next/link";
-import ListItem from "./ListItem";
 import SideBarItem from "./SideBarItem";
 import Button from "./Button";
 
+
 type SideBarCardProps ={
-    children?:React.ReactNode
-    
+    children?:React.ReactNode,
+    forcedCollapsed?:boolean  ,   
     
 }
 
 
-export default function SideBarCard({children}:SideBarCardProps){
+export default function SideBarCard({children , forcedCollapsed}:SideBarCardProps){
     
-    const [isCollapsed,setIsCollapsed] = useState(false);
-   
+     const [isCollapsed, setIsCollapsed] = useState(false);
+
+  // ใช้ forcedCollapsed แค่ตอน mount แรก
+  useEffect(() => {
+    if (forcedCollapsed) {
+      setIsCollapsed(true);
+    }
+  }, [forcedCollapsed]);
+
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  };
 
     return(
         <div className={` h-full bg-[#B6B6A8] transition-all duration-150 ease-in-out   ${
@@ -26,7 +35,7 @@ export default function SideBarCard({children}:SideBarCardProps){
             {isCollapsed ?
                 <div className=" h-full flex flex-col justify-between  items-center p-5  ">
                         <div className="w-[36px] h-[308px] flex flex-col justify-between ">
-                            <div className="w-[36px] h-[36px] flex  justify-center items-center cursor-pointer hover:scale-110"  onClick={()=>{setIsCollapsed(!isCollapsed)}}>
+                            <div className="w-[36px] h-[36px] flex  justify-center items-center cursor-pointer hover:scale-110"  onClick={toggleCollapse}>
                                 <Icons.Dehaze className="w-[36px] h-[36px] text-[#1C1B1F]"/>
                             </div>
                             <Link href={"/manage-data"} className="w-[36px] h-[36px] flex  justify-center items-center cursor-pointer hover:scale-110">
@@ -59,7 +68,7 @@ export default function SideBarCard({children}:SideBarCardProps){
                                     <Icons.Color_png1 className="w-[48px] h-[48px]"/>
                                 </div>
                                 
-                                <div className="w-[32px] h-[32px] flex flex-row items-center cursor-pointer"  onClick={()=>{setIsCollapsed(!isCollapsed)}}>
+                                <div className="w-[32px] h-[32px] flex flex-row items-center cursor-pointer" onClick={toggleCollapse}>
                                     <Icons.Left_panel_close className="w-[32px] h-[32px] text-[#FAFCFE]"/>
                                 </div>
                                 
