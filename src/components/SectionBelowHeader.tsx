@@ -5,6 +5,7 @@ import Icons from "@/components/svgs/SvgExports";
 import { ForestData, LandData } from "../../types";
 import Switch from "@/components/Switch";
 import { useState } from "react";
+import ExportDropDown from "@/app/dashboard/components/ExportDropDown"; "@/app/dashboard/components/ExportDropDown";
 
 type SectionBelowHeaderProps ={
     manageData?:boolean,
@@ -111,7 +112,7 @@ export default function SectionBelowHeader({
                       
                                 <InputField iconSearch iconDown placeholder="รายงานตามปี" className="w-[320px] h-[32px] " inputClassName="rounded-2xl pl-[35px]"/>
                                 <InputField iconSearch iconDown placeholder="รายงานตามพื้นที่" className="w-[320px] h-[32px] " inputClassName="rounded-2xl pl-[35px]"/>
-                                <Button text="export"  className="w-[100px] h-[40px] rounded-lg " ><Icons.Export/></Button>
+                                <ExportDropDown/>
                   </div>
                 :undefined
 
