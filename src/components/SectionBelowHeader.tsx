@@ -2,7 +2,7 @@
 import Button from "@/components/Button";
 import InputField from "@/components/InputField";
 import Icons from "@/components/svgs/SvgExports";
-import { ForestData, LandData } from "../../../../types";
+import { ForestData, LandData } from "../../types";
 import Switch from "@/components/Switch";
 import { useState } from "react";
 
@@ -15,7 +15,8 @@ type SectionBelowHeaderProps ={
     data?:ForestData|LandData|null,
     handleClick?:()=>void,
     handleDeleteButton?:()=>void,
-    add?:boolean
+    add?:boolean,
+    dashboard?:boolean
 }
 
 
@@ -28,7 +29,8 @@ export default function SectionBelowHeader({
     data,
     handleClick,
     add,
-    handleDeleteButton
+    handleDeleteButton,
+    dashboard
 }:SectionBelowHeaderProps){
     const [isSwitchOpen,setSwitch] = useState(false);
     
@@ -104,6 +106,13 @@ export default function SectionBelowHeader({
                                   
                                 </div>
                             </div>
+                :dashboard
+                ? <div className="w-full h-[40px]  flex flex-row justify-between items-center gap-[auto]">
+                      
+                                <InputField iconSearch iconDown placeholder="รายงานตามปี" className="w-[320px] h-[32px] " inputClassName="rounded-2xl pl-[35px]"/>
+                                <InputField iconSearch iconDown placeholder="รายงานตามพื้นที่" className="w-[320px] h-[32px] " inputClassName="rounded-2xl pl-[35px]"/>
+                                <Button text="export"  className="w-[100px] h-[40px] rounded-lg " ><Icons.Export/></Button>
+                  </div>
                 :undefined
 
         }
