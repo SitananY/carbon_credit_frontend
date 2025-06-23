@@ -6,7 +6,8 @@ type ListItemProps = {
   onClick?: () => void;
   className?: string;
   textClassName? :string;
-  childGap? :string
+  childGap? :string,
+  textPxGap?:string
 };
 
 export default function ListItem({
@@ -18,6 +19,7 @@ export default function ListItem({
   className = "w-[240px] h-[37px]",
   textClassName = " text-sm",
   childGap= "gap-3",
+  textPxGap = "px-[30px]"
 }: ListItemProps) {
   return (
     <div
@@ -34,7 +36,7 @@ export default function ListItem({
     }
   `}
     >
-      <div className="absolute inset-0 flex items-center justify-between px-3 px-[30px]">
+      <div className={`absolute inset-0 flex items-center justify-between  ${textPxGap}`}>
         {item && (
           <div
             className={` ${textClassName} font-prompt pointer-events-none
