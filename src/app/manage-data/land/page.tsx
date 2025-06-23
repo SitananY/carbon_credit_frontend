@@ -1,11 +1,11 @@
 'use client'
 import { useRouter } from "next/navigation";
 import DataTableCard from ".././components/DataTableCard";
-import { mockDataGroups } from ".././components/mockDataGroups";
-import SectionBelowHeader from "../components/SectionBelowHeader";
-import SectionHeader from "../components/SectionHeader";
+import { mockDataGroups } from "../../../components/mockDataGroups";
+import SectionBelowHeader from "../../../components/SectionBelowHeader";
+import SectionHeader from "../../../components/SectionHeader";
 import { useState } from "react";
-import Popup from "../components/Popup";
+import Popup from "../../../components/Popup";
 
 
 
