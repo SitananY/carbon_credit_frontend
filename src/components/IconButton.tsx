@@ -13,6 +13,7 @@ type IconButtonProps = {
   size?: string;
   iconSize?: string;
   children?: React.ReactNode;
+  rounded?:string
 };
 
 export default function IconButton({
@@ -24,13 +25,14 @@ export default function IconButton({
   isClicked,
   size="w-[44px] h-[44px]",
   iconSize="w-[24px] h-[24px]" ,
-  children
+  children,
+  rounded="rounded-full"
 }: IconButtonProps) {
   // const IconComponent = Icons[icon];
   return (
     <div onClick={onClick} className={` `}>
       <div
-        className={` ${size}  flex items-center justify-center rounded-full active:scale-95  transition-all duration-100 ease-in-out 
+        className={` ${size}  flex items-center justify-center ${rounded} active:scale-95  transition-all duration-100 ease-in-out 
              ${
                disabled
                  ? null
