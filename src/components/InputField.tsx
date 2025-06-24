@@ -13,6 +13,9 @@ type InputFieldProps = {
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   inputClassName?:string;
+  leftItem?:React.ReactNode,
+  rightItem?:React.ReactNode
+  canPoint?:string;
 };
 
 export default function InputField({
@@ -26,7 +29,10 @@ export default function InputField({
   className = "h-[44px] w-[245px]  ",
   inputClassName = "rounded-xl pl-[35px]",
   onChange,
-  value
+  value,
+  leftItem,
+  rightItem,
+  canPoint="pointer-events-none"
 }: InputFieldProps) {
   return (
     <div className={`relative ${className} `}>
@@ -56,11 +62,17 @@ export default function InputField({
         </p>
       )}
       {iconSearch && (
-        <Icons.Search className="text-[#7C7C77] absolute left-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] pointer-events-none  " />
+        <Icons.Search className={`text-[#7C7C77] absolute left-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} />
+      )}
+      {leftItem && (
+        <div className={`text-[#7C7C77] absolute left-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} >{leftItem}</div>
       )}
       {iconDown && (
-        <Icons.Down className="text-[#7C7C77] absolute right-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] pointer-events-none" />
+        <Icons.Down className={`text-[#7C7C77] absolute right-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} />
       )}
+      {rightItem && (
+        <div className={`text-[#7C7C77] absolute right-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} >{rightItem}</div>
+      )}      
     </div>
   );
 }
