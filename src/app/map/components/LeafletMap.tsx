@@ -19,7 +19,7 @@ function OverLay() {
   const parentMap = useMap();
   return (
     <div
-      className="w-[40px]  absolute h-full top-0  z-[999] flex pt-[32px] flex-col items-center gap-[20px] right-[28px] "
+      className="w-[40px]  absolute h-full top-0  z-[500] flex pt-[32px] flex-col items-center gap-[20px] right-[28px] "
       
     >
       <div onMouseDown={() => parentMap.dragging.disable()}
@@ -33,7 +33,7 @@ function OverLay() {
       <div onMouseDown={() => parentMap.dragging.disable()}
       onMouseLeave={() => parentMap.dragging.enable()}>
       <IconButton rounded="rounded-2xl bg-[#FAFCFE]" ><Icons.Map className="w-[24px] h-[24px]"/></IconButton>
-    </div>
+      </div>
     </div>
   );
 }
@@ -87,8 +87,8 @@ export default function LeafletMap({ onReady }: { onReady: () => void }) {
 
       {isMapContainerReadyToRender && (
         <MapContainer
-          center={[51.505, -0.09]}
-          zoom={13}
+          center={[15.8700, 100.9925]}
+          zoom={6}
           scrollWheelZoom={true}
           attributionControl={false}
           zoomControl={false}
@@ -100,13 +100,13 @@ export default function LeafletMap({ onReady }: { onReady: () => void }) {
             attribution='&copy; <a href="[https://www.openstreetmap.org/copyright](https://www.openstreetmap.org/copyright)">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-        
-          <Marker position={[51.505, -0.09]}>
+
+          <Marker position={[15.8700, 100.9925]}>
             <Popup>
               A pretty CSS3 popup.<br />Easily customizable.
             </Popup>
           </Marker>
-            <OverLay/>
+          <OverLay/>
            <ResizeHandler />
         </MapContainer>
       )}
