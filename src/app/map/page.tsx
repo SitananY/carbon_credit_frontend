@@ -71,7 +71,7 @@ export default function MapPage() {
   const [mapReady, setMapReady] = useState(false);
 
   return (
-    <div className=" flex flex-row ">
+    <div className=" flex flex-row w-full h-full ">
 
       <div className="w-[352px] h-full bg-[#DDDDDC] px-[32px] pt-[20px] pb-[6px] flex flex-col font-prompt ">
         <div className="h-[54px] font-medium text-xl flex items-center">เปิด/ปิด ชั้นข้อมูล</div>
@@ -114,10 +114,10 @@ export default function MapPage() {
         </div>
       </div>
 
-      <div className="p-[32px]  w-[971px] h-full flex flex-col items-center">
+      <div className=" p-8  w-full  h-full flex flex-col items-center ">
         <SectionHeader title="ระบบฐานข้อมูลการสำรวจศักยภาพการกักเก็บคาร์บอนในพื้นที่ป่าไม้" backHref="/" />
         
-          <div className="w-[907px] h-[708px] pt-[24px] bg-white rounded-xl shadow-xl items-center flex justify-center">
+          <div className="w-full  h-full pt-[24px]  rounded-xl shadow-xl items-center flex justify-center">
             {!mapReady && (
               <div className="w-full h-full flex justify-center items-center">
                 <LinearProgress color="success" />
