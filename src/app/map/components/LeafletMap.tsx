@@ -19,7 +19,7 @@ function OverLay() {
   const parentMap = useMap();
   return (
     <div
-      className="w-[40px]  absolute h-full top-0  z-[500] flex pt-[32px] flex-col items-center gap-[20px] right-[28px] "
+      className="w-[40px]  absolute h-full top-0  z-[999] flex pt-[32px] flex-col items-center gap-[20px] right-[28px] "
       
     >
       <div onMouseDown={() => parentMap.dragging.disable()}
