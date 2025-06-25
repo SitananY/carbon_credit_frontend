@@ -25,7 +25,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           <main
             className={`
               h-full
-              ${isMapPage ? "absolute top-0 left-0 ml-[117px] w-full z-10" : "flex-1"}
+              ${isMapPage ? "absolute top-0 left-[96px] w-[calc(100vw-96px)] z-10" : "flex-1 overflow-auto"}
               overflow-auto
             `}
           >
