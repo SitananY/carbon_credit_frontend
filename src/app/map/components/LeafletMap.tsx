@@ -20,12 +20,20 @@ function OverLay() {
   return (
     <div
       className="w-[40px]  absolute h-full top-0  z-[999] flex pt-[32px] flex-col items-center gap-[20px] right-[28px] "
-      onMouseDown={() => parentMap.dragging.disable()}
-      onMouseLeave={() => parentMap.dragging.enable()}
+      
     >
-      <IconButton rounded="rounded-2xl bg-[#FAFCFE]" ><Icons.Add className="w-[24px] h-[24px]"/></IconButton>
+      <div onMouseDown={() => parentMap.dragging.disable()}
+      onMouseLeave={() => parentMap.dragging.enable()} >
+      <IconButton rounded="rounded-2xl bg-[#FAFCFE]"  ><Icons.Add className="w-[24px] h-[24px]"/></IconButton>
+      </div>
+      <div onMouseDown={() => parentMap.dragging.disable()}
+      onMouseLeave={() => parentMap.dragging.enable()}>
       <IconButton rounded="rounded-2xl bg-[#FAFCFE]" ><Icons.Location_on className="w-[24px] h-[24px]"/></IconButton>
+      </div>
+      <div onMouseDown={() => parentMap.dragging.disable()}
+      onMouseLeave={() => parentMap.dragging.enable()}>
       <IconButton rounded="rounded-2xl bg-[#FAFCFE]" ><Icons.Map className="w-[24px] h-[24px]"/></IconButton>
+    </div>
     </div>
   );
 }
@@ -70,7 +78,7 @@ export default function LeafletMap({ onReady }: { onReady: () => void }) {
   };
 
   return (
-    <div ref={containerRef} className="w-[907px] h-[708px] relative overflow-hidden">
+    <div ref={containerRef} className="relative w-full h-full ">
       {!isLeafletMapInstanceReady && (
         <div className="flex justify-center items-center bg-white z-10 rounded-xl">
           <LinearProgress color="success" />
@@ -84,7 +92,8 @@ export default function LeafletMap({ onReady }: { onReady: () => void }) {
           scrollWheelZoom={true}
           attributionControl={false}
           zoomControl={false}
-          className="w-[907px] h-[708px]"
+          className="w-full h-full
+          [&_.leaflet-tile]:bg-transparent [&_.leaflet-tile]:image-rendering-pixelated"
           whenReady={handleLeafletMapReady} 
         >
           <TileLayer
