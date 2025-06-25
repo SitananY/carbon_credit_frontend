@@ -30,6 +30,17 @@ function OverLay() {
   );
 }
 
+function ResizeHandler() {
+  const map = useMap();
+
+  useEffect(() => {
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 100); // รอให้ DOM resize เสร็จ
+  }, [map]);
+
+  return null;
+}
 
 export default function LeafletMap({ onReady }: { onReady: () => void }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -87,6 +98,7 @@ export default function LeafletMap({ onReady }: { onReady: () => void }) {
             </Popup>
           </Marker>
             <OverLay/>
+           <ResizeHandler />
         </MapContainer>
       )}
     </div>
