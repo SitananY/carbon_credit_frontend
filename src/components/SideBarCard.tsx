@@ -25,7 +25,7 @@ export default function SideBarCard({ children, forcedCollapsed }: SideBarCardPr
 
   return (
     <div
-      className={`h-full bg-[#FAFCFE] transition-all duration-300 ease-in-out ${
+      className={`h-full bg-[#FAFCFE] transition-all duration-300 ease-in-out shadow-xl ${
         isCollapsed ? "w-[96px]" : "w-[352px]"
       }`}
     >
@@ -51,8 +51,8 @@ export default function SideBarCard({ children, forcedCollapsed }: SideBarCardPr
       </div>
 
       {/* Menu Items */}
-      <div className="w-full flex flex-col justify-between items-center pt-[16px] pb-[32px] pl-[6px] h-[calc(100%-88px)]">
-        <div className={`${isCollapsed ? "w-[64px]" : "w-[336px]"} transition-all duration-300`}>
+      <div className="w-full flex flex-col justify-between items-center pt-[16px] pb-[32px]  h-full">
+        <div className={`${isCollapsed ? "w-[64px]" : "w-[336px]"} transition-all duration-300 items-center flex flex-col`}>
           <SideBarItem
             pageRef="/manage-data"
             className="w-full h-[56px]"
@@ -89,12 +89,12 @@ export default function SideBarCard({ children, forcedCollapsed }: SideBarCardPr
             <div className={`w-[304px] h-[48px] text-xl font-prompt pl-[10px] font-medium transition-all duration-300 ease-in-out ${isCollapsed ? "hidden" : "" } `}>
               ชื่อผู้ใช้
             </div>
-          <div className={` h-[48px] border-2 bg-[#FAFCFE] text-[#397832] border-[#397832] hover:bg-[#F8F8EF] rounded-2xl
+          <Link href="/login" className={` h-[48px] border-2 bg-[#FAFCFE] text-[#397832] border-[#397832] hover:bg-[#F8F8EF] rounded-2xl
             flex items-center justify-center cursor-pointer transition-all duration-300 ease-in-out
             ${isCollapsed ?"w-[48px]" : "w-[304px]" }`}>
             <Icons.Logout className="w-[32px] h-[32px]"/>
             <div className={`${isCollapsed ? "hidden" : "pl-[10px] font-medium font-prompt text-lg " } overflow-hidden whitespace-nowrap transition-all duration-300 ease-in-out`}>ออกจากระบบ</div>
-          </div>
+          </Link>
          
         </div>
       </div>
