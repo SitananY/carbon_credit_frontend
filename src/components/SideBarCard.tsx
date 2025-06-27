@@ -25,7 +25,7 @@ export default function SideBarCard({ children, forcedCollapsed }: SideBarCardPr
 
   return (
     <div
-      className={`h-full bg-[#FAFCFE] transition-all duration-300 ease-in-out shadow-xl ${
+      className={`h-full bg-[#FAFCFE] flex flex-col transition-all duration-300 ease-in-out shadow-xl  ${
         isCollapsed ? "w-[96px]" : "w-[352px]"
       }`}
     >
@@ -84,7 +84,7 @@ export default function SideBarCard({ children, forcedCollapsed }: SideBarCardPr
         </div>
 
         {/* User Section */}
-        <div className="w-full flex flex-col justify-center items-center">
+        <div className="w-full flex flex-col justify-center items-center ">
          
             <div className={`w-[304px] h-[48px] text-xl font-prompt pl-[10px] font-medium transition-all duration-300 ease-in-out ${isCollapsed ? "hidden" : "" } `}>
               ชื่อผู้ใช้
