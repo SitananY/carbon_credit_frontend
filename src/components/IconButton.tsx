@@ -37,38 +37,24 @@ export default function IconButton({
                disabled
                  ? null
                  : filled
-                 ? "border-[2.5px] bg-[#397832]  hover:border-[#10490A] border-[#397832] hover:bg-[#10490A] cursor-pointer "
+                 ? "border-[2.5px] bg-primary-500  hover:border-primary-700 border-primary-500 hover:bg-primary-700 cursor-pointer "
                  : outlined
-                 ? " border-[2.5px] bg-[#FAFCFE] border-[#397832] hover:bg-[#7CA777] cursor-pointer "
-                 : "hover:border-[2.5px]  hover:border-[#7CA777] hover:bg-[#7CA777] cursor-pointer"
+                 ? " border-[2.5px] bg-neutral-300 border-primary-500 hover:bg-primary-300 cursor-pointer "
+                 : "hover:border-[2.5px]  hover:border-primary-300 hover:bg-primary-300 cursor-pointer"
              }   
              `}
       >
-        {/* {IconComponent && (
-          <IconComponent
-            className={` ${iconSize} pointer-events-none
-            ${
-              disabled
-                ? "text-[#DDDDDC]"
-                : filled
-                ? "text-[#FAFCFE]"
-                : outlined
-                ? " text-[#397832] "
-                : "text-[#397832]"
-            }
-            `}
-          />
-        )} */}
+      
 
         <div className={`  pointer-events-none text-sm font-prompt  text-center flex items-center justify-center
             ${
               disabled
-                ? "text-[#DDDDDC]"
+                ? "text-cancel-300"
                 : filled
-                ? "text-[#FAFCFE]"
+                ? "text-neutral-300"
                 : outlined
-                ? " text-[#397832] "
-                : "text-[#397832]"
+                ? " text-primary-500"
+                : "text-primary-500"
             }
             `}>{children} </div> 
       </div>
