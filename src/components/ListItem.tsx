@@ -26,13 +26,13 @@ export default function ListItem({
       // title={disabled ? "ไม่พร้อมใช้งาน" : undefined}
       
       onClick={!disabled ? onClick : undefined}
-      className={`relative ${className} border-b border-[#B6B6A8] transition-all duration-100
+      className={`relative ${className} border-b border-neutral-700 transition-all duration-100
     ${
       disabled
-        ? "bg-[#DDDDDC] cursor-default"
+        ? "bg-cancel-300 cursor-default"
         : selected
-        ? "bg-[#397832] cursor-pointer"
-        : "bg-[#FAFCFE] hover:bg-[#7CA777] cursor-pointer"
+        ? "bg-primary-500 cursor-pointer"
+        : "bg-neutral-300 hover:bg-primary-300 cursor-pointer"
     }
   `}
     >
@@ -42,10 +42,10 @@ export default function ListItem({
             className={` ${textClassName} font-prompt pointer-events-none
           ${
             disabled
-              ? "text-[#27272A]"
+              ? "text-text-800"
               : selected
-              ? "text-[#FAFCFE]"
-              : "text-[#3E3E3C]"
+              ? "text-neutral-300"
+              : "text-cancel-700"
           }
         `}
           >
@@ -57,10 +57,10 @@ export default function ListItem({
           <div
             className={`flex items-center ${childGap} ${
               disabled
-                ? "text-[#27272A]"
+                ? "text-text-800"
                 : selected
-                ? "text-[#FAFCFE]"
-                : "text-[#3E3E3C]"
+                ? "text-neutral-300"
+                : "text-cancel-700"
             } `}
           >
             {children}
