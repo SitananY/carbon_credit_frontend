@@ -17,10 +17,10 @@ export default function Switch({
         className={` w-[58px] h-[30px] rounded-full transition-all duration-100 ease-in-out
                 ${
                   disabled
-                    ? "bg-[#DDDDDC]"
+                    ? "bg-cancel-300"
                     : isOpen
-                    ? "bg-[#F6E96B]"
-                    : "bg-[#7C7C77]"
+                    ? "bg-secondary-500"
+                    : "bg-cancel-500"
                 }
                 `}
       ></div>
@@ -29,10 +29,10 @@ export default function Switch({
                  transition-all duration-100 ease-in-out
                 ${
                   disabled
-                    ? "bg-[#B6B6A8]"
+                    ? "bg-neutral-700"
                     : isOpen
-                    ? "bg-[#FAFCFE] translate-x-[28px]"
-                    : " bg-[#FAFCFE] translate-x-0"
+                    ? "bg-neutral-300 translate-x-[28px]"
+                    : " bg-neutral-300 translate-x-0"
                 }
                   `}
       ></div>
