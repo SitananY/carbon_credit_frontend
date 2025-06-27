@@ -17,7 +17,7 @@ export default function SectionHeader  ({ title, backHref }: SectionHeaderProps)
                 <Icons.Backward className="w-[40px] h-[40px]" />
             </Link>
             )}
-            <div className="w-full  h-[40px] font-prompt text-[#27272A] text-xl md:text-2xl font-medium flex justify-end whitespace-nowrap items-center justify-center">
+            <div className="w-full  h-[40px] font-prompt text-text-800 text-xl md:text-2xl font-medium flex justify-end whitespace-nowrap items-center justify-center">
             {title}
             </div>
         </div>
