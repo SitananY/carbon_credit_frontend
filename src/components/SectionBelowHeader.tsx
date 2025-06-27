@@ -38,14 +38,14 @@ export default function SectionBelowHeader({
     return(
      <>
         {manageData ?
-            <div className=" w-full h-[40px]  font-prompt text-[#27272A] items-center  flex  flex-row justify-between my-[24px] max-sm:flex-col  max-sm:gap-3 max-sm:h-[auto] ">
+            <div className=" w-full h-[40px]  font-prompt text-text-800 items-center  flex  flex-row justify-between my-[24px] max-sm:flex-col  max-sm:gap-3 max-sm:h-[auto] ">
                           <div className="w-auto h-[40px]  font-medium items-center flex text-xl">จัดการข้อมูล</div>
                           <div className="w-auto h-[40px] items-center flex"><InputField iconSearch  className="h-[34px] w-[287px] rounded-2xl" /></div>
                           <div className="w-auto h-[40px] items-center flex"><Button text="เพิ่มข้อมูล" className="w-[113px] h-[40px] rounded-lg " onClick={handleClick}><Icons.Add /></Button></div>
             </div>
         :
             viewSubGroup 
-            ? <div className=" w-full h-[40px]  font-prompt text-[#27272A] items-center  flex  flex-row justify-between my-[24px]  
+            ? <div className=" w-full h-[40px]  font-prompt text-text-800 items-center  flex  flex-row justify-between my-[24px]  
             max-md:flex-col max-md:gap-3 max-md:h-[auto] max-md:w-[auto] max-md:items-center   whitespace-nowrap ">
                           <div className="flex flex-row items-center md:text-base text-xl  ">
                               <div className=" md:pr-[12px] w-auto h-[24px]  font-medium items-center flex">จัดการข้อมูล</div>
@@ -61,7 +61,7 @@ export default function SectionBelowHeader({
                 ?
                     <div className="w-full my-[24px] flex flex-col md:flex-row md:justify-between md:items-center gap-4">
                       
-                                <div className="text-base md:text-xl font-prompt font-medium text-[#27272A]">
+                                <div className="text-base md:text-xl font-prompt font-medium text-text-800">
                                   {land ? "แปลงที่ " :"พรรณที่ " } {data?.number}
                                 </div>
                     
@@ -80,13 +80,13 @@ export default function SectionBelowHeader({
                 ?
                     <div className="w-full h-[32px]  flex flex-row md:justify-between md:items-center gap-4">
                       
-                                <div className=" text-base md:text-xl font-prompt font-medium text-[#27272A] flex items-center ">
+                                <div className=" text-base md:text-xl font-prompt font-medium text-text-800 flex items-center ">
                                    {land ?"แก้ไขข้อมูลแปลงที่ " :"แก้ไขข้อมูลพรรณที่ " }  {data?.number}
                                 </div>
                     
                                 
                                 <div className=" h-[30px] w-[201px] flex gap-[16px] max-md:gap-[6px] flex-row items-center justify-center     ">
-                                  <div className="md:text-xl text-base font-prompt font-medium text-[#27272A] w-full h-[24px]">แสดงบนแผนที่</div>
+                                  <div className="md:text-xl text-base font-prompt font-medium text-text-800 w-full h-[24px]">แสดงบนแผนที่</div>
                                   <Switch onClick={()=>setSwitch(!isSwitchOpen)} isOpen={isSwitchOpen}/>
                                   
                                 </div>
@@ -96,13 +96,13 @@ export default function SectionBelowHeader({
                 :add
                 ? <div className="w-full h-[32px]  flex flex-row md:justify-between md:items-center gap-4">
                       
-                                <div className=" text-base md:text-xl font-prompt font-medium text-[#27272A] flex items-center ">
+                                <div className=" text-base md:text-xl font-prompt font-medium text-text-800 flex items-center ">
                                    นำเข้าข้อมูล
                                 </div>
                     
                                 
                                 <div className=" h-[30px] w-[201px] flex gap-[16px] max-md:gap-[6px] flex-row items-center justify-center     ">
-                                  <div className="md:text-xl text-base font-prompt font-medium text-[#27272A] w-full h-[24px]">แสดงบนแผนที่</div>
+                                  <div className="md:text-xl text-base font-prompt font-medium text-text-800 w-full h-[24px]">แสดงบนแผนที่</div>
                                   <Switch onClick={()=>setSwitch(!isSwitchOpen)} isOpen={isSwitchOpen}/>
                                   
                                 </div>
