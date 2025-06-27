@@ -26,11 +26,11 @@ export default function Radio({
         name={name}
         onChange={onChange}
         disabled={disabled}
-        className={` bg-[#FAFCFE] relative w-[32px] h-[32px]   border-2 appearance-none rounded-full 
+        className={` bg-neutral-300 relative w-[32px] h-[32px]   border-2 appearance-none rounded-full 
             
-           ${disabled ? "bg-[#FAFCFE] border-[#DDDDDC] " : "cursor-pointer"} 
+           ${disabled ? "bg-neutral-300 border-cancel-300 " : "cursor-pointer"} 
 
-            ${checked ? " border-[#F6E96B] " : " border-[#7C7C77] "}
+            ${checked ? " border-secondary-500 " : disabled ? undefined:" border-cancel-500 "}
 
             before:content-['']
             before:block
@@ -40,7 +40,7 @@ export default function Radio({
             before:transition-transform before:duration-200 before:ease-in-out 
             ${
               checked
-                ? "before:bg-[#F6E96B] before:scale-100"
+                ? "before:bg-secondary-500 before:scale-100"
                 : "before:bg-transparent before:scale-0"
             }
               
