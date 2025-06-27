@@ -25,12 +25,12 @@ export default function SideBarCard({ children, forcedCollapsed }: SideBarCardPr
 
   return (
     <div
-      className={`h-full bg-[#FAFCFE] flex flex-col transition-all duration-300 ease-in-out shadow-xl  ${
+      className={`h-full bg-neutral-300 flex flex-col transition-all duration-300 ease-in-out shadow-xl  ${
         isCollapsed ? "w-[96px]" : "w-[352px]"
       }`}
     >
       {/* Header */}
-      <div className={`w-full h-[88px] bg-[#10490A] flex items-center justify-between p-[24px] ${isCollapsed ? "justify-center":"justify-between"}`}>
+      <div className={`w-full h-[88px] bg-primary-700 flex items-center justify-between p-[24px] ${isCollapsed ? "justify-center":"justify-between"}`}>
         
         <div className={`w-[48px] h-[48px] ${isCollapsed ? "hidden" : ""}`}>
             <Icons.Color_png1 className="w-full h-full" />
@@ -43,9 +43,9 @@ export default function SideBarCard({ children, forcedCollapsed }: SideBarCardPr
           onClick={toggleCollapse}
         >
           {isCollapsed ? (
-            <Icons.Dehaze className="w-full h-full text-[#FAFCFE]" />
+            <Icons.Dehaze className="w-full h-full text-neutral-300" />
           ) : (
-            <Icons.Left_panel_close className="w-full h-full text-[#FAFCFE]" />
+            <Icons.Left_panel_close className="w-full h-full text-neutral-300" />
           )}
         </div>
       </div>
@@ -89,7 +89,7 @@ export default function SideBarCard({ children, forcedCollapsed }: SideBarCardPr
             <div className={`w-[304px] h-[48px] text-xl font-prompt pl-[10px] font-medium transition-all duration-300 ease-in-out ${isCollapsed ? "hidden" : "" } `}>
               ชื่อผู้ใช้
             </div>
-          <Link href="/login" className={` h-[48px] border-2 bg-[#FAFCFE] text-[#397832] border-[#397832] hover:bg-[#F8F8EF] rounded-2xl
+          <Link href="/login" className={` h-[48px] border-2 bg-neutral-300 text-[#397832] border-[#397832] hover:bg-[#F8F8EF] rounded-2xl
             flex items-center justify-center cursor-pointer transition-all duration-300 ease-in-out
             ${isCollapsed ?"w-[48px]" : "w-[304px]" }`}>
             <Icons.Logout className="w-[32px] h-[32px]"/>
