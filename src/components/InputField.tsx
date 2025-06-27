@@ -46,32 +46,32 @@ export default function InputField({
              
             ${
               disabled
-                ? "bg-[#DDDDDC] border-[#DDDDDC] placeholder-[#7C7C77] border-2 "
+                ? "bg-cancel-300 border-cancel-300 placeholder-cencel-500 border-2 "
                 : error
-                ? "border-[#E64341] border-2 placeholder-[#B6B6A8] focus:outline-none"
+                ? "border-error-500 border-2 placeholder-neutral-700 focus:outline-none"
                 : success
-                ? "border-[#4FC65F] border-2 placeholder-[#B6B6A8] focus:outline-none"
-                : "bg-[#FAFCFE]  border-[#B6B6A8] border-1 placeholder-[#B6B6A8] focus:outline-[#3E3E3C]"
+                ? "border-success-500 border-2 placeholder-neutral-700 focus:outline-none"
+                : "bg-neutral-300  border-neutral-700 border-1 placeholder-neutral-700 focus:outline-cancel-700"
             }
             `}
       />
 
       {error && !disabled && (
-        <p className="text-[#E64341] text-sm absolute bottom left-3">
+        <p className="text-error-500 text-sm absolute bottom left-3">
           {helper}
         </p>
       )}
       {iconSearch && (
-        <Icons.Search className={`text-[#7C7C77] absolute left-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} />
+        <Icons.Search className={`text-cencel-500 absolute left-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} />
       )}
       {leftItem && (
-        <div className={`text-[#7C7C77] absolute left-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} >{leftItem}</div>
+        <div className={`text-cencel-500 absolute left-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} >{leftItem}</div>
       )}
       {iconDown && (
-        <Icons.Down className={`text-[#7C7C77] absolute right-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} />
+        <Icons.Down className={`text-cencel-500 absolute right-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} />
       )}
       {rightItem && (
-        <div className={`text-[#7C7C77] absolute right-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} >{rightItem}</div>
+        <div className={`text-cencel-500 absolute right-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} >{rightItem}</div>
       )}      
     </div>
   );
