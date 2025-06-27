@@ -20,7 +20,7 @@ export default function Popup({isShow,children,onCancle,onConfirm,add,remove,edi
         <div className={` absolute inset-0 flex items-center justify-center transition-all duration-150 ease-in-out
                 ${isShow ? "visible bg-black/20" : "invisible"}
         `}>
-            <div className="w-[350px] h-[200px]  rounded-[40px] bg-[#FAFCFE] shadow-xl px-[40px] items-center justify-center flex ">
+            <div className="w-[350px] h-[200px]  rounded-[40px] bg-neutral-300 shadow-xl px-[40px] items-center justify-center flex ">
                     <div className="w-[246px] h-[118px]  flex flex-col gap-[16px] items-center justify-center">
                         <div className="w-full h-[54px]   font-medium font-prompt text-xl flex flex-col items-center justify-center  " >
                                <span className="whitespace-nowrap w-auto">
@@ -35,7 +35,7 @@ export default function Popup({isShow,children,onCancle,onConfirm,add,remove,edi
                                 ${isShow ? "visible " : "invisible"}
                             `} >
                                 <Button text="ยืนยัน" className="w-[61px] h-[48px] rounded-2xl" onClick={onConfirm}/>
-                                <Button text="ยกเลิก" className="w-[61px] h-[48px] rounded-2xl" variant="cancle" onClick={onCancle}/>
+                                <Button text="ยกเลิก" className="w-[61px] h-[48px] rounded-2xl" variant="cancel" onClick={onCancle}/>
 
                         </div>
                     </div>
