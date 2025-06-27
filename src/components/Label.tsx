@@ -8,7 +8,7 @@ type LabelProps ={
 
 export default function Label({label,required,optional,size="base"}:LabelProps){
     return(
-        <label className={` text-${size} font-prompt text-[#27272A] flex flex-row py-[12px] `}>
+        <label className={` text-${size} font-prompt text-text-800 flex flex-row py-[12px] `}>
             {required && <div className="text-xl font-prompt text-[#E64341] pr-2">*</div>}
             {label}
             {optional && <div className="text-base font-prompt text-[#B6B6A8] pl-2">(optional)</div>}
