@@ -6,22 +6,22 @@ const getVariantStyles = (
 ) => {
   const styles: Record<NonNullable<ButtonProps["variant"]>, string> = {
     primary: disabled
-      ? "bg-[#DDDDDC] text-[#3E3E3C]"
-      : "bg-[#397832] text-[#FAFCFE] hover:bg-[#10490A]",
+      ? "bg-cancel-300 text-cancel-700"
+      : " bg-primary-500 text-neutral-300  hover:bg-primary-700",
     secondary: disabled
-      ? "border-2 bg-[#DDDDDC] border-[#3E3E3C] text-[#3E3E3C]"
-      : "border-2 bg-[#FAFCFE] text-[#397832] border-[#397832] hover:bg-[#F8F8EF]",
-    tonal: "bg-[#FBF6C7] text-[#9A9353] hover:bg-[#F6E96B]",
-    confirm: "bg-[#4FC65F] text-[#FAFCFE] hover:bg-[#33803F]",
-    delete: "bg-[#E64341] text-[#FAFCFE] hover:bg-[#B11E1B]",
-    cancle: "bg-[#7C7C77] text-[#FAFCFE] hover:bg-[#3E3E3C]",
+      ? "border-2 bg-cancel-300 border-cancel-700 text-cancel-700"
+      : "border-2 bg-neutral-300 text-primary-500 border-primary-500 hover:bg-neutral-500 hover:border-primary-700",
+    tonal: "bg-secondary-300 text-secondary-700 hover:bg-secondary-500",
+    confirm: "bg-success-500 text-neutral-300 hover:bg-success-700",
+    delete: "bg-error-500 text-neutral-300 hover:bg-error-700",
+    cancel: "bg-cancel-500 text-neutral-300 hover:bg-cancel-700",
   };
 
   return styles[variant];
 };
 
 type ButtonProps = {
-  variant?: "primary" | "secondary" | "tonal" | "confirm" | "delete" | "cancle";
+  variant?: "primary" | "secondary" | "tonal" | "confirm" | "delete" | "cancel";
   text: string;
   disabled?: boolean;
   onClick?: () => void;
