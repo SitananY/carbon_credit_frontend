@@ -26,8 +26,8 @@ export default function SideBarItem({ pageRef ,className,icon,isCollapsed,text}:
                   flex items-center transition-all duration-300 ease-in-out
                   ${isCollapsed ? "w-[64px]" : "w-[336px]"}
                   ${isActive
-                    ? "bg-[#397832] text-[#FAFCFE]"
-                    : "bg-[#FAFCFE] hover:bg-[#7CA777] text-[#3E3E3C]"}
+                    ? "bg-primary-500 text-neutral-300"
+                    : "bg-neutral-300 hover:bg-primary-300 text-cancel-700"}
                 `}
               >
                 <div className={`
