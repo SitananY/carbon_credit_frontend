@@ -1,6 +1,6 @@
-import SectionBelowHeader from "../../components/SectionBelowHeader";
-import SectionHeader from "../../components/SectionHeader";
-import ViewDataCard from "../manage-data/components/ViewDataCard";
+import SectionBelowHeader from "@/components/SectionBelowHeader";
+import SectionHeader from "@/components/SectionHeader";
+
 
 export default function Dashboard() {
   return (

@@ -1,4 +1,4 @@
-import { DataGroup } from "../../types";
+import { DataGroup } from "../types";
 
 export const mockDataGroups: DataGroup[] = [
   {

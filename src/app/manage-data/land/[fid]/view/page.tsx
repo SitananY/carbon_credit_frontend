@@ -1,6 +1,6 @@
 'use client'
-import { mockDataGroups } from "../../../../../components/mockDataGroups";
-import ViewDataCard from "../../../components/ViewDataCard";
+import { mockDataGroups } from "@/mockDataGroups";
+import ViewDataCard from "@/app/manage-data/components/ViewDataCard";
 import { useParams, useRouter } from "next/navigation";
 import { ForestData, LandData } from "../../../../../../types";
 import SectionBelowHeader from "@/components/SectionBelowHeader";

@@ -1,8 +1,6 @@
 'use client'
-import DeleteButton from "@/components/DeleteButton";
-import EditButton from "@/components/EditButton";
+
 import ListItem from "@/components/ListItem";
-import ViewButton from "@/components/ViewButton";
 import Link from "next/link";
 import Icons from "@/components/svgs/SvgExports";
 import { DataGroup } from "../../../../types";

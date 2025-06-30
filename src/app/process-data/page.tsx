@@ -4,7 +4,7 @@ import ListItem from "@/components/ListItem";
 import SectionBelowHeader from "@/components/SectionBelowHeader";
 import SectionHeader from "@/components/SectionHeader";
 import Icons from "@/components/svgs/SvgExports";
-import ProcessDataCard from "./components/processDataCard";
+import ProcessDataCard from "@/app/process-data/components/processDataCard";
 
 
 export default function ProcessData() {

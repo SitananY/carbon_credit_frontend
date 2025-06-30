@@ -1,8 +1,8 @@
 
-import DataTableItem from "./DataTableItem";
+import DataTableItem from "@/app/manage-data/components/DataTableItem";
 import { DataGroup } from "../../../../types";
-import DataTableGroupItem from "./DataTableGroupItem";
-import Icons from "@/components/svgs/SvgExports";
+import DataTableGroupItem from "@/app/manage-data/components/DataTableGroupItem";
+import Icons from "@/components/svgs/SvgExports"; 
 
 type DataTableCardProps ={
     data:DataGroup[],

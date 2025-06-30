@@ -1,9 +1,9 @@
 'use client'
 import Button from "@/components/Button";
 import Icons from "@/components/svgs/SvgExports";
-import { mockDataGroups } from "../../../../../components/mockDataGroups";
+import { mockDataGroups } from "@/mockDataGroups";
 import Link from "next/link";
-import ViewDataCard from "../../../components/ViewDataCard";
+import ViewDataCard from "@/app/manage-data/components/ViewDataCard";
 import { useParams, useRouter } from "next/navigation";
 import { ForestData, LandData } from "../../../../../../types";
 import SectionHeader from "@/components/SectionHeader";

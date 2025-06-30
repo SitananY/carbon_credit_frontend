@@ -1,6 +1,6 @@
 import Button from "@/components/Button";
-import InputField from "@/components/InputField";
-import ViewDetailDataItem from "./ViewDetailDataItem";
+
+import ViewDetailDataItem from "@/app/manage-data/components/ViewDetailDataItem";
 import { ForestData, LandData } from "../../../../types";
 
 
@@ -61,7 +61,7 @@ export default function ViewDetailDataCard({ data , isForest , onConfirm , onCan
         <div>ผู้บันทึกข้อมูล user1 วันที่ 12 มิถุนายน 2568 เวลา 9:18 น.</div>
         <div className="flex flex-row justify-between items-center gap-8 max-md:gap-5">
           <Button text="ยืนยัน" variant="confirm" className="w-[85px] h-[40px] rounded-lg" onClick={onConfirm} />
-          <Button text="ยกเลิก" variant="cancle" className="w-[85px] h-[40px] rounded-lg" onClick={onCancle}/>
+          <Button text="ยกเลิก" variant="cancel" className="w-[85px] h-[40px] rounded-lg" onClick={onCancle}/>
         </div>
       </div>
     </div>
