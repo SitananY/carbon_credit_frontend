@@ -46,6 +46,10 @@
   /* Text */
   --color-text-800: oklch(0.2739 0.0055 286.03);
 
+  /* Etc. */
+  --color-white:oklch(1 0 0);
+  --color-gray-v1:oklch(0.9702 0 0); /*F5F5F5*/
+  
 }
 
 
