@@ -30,11 +30,11 @@ export default function Login() {
                     <div className="flex flex-col gap-[40px]  w-full h-[auto] items-center "> 
                         <div className="flex flex-col w-full gap-[16px] text-[20px]  ">
                           อีเมล 
-                          <InputField className=" w-full h-[52px]"/>  
+                          <InputField type="email" className=" w-full h-[52px]"/>  
                         </div>
                         <div className="flex flex-col w-full gap-[16px] text-[20px] ">
                           รหัสผ่าน 
-                          <InputField className="w-full h-[52px]" rightItem={isVisible ?<Icons.Visibility onClick={()=>setIsVisible(!isVisible)}/> :<Icons.Visibility_off onClick={()=>setIsVisible(!isVisible)}/>} canPoint=""/>  
+                          <InputField type="password" className="w-full h-[52px]" rightItem={isVisible ?<Icons.Visibility onClick={()=>setIsVisible(!isVisible)}/> :<Icons.Visibility_off onClick={()=>setIsVisible(!isVisible)}/>} canPoint=""/>  
                         </div>
                     </div>
                     <div className="flex flex-col w-full h-[auto]">
