@@ -2,12 +2,12 @@ import Icons from "@/components/svgs/SvgExports"
 type CheckBoxProps={
     disabled?:boolean,
     isChecked?:boolean,
-    onClick?: ()=>void
+    onClick?: ()=>void,
 }
 
 export default function CheckBox({
-    isChecked = false ,
-    disabled = true ,
+    isChecked  ,
+    disabled  ,
     onClick
 }:CheckBoxProps){
     return(
