@@ -21,7 +21,7 @@ export default function DataTableItem2 ({
     isAction,
     action,
     text,
-    parentClassName="flex flex-row items-center px-[16px] py-[10px]",
+    parentClassName="flex flex-row items-center px-[16px] py-[10px] h-full w-full",
     childClassName="",
     selected,
     disabled,
@@ -41,12 +41,12 @@ export default function DataTableItem2 ({
 
     
     return(
-        <div onClick={onClick} className={` h-full w-full border-b-1 ${parentClassName} ${style}`}>
+        <div onClick={onClick} className={`  border-b-1 ${parentClassName} ${style}`}>
             <>
                 {isText && text}
                 {isCheckbox && <CheckBox isChecked={selected} disabled={disabled} onClick={onClick}/>}
                 {isAction && action}
-                {header && <Icons.Down className="w-[18px] h-[18px]"  onClick={onHeaderClick}/> }
+                {isCheckbox ?undefined : header ? <Icons.Down className="w-[18px] h-[18px]"  onClick={onHeaderClick}/> :undefined }
                 
             </>        
         </div>
