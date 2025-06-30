@@ -115,7 +115,7 @@ export default function MapPage() {
       </div>
 
       <div className=" p-8  w-full  h-full flex flex-col items-center ">
-        <SectionHeader title="ระบบฐานข้อมูลการสำรวจศักยภาพการกักเก็บคาร์บอนในพื้นที่ป่าไม้" backHref="/" />
+        <SectionHeader title="ระบบฐานข้อมูลการสำรวจศักยภาพการกักเก็บคาร์บอนในพื้นที่ป่าไม้" backHref />
         
           <div className="w-full  h-full pt-[24px]  rounded-xl shadow-xl items-center flex justify-center">
             {!mapReady && (

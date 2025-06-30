@@ -39,7 +39,7 @@ export default function View() {
   return (
     <div className=" flex flex-col  justify-center">
     <div className="w-full  flex flex-col  py-[32px] xl:px-[148px] px-[32px]">
-        <SectionHeader title="จัดการข้อมูลแปลงที่ดิน" backHref="/manage-data/land"/>
+        <SectionHeader title="จัดการข้อมูลแปลงที่ดิน" backHref/>
         <SectionBelowHeader  view land handleClick={handleClick} data={matchedItem} handleDeleteButton={()=>setIsShow(!isShow)}/>
         <ViewDataCard data={matchedItem}/>
 

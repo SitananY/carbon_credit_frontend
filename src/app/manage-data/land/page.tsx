@@ -20,7 +20,7 @@ export default function Land() {
   return (
     <div className=" flex flex-col  justify-center">
     <div className="w-full  flex flex-col  py-[32px] xl:px-[148px] px-[32px]">
-        <SectionHeader title="ระบบฐานข้อมูลการสำรวจศักยภาพการกักเก็บคาร์บอนในพื้นที่ป่าไม้" backHref="/manage-data"/>
+        <SectionHeader title="ระบบฐานข้อมูลการสำรวจศักยภาพการกักเก็บคาร์บอนในพื้นที่ป่าไม้" backHref/>
         <SectionBelowHeader viewSubGroup land handleClick={handleClick}/>
         <DataTableCard data={mockDataGroups} handleDeleteButton={()=>setIsShow(!isShow)} />
     </div>

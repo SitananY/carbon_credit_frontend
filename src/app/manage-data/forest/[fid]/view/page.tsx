@@ -48,7 +48,7 @@ export default function View() {
     <div className=" flex flex-col  justify-center">
     <div className="w-full  flex flex-col  py-[32px] xl:px-[148px] px-[32px]">
         
-        <SectionHeader title="จัดการข้อมูลพรรณไม้" backHref="/manage-data/forest" />
+        <SectionHeader title="จัดการข้อมูลพรรณไม้" backHref />
         <SectionBelowHeader view data={matchedItem} handleClick={handleClick} handleDeleteButton={()=>setIsShow(!isShow)}/>
         <ViewDataCard data={matchedItem}/>
 

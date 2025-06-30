@@ -14,7 +14,7 @@ export default function ProcessData() {
      <div className=" flex flex-col  justify-center">
             <div className="w-full h-full  flex flex-col  py-[32px] xl:px-[148px] px-[32px]">
                 
-                <SectionHeader title="ประมวลผลข้อมูล" backHref="/" />
+                <SectionHeader title="ประมวลผลข้อมูล" backHref />
                 
                 
     

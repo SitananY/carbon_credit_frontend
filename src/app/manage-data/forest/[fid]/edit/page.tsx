@@ -43,7 +43,7 @@ export default function Edit() {
         <div className="w-full  flex flex-col  p-[32px]  ">
             
             <div className="mb-[24px] ">
-                <SectionHeader title="จัดการข้อมูลพรรณไม้" backHref={`/manage-data/forest/${fid}/view`}/> 
+                <SectionHeader title="จัดการข้อมูลพรรณไม้" backHref/> 
             </div>
             <div className="mb-[24px] ">
                 <SectionBelowHeader edit data={matchedItem} />

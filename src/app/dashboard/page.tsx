@@ -7,7 +7,7 @@ export default function Dashboard() {
     <div className=" flex flex-col  justify-center">
         <div className="w-full  flex flex-col  py-[32px] xl:px-[148px] px-[32px]">
             
-            <SectionHeader title="แสดงผล Dashboard" backHref="/" />
+            <SectionHeader title="แสดงผล Dashboard" backHref />
             
             <div className="py-[24px]"><SectionBelowHeader dashboard /> </div>
 
