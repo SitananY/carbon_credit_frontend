@@ -26,6 +26,14 @@ import Dehaze from "./icons/dehaze.svg";
 import Color_png1 from "./icons/color_png1.svg";
 import Data_table from "./icons/data_table.svg";
 import Chart from "./icons/chart.svg";
+import Add_photo_alternate from "./icons/add_photo_alternate.svg";
+import Arrow_downward from "./icons/arrow_downward.svg";
+import Arrow_upward from "./icons/arrow_upward.svg";
+import Attach_file from "./icons/attach_file.svg";
+import Check from "./icons/check.svg";
+import Close from "./icons/close.svg";
+import Filter_list from "./icons/filter_list.svg";
+import Help from "./icons/help.svg";
 
 
 
@@ -57,5 +65,13 @@ export default {
   Dehaze,
   Color_png1,
   Data_table,
-  Chart
+  Chart,
+  Add_photo_alternate,
+  Arrow_downward,
+  Arrow_upward,
+  Attach_file,
+  Check,
+  Close,
+  Filter_list,
+  Help
 };
