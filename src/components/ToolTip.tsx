@@ -11,7 +11,7 @@ type ToolTipProps={
 
 
 export default function ToolTip(
-    {   className,
+    {   className=" h-[33px]",
         down ,
         up  ,
         left ,
@@ -23,7 +23,7 @@ export default function ToolTip(
 :ToolTipProps){
     return(
         <div className=" relative inline-block ">
-            <div className=" w-[60px] h-[33px] bg-secondary-500 rounded-xl font-medium text-text-800  text-sm items-center flex justify-center">
+            <div className={`${className} w-[auto] p-[8px] bg-secondary-500 rounded-xl font-medium text-text-800  text-sm items-center flex justify-center`}>
                 {text}
             </div>
             {up && (
