@@ -14,8 +14,9 @@ type InputFieldProps = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   inputClassName?:string;
   leftItem?:React.ReactNode,
-  rightItem?:React.ReactNode
+  rightItem?:React.ReactNode,
   canPoint?:string;
+  type?:string,
 };
 
 export default function InputField({
@@ -32,12 +33,13 @@ export default function InputField({
   value,
   leftItem,
   rightItem,
-  canPoint="pointer-events-none"
+  canPoint="pointer-events-none",
+  type="text",
 }: InputFieldProps) {
   return (
     <div className={`relative ${className} `}>
       <input
-        type="text"
+        type={type}
         value={value}
         onChange={onChange}
         disabled={disabled}
