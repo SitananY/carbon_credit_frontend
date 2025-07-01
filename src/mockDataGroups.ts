@@ -182,7 +182,7 @@ export const mockLandPlotGroups: LandPlotGroup[] = [
       },
     ],
     itemCount: 2,
-    latestUpdate: "2025-06-20T09:30:00Z",
+    latestUpdate: "8 มิ.ย. 2568",
   },
 
   {
@@ -275,7 +275,7 @@ export const mockLandPlotGroups: LandPlotGroup[] = [
       },
     ],
     itemCount: 2,
-    latestUpdate: "2025-06-19T15:00:00Z",
+    latestUpdate: "7 พ.ค. 2568",
   },
 
 
