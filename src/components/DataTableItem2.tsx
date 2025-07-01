@@ -32,16 +32,20 @@ export default function DataTableItem2 ({
 }:DataTableItem2){
     const style = 
     selected
-    ? "font-prompt text-base text-cancel-700 bg-nuetral-500 border-neutral-700  "
+    ? "font-prompt text-base text-cancel-700 bg-neutral-500 border-neutral-700  "
     :disabled 
     ? "font-prompt text-base text-cancel-700  bg-cancel-300 border-cancel-300  " 
     :header 
     ? "font-prompt font-medium text-base text-text-800 bg-gray-v1 border-cancel-700" 
-    : "font-prompt text-base text-text-800 bg-neutral-300 border-neutral-700 hover:bg-gray-v1 " ;
+    : "font-prompt text-base text-text-800  " ;
 
+    const isCenter = 
+    isCheckbox 
+    ? " justify-center      py-[10px]"
+    : "justify-between   pl-[16px] pr-[12px] py-[10px]"
     
     return(
-        <div onClick={onClick} className={`  border-b-1 ${parentClassName} ${style}`}>
+        <div onClick={onClick} className={`  h-full flex flex-row items-center border-b-1 ${parentClassName} ${style} ${isCenter}`}>
             <>
                 {isText && text}
                 {isCheckbox && <CheckBox isChecked={selected} disabled={disabled} onClick={onClick}/>}
