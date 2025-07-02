@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 gap-5 ">
           
-      <div className="mb-[150px]">
+      <div className="mb-[50px]">
       <DataTableGeneral data={data} group />
       </div>
       
