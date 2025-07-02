@@ -20,7 +20,7 @@ export default function DataTableRow({
 
   if (group) {
     return (
-      <div className={` ${className} flex flex-row  ${isClick ?"" :disabled?"":"bg-neutral-300 border-neutral-700 hover:bg-gray-v1"}  `}
+      <div className={` ${className} flex flex-row  ${isClick ?"" :disabled?"":"bg-neutral-300  hover:bg-gray-v1"}  `}
         
       >
         {/* <div className="bg-cancel-300 h-full w-[20%]"></div> */}

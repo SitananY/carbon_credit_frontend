@@ -37,7 +37,7 @@ export default function DataTableItem2 ({
     ? "font-prompt text-base text-cancel-700  bg-cancel-300 border-cancel-300  " 
     :header 
     ? "font-prompt font-medium text-base text-text-800 bg-gray-v1 border-cancel-700" 
-    : "font-prompt text-base text-text-800  " ;
+    : "font-prompt text-base text-text-800 border-neutral-700 " ;
 
     const isCenter = 
     isCheckbox 
