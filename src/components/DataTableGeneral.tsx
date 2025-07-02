@@ -70,7 +70,7 @@ export default function DataTableGeneral({
       </div>
       
       <div className="w-full h-[40px] flex-row flex justify-between items-center bg-gray-v1 rounded-bl-xl rounded-br-xl ">
-        <div className="pl-[32px]">แสดงรายการที่ {firstIndexInPage} ถึง {lastIndexInPage} จากทั้งหมด {data.length}</div>
+        <div className="pl-[32px]">แสดงรายการที่ {firstIndexInPage} ถึง {lastIndexInPage} จากทั้งหมด {data.length} รายการ</div>
         <div className="flex flex-row gap-[16px] items-center pr-[32px]">
 
               <Icons.Double_arrow_left
