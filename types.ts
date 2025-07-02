@@ -48,7 +48,7 @@ export type SurveyImages = {
   treeImages: string[];
 };
 
-export type GroupType = "ป่าดงดิบ" | "ป่าผสมผลัดใบ" | "ป่าเต็งรัง" | "ป่าชายเลน" | "ป่าสนเขา";
+// export type GroupType = "ป่าดงดิบ" | "ป่าผสมผลัดใบ" | "ป่าเต็งรัง" | "ป่าชายเลน" | "ป่าสนเขา";
 
 export type LandPlot = {
   id:string;
@@ -63,14 +63,14 @@ export type LandPlot = {
   province: string;
   district: string;
   subdistrict: string;
-  forestType: GroupType;
+  forestType: string;
   trees: Tree[];
   surveyImages: SurveyImages;
 };
 
 export type LandPlotGroup = {
   groupId:string;
-  groupType:GroupType;
+  groupType:string;
   plots: LandPlot[];
   itemCount: number;        
   latestUpdate: string;  
