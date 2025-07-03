@@ -1,6 +1,6 @@
 
 import ListItem from "@/components/ListItem";
-import { DataGroup } from "../../../../types";
+import { DataGroup } from "@/types/types";
 import Icons from "@/components/svgs/SvgExports";
 
 type ProcessDataCardProps ={

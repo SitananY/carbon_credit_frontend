@@ -3,7 +3,7 @@
 import ListItem from "@/components/ListItem";
 import Link from "next/link";
 import Icons from "@/components/svgs/SvgExports";
-import { DataGroup } from "../../../../types";
+import { DataGroup } from "@/types/types";
 import { useRouter } from "next/navigation";
 
 

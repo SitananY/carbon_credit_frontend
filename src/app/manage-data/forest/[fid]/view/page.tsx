@@ -5,7 +5,7 @@ import { mockDataGroups } from "@/mockDataGroups";
 import Link from "next/link";
 import ViewDataCard from "@/app/manage-data/components/ViewDataCard";
 import { useParams, useRouter } from "next/navigation";
-import { ForestData, LandData } from "../../../../../../types";
+import { ForestData, LandData } from "@/types/types";
 import SectionHeader from "@/components/SectionHeader";
 import SectionBelowHeader from "@/components/SectionBelowHeader";
 import { useState } from "react";

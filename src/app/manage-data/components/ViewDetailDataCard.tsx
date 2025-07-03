@@ -1,7 +1,7 @@
 import Button from "@/components/Button";
 
 import ViewDetailDataItem from "@/app/manage-data/components/ViewDetailDataItem";
-import { ForestData, LandData } from "../../../../types";
+import { ForestData, LandData } from "@/types/types";
 
 
 type ViewDetailDataCardProps = {

@@ -28,6 +28,7 @@ export default function DataTableItem2 ({
     header,
     onClick,
     onHeaderClick,
+    
 
 }:DataTableItem2){
     const style = 
@@ -45,7 +46,7 @@ export default function DataTableItem2 ({
     : "justify-between   pl-[16px] pr-[12px] py-[10px]"
     
     return(
-        <div onClick={onClick} className={`  h-full flex flex-row items-center border-b-1 ${parentClassName} ${style} ${isCenter}`}>
+        <div  className={`  h-full flex flex-row items-center border-b-1 ${parentClassName} ${style} ${isCenter}`}>
             <>
                 {isText && text}
                 {isCheckbox && <CheckBox isChecked={selected} disabled={disabled} onClick={onClick}/>}

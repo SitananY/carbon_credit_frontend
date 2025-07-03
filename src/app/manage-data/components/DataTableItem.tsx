@@ -2,8 +2,8 @@
 import ListItem from "@/components/ListItem";
 import Link from "next/link";
 import Icons from "@/components/svgs/SvgExports";
-import { ForestData } from "../../../../types";
-import { LandData } from "../../../../types";
+import { ForestData } from "@/types/types";
+import { LandData } from "@/types/types";
 import { useRouter } from "next/navigation";
 
 type DataTableItemProps ={

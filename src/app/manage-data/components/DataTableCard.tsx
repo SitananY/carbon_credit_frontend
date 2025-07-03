@@ -1,6 +1,6 @@
 
 import DataTableItem from "@/app/manage-data/components/DataTableItem";
-import { DataGroup } from "../../../../types";
+import { DataGroup } from "@/types/types";
 import DataTableGroupItem from "@/app/manage-data/components/DataTableGroupItem";
 import Icons from "@/components/svgs/SvgExports"; 
 

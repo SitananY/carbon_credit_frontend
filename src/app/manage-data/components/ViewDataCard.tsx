@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ForestData, LandData } from "../../../../types";
+import { ForestData, LandData } from "@/types/types";
 
  type ViewDataCardProps ={
     data:ForestData|LandData|null;

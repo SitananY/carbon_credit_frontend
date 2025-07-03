@@ -2,7 +2,7 @@
 import Button from "@/components/Button";
 import InputField from "@/components/InputField";
 import Icons from "@/components/svgs/SvgExports";
-import { ForestData, LandData } from "../../types";
+import { ForestData, LandData } from "@/types/types";
 import Switch from "@/components/Switch";
 import { useState } from "react";
 import ExportDropDown from "@/app/dashboard/components/ExportDropDown"; "@/app/dashboard/components/ExportDropDown";
