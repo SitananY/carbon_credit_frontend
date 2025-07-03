@@ -1,0 +1,402 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#e34798",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#e34798",
+        "fill-opacity": 0.5,
+        "landTitleNumber": "12345",
+        "surveyPage": "6789",
+        "landNumber": "10",
+        "mapSheet": "4847 I 1234-5678",
+        "subdistrict": "ปากทรง",
+        "district": "พะโต๊ะ",
+        "province": "ชุมพร",
+        "area": "50 ไร่",
+        "forestType": "ป่าเบญพรรณ",
+        "annualRainfall": "2500 mm/ปี",
+        "trees": [
+          {
+            "scientificName": "Dipterocarpus tuberculatus",
+            "family": "Dipterocarpaceae",
+            "commonName": "ยางนา",
+            "otherName": "ยางใหญ่",
+            "diameter": "35 cm",
+            "height": "20 m",
+            "treeCount": 15
+          },
+          {
+            "scientificName": "Shorea obtusa",
+            "family": "Dipterocarpaceae",
+            "commonName": "เต็ง",
+            "otherName": "กะเต็ง",
+            "diameter": "30 cm",
+            "height": "18 m",
+            "treeCount": 20
+          },
+          {
+            "scientificName": "Xylia xylocarpa",
+            "family": "Fabaceae",
+            "commonName": "ประดู่แดง",
+            "otherName": "ประดู่ชิงชัน",
+            "diameter": "25 cm",
+            "height": "15 m",
+            "treeCount": 10
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              98.80067304585805,
+              9.731787084184603
+            ],
+            [
+              98.94134971236969,
+              9.73846475403731
+            ],
+            [
+              98.8829650662745,
+              9.829938576916746
+            ],
+            [
+              98.79540991175219,
+              9.827397928917222
+            ],
+            [
+              98.80067304585805,
+              9.731787084184603
+            ]
+          ]
+        ]
+      },
+      "id":"land-1"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#e34798",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#e34798",
+        "fill-opacity": 0.5,
+        "landTitleNumber": "56789",
+        "surveyPage": "2345",
+        "landNumber": "25",
+        "mapSheet": "4847 I 5678-9101",
+        "subdistrict": "บ้านหลวง",
+        "district": "จอมทอง",
+        "province": "เชียงใหม่",
+        "area": "80 ไร่",
+        "forestType": "ป่าดิบแล้ง",
+        "annualRainfall": "3200 mm/ปี",
+        "trees": [
+          {
+            "scientificName": "Quercus kerrii",
+            "family": "Fagaceae",
+            "commonName": "ก่อเดือยไก่",
+            "otherName": "ก่อชนิดหนึ่ง",
+            "diameter": "3 cm",
+            "height": "2 m",
+            "treeCount": 50
+          },
+          {
+            "scientificName": "Castanopsis acuminatissima",
+            "family": "Fagaceae",
+            "commonName": "หมากขาง",
+            "otherName": "ขาง",
+            "diameter": "4.5 cm",
+            "height": "3 m",
+            "treeCount": 40
+          },
+          {
+            "scientificName": "Lithocarpus dealbatus",
+            "family": "Fagaceae",
+            "commonName": "ก่อตาแป",
+            "otherName": "ตาแป",
+            "diameter": "30 cm",
+            "height": "15 m",
+            "treeCount": 25
+          },
+          {
+            "scientificName": "Schima wallichii",
+            "family": "Theaceae",
+            "commonName": "ปีบหลวง",
+            "otherName": "ปีบเขา",
+            "diameter": "40 cm",
+            "height": "20 m",
+            "treeCount": 10
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              98.40296288907501,
+              18.59639595001039
+            ],
+            [
+              98.21079255769041,
+              18.500564038112103
+            ],
+            [
+              98.36066031355699,
+              18.276517951155242
+            ],
+            [
+              98.63858440751176,
+              18.31743877621109
+            ],
+            [
+              98.66708955412645,
+              18.4621098230334
+            ],
+            [
+              98.79677131887615,
+              18.501722145499713
+            ],
+            [
+              98.81196414250479,
+              18.61371779310862
+            ],
+            [
+              98.6825127792793,
+              18.690077491950404
+            ],
+            [
+              98.51697705672012,
+              18.664853916675966
+            ],
+            [
+              98.40296288907501,
+              18.59639595001039
+            ]
+          ]
+        ]
+      },"id":"land-2"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#e34798",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#e34798",
+        "fill-opacity": 0.5,
+        "landTitleNumber": "98765",
+        "surveyPage": "5432",
+        "landNumber": "45",
+        "mapSheet": "5234 I 5678-9101",
+        "subdistrict": "หมูสี",
+        "district": "ปากช่อง",
+        "province": "นครราชสีมา",
+        "area": "120 ไร่",
+        "forestType": "ป่าเต็งรัง",
+        "annualRainfall": "1400 mm/ปี",
+        "trees": [
+          {
+            "scientificName": "Dipterocarpus alatus",
+            "family": "Dipterocarpaceae",
+            "commonName": "ยางนา",
+            "otherName": "ยางใหญ่",
+            "diameter": "40 cm",
+            "height": "25 m",
+            "treeCount": 12
+          },
+          {
+            "scientificName": "Shorea roxburghii",
+            "family": "Dipterocarpaceae",
+            "commonName": "แดง",
+            "otherName": "เค็ง",
+            "diameter": "3.5 cm",
+            "height": "2.5 m",
+            "treeCount": 30
+          },
+          {
+            "scientificName": "Pterocarpus macrocarpus",
+            "family": "Fabaceae",
+            "commonName": "ประดู่ป่า",
+            "otherName": "ประดู่แดง",
+            "diameter": "28 cm",
+            "height": "18 m",
+            "treeCount": 8
+          },
+          {
+            "scientificName": "Terminalia bellirica",
+            "family": "Combretaceae",
+            "commonName": "สมอพิเภก",
+            "otherName": "สมอขาว",
+            "diameter": "4 cm",
+            "height": "3 m",
+            "treeCount": 20
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.35823232620788,
+              14.331953372948718
+            ],
+            [
+              101.3851459346564,
+              14.309248097141477
+            ],
+            [
+              101.41817737348185,
+              14.32136962910998
+            ],
+            [
+              101.40809443074136,
+              14.372451725324282
+            ],
+            [
+              101.36050460469897,
+              14.392443043110745
+            ],
+            [
+              101.34268675010014,
+              14.347785925450594
+            ],
+            [
+              101.35823232620788,
+              14.331953372948718
+            ]
+          ]
+        ]
+      },"id":"land-3"
+    },{
+    "type": "Feature",
+    "properties": {
+        "landTitleNumber": "11223",
+        "surveyPage": "3344",
+        "landNumber": "55",
+        "mapSheet": "5234 I 1122-3344",
+        "subdistrict": "ทุ่งลุยลาย",
+        "district": "คอนสาร",
+        "province": "ชัยภูมิ",
+        "area": "150 ไร่",
+        "forestType": "ป่าเต็งรัง",
+        "annualRainfall": "1600 mm/ปี",
+        "trees": [
+        {
+            "scientificName": "Shorea obtusa",
+            "family": "Dipterocarpaceae",
+            "commonName": "เต็ง",
+            "otherName": "กะเต็ง",
+            "diameter": "20 cm",
+            "height": "10 m",
+            "treeCount": 60
+        },
+        {
+            "scientificName": "Dipterocarpus tuberculatus",
+            "family": "Dipterocarpaceae",
+            "commonName": "ยางนา",
+            "otherName": "ยางใหญ่",
+            "diameter": "35 cm",
+            "height": "22 m",
+            "treeCount": 25
+        },
+        {
+            "scientificName": "Terminalia bellirica",
+            "family": "Combretaceae",
+            "commonName": "สมอพิเภก",
+            "otherName": "สมอขาว",
+            "diameter": "4 cm",
+            "height": "3 m",
+            "treeCount": 40
+        },
+        {
+            "scientificName": "Pterocarpus macrocarpus",
+            "family": "Fabaceae",
+            "commonName": "ประดู่ป่า",
+            "otherName": "ประดู่แดง",
+            "diameter": "28 cm",
+            "height": "17 m",
+            "treeCount": 15
+        }
+        ],
+        "stroke": "#e34798",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#e34798",
+        "fill-opacity": 0.5
+    },
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+        [
+            [
+            101.54976688047788,
+            16.255452039843718
+            ],
+            [
+            101.60053262579703,
+            16.239332524768358
+            ],
+            [
+            101.66307822243812,
+            16.19720214648568
+            ],
+            [
+            101.7173467609993,
+            16.211210400747632
+            ],
+            [
+            101.75702431226642,
+            16.16103057108188
+            ],
+            [
+            101.81645834600585,
+            16.157196940246976
+            ],
+            [
+            101.86470861598042,
+            16.207072629543305
+            ],
+            [
+            101.85737710850839,
+            16.287360030190897
+            ],
+            [
+            101.78504468618422,
+            16.344366662799715
+            ],
+            [
+            101.69654544812437,
+            16.43739342501506
+            ],
+            [
+            101.55098952468592,
+            16.41920759104218
+            ],
+            [
+            101.48572009126684,
+            16.274373543901675
+            ],
+            [
+            101.5244259563679,
+            16.24635503214583
+            ],
+            [
+            101.54976688047788,
+            16.255452039843718
+            ]
+        ]
+        ]
+    },
+    "id": "land-4"
+    }
+
+  ]
+}
