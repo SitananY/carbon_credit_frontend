@@ -1,5 +1,6 @@
 import CheckBox from "@/components/CheckBox";
 import Icons from "@/components/svgs/SvgExports"
+import SortFilterDropdown from "./SortFilterDropdown";
 type DataTableItem2={
     isText?:boolean,
     isCheckbox?:boolean,
@@ -13,6 +14,7 @@ type DataTableItem2={
     header?:boolean,
     onClick?:()=> void,
     onHeaderClick?: ()=>void,
+    icon?:boolean;
 }
 
 export default function DataTableItem2 ({
@@ -28,7 +30,7 @@ export default function DataTableItem2 ({
     header,
     onClick,
     onHeaderClick,
-    
+    icon=true,
 
 }:DataTableItem2){
     const style = 
@@ -51,7 +53,14 @@ export default function DataTableItem2 ({
                 {isText && text}
                 {isCheckbox && <CheckBox isChecked={selected} disabled={disabled} onClick={onClick}/>}
                 {isAction && action}
-                {isCheckbox ?undefined : header ? <Icons.Down className="w-[18px] h-[18px]"  onClick={onHeaderClick}/> :undefined }
+                {header? icon ? <SortFilterDropdown
+                                    type="sort"
+                                    onSelect={(selected) => {
+                                    if (onHeaderClick) onHeaderClick(); 
+                                    console.log("Selected:", selected);
+                                    }}
+                                /> 
+                :undefined  :undefined }
                 
             </>        
         </div>
