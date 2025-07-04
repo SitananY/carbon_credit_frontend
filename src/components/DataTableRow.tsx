@@ -33,13 +33,13 @@ export default function DataTableRow({
         <DataTableItem2
           isText
           selected={isClick}
-          text={data.groupType}
+          text={data.forestType}
           parentClassName="w-[45%] "
         />
         <DataTableItem2
           isText
           selected={isClick}
-          text={`${data.itemCount} รายการ`}
+          text={`${data.lands.length} รายการ`}
           parentClassName="w-[20%] "
         />
         <DataTableItem2
