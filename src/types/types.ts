@@ -28,7 +28,7 @@ export type DataGroup={
 }
 
 
-export type Tree = {
+export type Tree1 = {
   scientificName: string;
   commonName: string;
   family: string;
@@ -64,7 +64,7 @@ export type LandPlot = {
   district: string;
   subdistrict: string;
   forestType: string;
-  trees: Tree[];
+  trees: Tree1[];
   surveyImages: SurveyImages;
 };
 
@@ -75,3 +75,66 @@ export type LandPlotGroup = {
   itemCount: number;        
   latestUpdate: string;  
 };
+
+
+
+export type Tree = {
+  scientificName: string;
+  family: string;
+  commonName: string;
+  otherName: string;
+  treeCount: number;
+  gbh: number;
+  dbh: number;
+  h: number;
+  ws: number;
+  wb: number;
+  wl: number;
+  y: number;
+  c?: number;
+  co2Absorption?: number;
+  oxygenProduction?: number;
+  y_rainfall?: number;
+};
+
+export type FeatureProperties = {
+  stroke?: string;
+  'stroke-width'?: number;
+  'stroke-opacity'?: number;
+  fill?: string;
+  'fill-opacity'?: number;
+  landTitleNumber: string;
+  surveyPage: string;
+  landNumber: string;
+  mapSheet: string;
+  subdistrict: string;
+  district: string;
+  province: string;
+  area: string;
+  forestType: string;
+  annualRainfall: string;
+  'carbon-credit': number;
+  trees: Tree[];
+};
+
+export type GeoJSONFeature = {
+  type: 'Feature';
+  properties: FeatureProperties;
+  geometry: {
+    type: 'Polygon' | 'MultiPolygon' | string; 
+    coordinates: any;
+  };
+  id: string;
+};
+
+export type GeoJSONData = {
+  type: 'FeatureCollection';
+  features: GeoJSONFeature[];
+};
+
+export type GroupedLand = {
+      forestType: string;
+      lands: GeoJSONFeature[];
+      id:string;
+      latestUpdate:string;
+    };
