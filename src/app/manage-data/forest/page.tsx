@@ -1,7 +1,7 @@
 'use client'
 
 import DataTableCard from "@/app/manage-data/components/DataTableCard";
-import { mockDataGroups } from "@/mockDataGroups";
+import { mockDataGroups } from "@/data/mockDataGroups";
 import SectionHeader from "@/components/SectionHeader";
 import SectionBelowHeader from "@/components/SectionBelowHeader";
 import { useRouter } from "next/navigation";

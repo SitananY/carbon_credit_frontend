@@ -1,7 +1,7 @@
 'use client'
 import Button from "@/components/Button";
 import Icons from "@/components/svgs/SvgExports";
-import { mockDataGroups } from "@/mockDataGroups";
+import { mockDataGroups } from "@/data/mockDataGroups";
 import Link from "next/link";
 import ViewDataCard from "@/app/manage-data/components/ViewDataCard";
 import { useParams, useRouter } from "next/navigation";

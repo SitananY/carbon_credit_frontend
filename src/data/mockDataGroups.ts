@@ -1,4 +1,4 @@
-import { DataGroup, LandPlot, LandPlotGroup } from "./types/types";
+import { DataGroup, LandPlot, LandPlotGroup } from "../types/types";
 
 export const mockDataGroups: DataGroup[] = [
   {
