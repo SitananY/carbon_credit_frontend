@@ -87,7 +87,7 @@ export default function DataTableGeneral({
 
 
   return (
-    <div className="flex flex-col w-[792px] h-[auto] bg-white">
+    <div className="flex flex-col w-full h-[auto] bg-white">
       {/* Header */}
       <div className="w-full h-[40px] flex-row flex">
         {isGroup && (
