@@ -32,7 +32,7 @@ export default function ListItem({
         ? "bg-cancel-300 cursor-default"
         : selected
         ? "bg-primary-500 cursor-pointer"
-        : "bg-neutral-300 hover:bg-primary-300 cursor-pointer"
+        : "bg-neutral-300 hover:bg-gray-v1 cursor-pointer"
     }
   `}
     >
