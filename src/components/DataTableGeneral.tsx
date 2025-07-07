@@ -8,67 +8,22 @@ type DataTableGeneralProps = {
   data: GroupedLand[] | GeoJSONFeature[];
   isGroup?: boolean;
   landPlot?: boolean;
+  onSortSelected?: (column: string, order: "asc" | "desc" | null) => void;
 };
 
 export default function DataTableGeneral({
   data,
   isGroup = false,
-  landPlot = false
+  landPlot = false,
+  onSortSelected=()=>{}
 }: DataTableGeneralProps) {
 
  
-  const [sortColumn, setSortColumn] = useState<string | null>(null);
-  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
-
-  const handleSort = (column: string) => {
-    if (sortColumn === column) {
-      // toggle order
-      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
-    } else {
-      setSortColumn(column);
-      setSortOrder("asc");
-    }
-  };
-
-    const sortedData = [...data].sort((a, b) => {
-    if (!sortColumn) return 0;
-        const getValue = (item: any, column: string) => {
-    if (isGroup) {
-      const group = item as GroupedLand;
-      switch (column) {
-        case "forestType": return group.forestType;
-        case "landsCount": return group.lands.length;
-        case "latestUpdate": return group.latestUpdate;
-        default: return "";
-      }
-    } else {
-      const land = item as GeoJSONFeature;
-      switch (column) {
-        case "landTitleNumber": return land.properties.landNumber;
-        case "province": return land.properties.province;
-        case "area": return land.properties.area;
-        case "carbon-credit": return land.properties["carbon-credit"];
-        default: return "";
-      }
-    }
-  };
-
-    const valA = getValue(a, sortColumn);
-    const valB = getValue(b, sortColumn);
-
-    if (typeof valA === "number" && typeof valB === "number") {
-      return sortOrder === "asc" ? valA - valB : valB - valA;
-    } else if (typeof valA === "string" && typeof valB === "string") {
-      return sortOrder === "asc" ? valA.localeCompare(valB) : valB.localeCompare(valA);
-    }
-    return 0;
-  });
-
  
 
    const [currentPage , setCurrentPage] = useState(1);
   const pageSize = 7 ;
-  const totalPages = Math.ceil(sortedData.length/pageSize);
+  const totalPages = Math.ceil(data.length/pageSize);
   
   const goToPage = (page: number) => {
     if (page < 1) page = 1;
@@ -81,9 +36,9 @@ export default function DataTableGeneral({
     pages.push(i);
   } 
   const firstIndexInPage = (currentPage - 1) * pageSize + 1;
-  const lastIndexInPage = Math.min(currentPage * pageSize, sortedData.length);
+  const lastIndexInPage = Math.min(currentPage * pageSize, data.length);
 
-  const paginatedsortedData = sortedData.slice(firstIndexInPage - 1, lastIndexInPage);
+  const paginateddata = data.slice(firstIndexInPage - 1, lastIndexInPage);
 
 
   return (
@@ -93,20 +48,20 @@ export default function DataTableGeneral({
         {isGroup && (
           <>
             <DataTableItem2 isCheckbox header parentClassName="w-[10%]  rounded-tl-xl " icon={false} />
-            <DataTableItem2 isText text="หมวดข้อมูล" header parentClassName="w-[45%]  " onHeaderClick={()=>handleSort("forestType")} />
-            <DataTableItem2 isText text="จำนวนรายการ" header parentClassName="w-[20%]  " onHeaderClick={()=>handleSort("landsCount")} />
-            <DataTableItem2 isText text="อัพเดตล่าสุด" header parentClassName="w-[25%]   rounded-tr-xl"  onHeaderClick={()=>handleSort("latestUpdate")}/>
+            <DataTableItem2 isText text="หมวดข้อมูล" header parentClassName="w-[45%]  " columnKey="forestType"  onSortSelected={ onSortSelected}/>
+            <DataTableItem2 isText text="จำนวนรายการ" header parentClassName="w-[20%]  "  columnKey="lands"  onSortSelected={ onSortSelected}/>
+            <DataTableItem2 isText text="อัพเดตล่าสุด" header parentClassName="w-[25%]   rounded-tr-xl"  columnKey="latestUpdate" onSortSelected={ onSortSelected}/>
           </>
         )}
 
         {landPlot && (
           <>
             <DataTableItem2 isCheckbox header parentClassName="w-[10%]"  />
-            <DataTableItem2 isText text="เลขฉโนดที่ดิน" header parentClassName="w-[10%]  " icon={false}  onHeaderClick={()=>handleSort("landTitleNumber")} />
-            <DataTableItem2 isText text="จังหวัด" parentClassName="w-[45%]  "onHeaderClick={()=>handleSort("province")} />
-            <DataTableItem2 isText text="เนื้อที่" header parentClassName="w-[20%]  "onHeaderClick={()=>handleSort("area")} />
-            <DataTableItem2 isText text="การกักเก็บคาร์บอน" header parentClassName="w-[25%]  rounded-tr-xl"onHeaderClick={()=>handleSort("carbon-credit")} />
-            <DataTableItem2 isText text="การจัดการ" header parentClassName="w-[25%]  rounded-tr-xl" />
+            <DataTableItem2 isText text="เลขฉโนดที่ดิน" header parentClassName="w-[10%]  " columnKey=""  icon={false}  onSortSelected={ onSortSelected} />
+            <DataTableItem2 isText text="จังหวัด" parentClassName="w-[45%]  "columnKey="" onSortSelected={ onSortSelected}/>
+            <DataTableItem2 isText text="เนื้อที่" header parentClassName="w-[20%]  "  columnKey="" onSortSelected={ onSortSelected}/>
+            <DataTableItem2 isText text="การกักเก็บคาร์บอน" header parentClassName="w-[25%]  rounded-tr-xl"columnKey="" onSortSelected={ onSortSelected}/>
+            <DataTableItem2 isText text="การจัดการ" header parentClassName="w-[25%]  rounded-tr-xl" columnKey="" onSortSelected={ onSortSelected}/>
 
           </>
         )}
@@ -125,7 +80,7 @@ export default function DataTableGeneral({
       </div> */}
       {isGroup && (
         <div className="w-full h-[auto] bg-red-500 ">
-          {paginatedsortedData.map((group) => (
+          {paginateddata.map((group) => (
             <DataTableRow
               key={group.id}
               data={group}
@@ -139,7 +94,7 @@ export default function DataTableGeneral({
 
       {landPlot && (
         <div className="w-full h-[auto] bg-red-500 ">
-          {paginatedsortedData.map((land) => (
+          {paginateddata.map((land) => (
             <DataTableRow
               key={land.id}
               data={land}
