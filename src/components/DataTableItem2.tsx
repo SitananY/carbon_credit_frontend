@@ -55,6 +55,7 @@ export default function DataTableItem2 ({
                 {isAction && action}
                 {header? icon ? <SortFilterDropdown
                                     type="sort"
+                                    options={["เรียงจากน้อยไปมาก", "เรียงจากมากไปน้อย"]}
                                     onSelect={(selected) => {
                                     if (onHeaderClick) onHeaderClick(); 
                                     console.log("Selected:", selected);
