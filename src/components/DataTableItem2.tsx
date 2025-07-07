@@ -14,7 +14,9 @@ type DataTableItem2={
     header?:boolean,
     onClick?:()=> void,
     onHeaderClick?: ()=>void,
-    icon?:boolean;
+    icon?:boolean,
+    columnKey?: string, 
+    onSortSelected?: (column: string, order: "asc" | "desc") => void,
 }
 
 export default function DataTableItem2 ({
@@ -31,6 +33,9 @@ export default function DataTableItem2 ({
     onClick,
     onHeaderClick,
     icon=true,
+    columnKey="",
+    onSortSelected=()=>{},
+    
 
 }:DataTableItem2){
     const style = 
@@ -57,9 +62,17 @@ export default function DataTableItem2 ({
                                     type="sort"
                                     options={["เรียงจากน้อยไปมาก", "เรียงจากมากไปน้อย"]}
                                     onSelect={(selected) => {
-                                    if (onHeaderClick) onHeaderClick(); 
-                                    console.log("Selected:", selected);
-                                    }}
+                                        if (!columnKey) {
+                                            console.warn("No columnKey specified for sorting");
+                                            return;
+                                        }
+                                        if (onHeaderClick) onHeaderClick();
+                                        const ord: "asc" | "desc" = selected.includes("น้อยไปมาก") ? "asc" : "desc";
+                                        console.log("Sort Selected:", columnKey, ord);
+                                        onSortSelected(columnKey, ord);
+                                        }
+                                    
+                                }
                                 /> 
                 :undefined  :undefined }
                 
