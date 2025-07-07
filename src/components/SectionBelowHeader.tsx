@@ -5,7 +5,8 @@ import Icons from "@/components/svgs/SvgExports";
 import { ForestData, LandData } from "@/types/types";
 import Switch from "@/components/Switch";
 import { useState } from "react";
-import ExportDropDown from "@/app/dashboard/components/ExportDropDown"; "@/app/dashboard/components/ExportDropDown";
+import ExportDropDown from "@/app/dashboard/components/ExportDropDown";import SortFilterDropdown from "./SortFilterDropdown";
+ "@/app/dashboard/components/ExportDropDown";
 
 type SectionBelowHeaderProps ={
     manageData?:boolean,
@@ -17,7 +18,8 @@ type SectionBelowHeaderProps ={
     handleClick?:()=>void,
     handleDeleteButton?:()=>void,
     add?:boolean,
-    dashboard?:boolean
+    dashboard?:boolean,
+    onFilterSelected?: (selected: string | string[]) => void,
 }
 
 
@@ -31,17 +33,27 @@ export default function SectionBelowHeader({
     handleClick,
     add,
     handleDeleteButton,
-    dashboard
+    dashboard,
+    onFilterSelected=()=>{}
 }:SectionBelowHeaderProps){
     const [isSwitchOpen,setSwitch] = useState(false);
     
     return(
      <>
         {manageData ?
-            <div className=" w-full h-[40px]  font-prompt text-text-800 items-center  flex  flex-row justify-between my-[24px] max-sm:flex-col  max-sm:gap-3 max-sm:h-[auto] ">
+            <div className=" w-full h-[auto]  font-prompt text-text-800  my-[24px] max-sm:flex-col flex flex-col gap-4  max-sm:gap-3 max-sm:h-[auto] ">
+                        <div className="items-center  flex  flex-row justify-between">
                           <div className="w-auto h-[40px]  font-medium items-center flex text-xl">จัดการข้อมูล</div>
-                          <div className="w-auto h-[40px] items-center flex"><InputField iconSearch  className="h-[34px] w-[287px] rounded-2xl" /></div>
                           <div className="w-auto h-[40px] items-center flex"><Button text="เพิ่มข้อมูล" className="w-[113px] h-[40px] rounded-lg " onClick={handleClick}><Icons.Add /></Button></div>
+                        </div>
+                        <div className="flex flex-row items-center gap-5">
+                          <div className="w-[auto] h-[40px] items-center flex"><InputField iconSearch  className="w-[248px] h-[32px]" inputClassName="rounded-2xl pl-[35px]" placeholder="ค้นหาจากชื่อ" /></div>
+                           <SortFilterDropdown
+                                    type="filter"
+                                    options={["ป่าดิบแล้ง", "ป่าเบญพรรณ", "ป่าเต็งรัง"]}
+                                    onSelect={onFilterSelected}
+                                  />
+                        </div>
             </div>
         :
             viewSubGroup 
