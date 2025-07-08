@@ -17,6 +17,7 @@ type DataTableItem2={
     icon?:boolean,
     columnKey?: string, 
     onSortSelected?: (column: string, order: "asc" | "desc") => void,
+    sortByColumn?: string | null;
 }
 
 export default function DataTableItem2 ({
@@ -35,6 +36,7 @@ export default function DataTableItem2 ({
     icon=true,
     columnKey="",
     onSortSelected=()=>{},
+    sortByColumn,
     
 
 }:DataTableItem2){
@@ -53,27 +55,26 @@ export default function DataTableItem2 ({
     : "justify-between   pl-[16px] pr-[12px] py-[10px]"
     
     return(
-        <div  className={`  h-full flex flex-row items-center border-b-1 ${parentClassName} ${style} ${isCenter}`}>
-            <>
-                {isText && text}
-                {isCheckbox && <CheckBox isChecked={selected} disabled={disabled} onClick={onClick}/>}
-                {isAction && action}
-                {header? icon ? <SortFilterDropdown
-                                    type="sort"
-                                    options={["เรียงจากน้อยไปมาก", "เรียงจากมากไปน้อย"]}
-                                    onSelect={(selected) => {
-                                        if (!columnKey) {
-                                            console.warn("No columnKey specified for sorting");
-                                            return;
-                                        }
-                                        if (onHeaderClick) onHeaderClick();
-                                        const ord: "asc" | "desc" = selected.includes("น้อยไปมาก") ? "asc" : "desc";
-                                        console.log("Sort Selected:", columnKey, ord);
-                                        onSortSelected(columnKey, ord);
-                                        }
-                                    
-                                }
-                                /> 
+                <div  className={`  h-full flex flex-row items-center border-b-1 ${parentClassName} ${style} ${isCenter}`}>
+                    <>
+                        {isText && text}
+                        {isCheckbox && <CheckBox isChecked={selected} disabled={disabled} onClick={onClick}/>}
+                        {isAction && action}
+                        {header? icon ?<SortFilterDropdown
+                type="sort"
+                options={["เรียงจากน้อยไปมาก", "เรียงจากมากไปน้อย"]}
+                onSelect={(selected) => {
+                    if (!columnKey) {
+                    console.warn("No columnKey specified for sorting");
+                    return;
+                    }
+                    if (onHeaderClick) onHeaderClick();
+                    const ord: "asc" | "desc" = selected.includes("น้อยไปมาก") ? "asc" : "desc";
+                    onSortSelected(columnKey, ord);
+                }}
+                resetSort={sortByColumn !== columnKey} 
+                />
+
                 :undefined  :undefined }
                 
             </>        
