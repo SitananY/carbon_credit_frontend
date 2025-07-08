@@ -9,13 +9,15 @@ type DataTableGeneralProps = {
   isGroup?: boolean;
   landPlot?: boolean;
   onSortSelected?: (column: string, order: "asc" | "desc" | null) => void;
+  sortByColumn?: string | null; 
 };
 
 export default function DataTableGeneral({
   data,
   isGroup = false,
   landPlot = false,
-  onSortSelected=()=>{}
+  onSortSelected=()=>{},
+  sortByColumn
 }: DataTableGeneralProps) {
 
  
@@ -48,20 +50,20 @@ export default function DataTableGeneral({
         {isGroup && (
           <>
             <DataTableItem2 isCheckbox header parentClassName="w-[10%]  rounded-tl-xl " icon={false} />
-            <DataTableItem2 isText text="หมวดข้อมูล" header parentClassName="w-[45%]  " columnKey="forestType"  onSortSelected={ onSortSelected}/>
-            <DataTableItem2 isText text="จำนวนรายการ" header parentClassName="w-[20%]  "  columnKey="lands"  onSortSelected={ onSortSelected}/>
-            <DataTableItem2 isText text="อัพเดตล่าสุด" header parentClassName="w-[25%]   rounded-tr-xl"  columnKey="latestUpdate" onSortSelected={ onSortSelected}/>
+            <DataTableItem2 isText text="หมวดข้อมูล" header parentClassName="w-[45%]  " columnKey="forestType"  onSortSelected={ onSortSelected} sortByColumn={sortByColumn}/>
+            <DataTableItem2 isText text="จำนวนรายการ" header parentClassName="w-[20%]  "  columnKey="lands"  onSortSelected={ onSortSelected}  sortByColumn={sortByColumn}/>
+            <DataTableItem2 isText text="อัพเดตล่าสุด" header parentClassName="w-[25%]   rounded-tr-xl"  columnKey="latestUpdate" onSortSelected={ onSortSelected} sortByColumn={sortByColumn}/>
           </>
         )}
 
         {landPlot && (
           <>
             <DataTableItem2 isCheckbox header parentClassName="w-[10%]"  />
-            <DataTableItem2 isText text="เลขฉโนดที่ดิน" header parentClassName="w-[10%]  " columnKey=""  icon={false}  onSortSelected={ onSortSelected} />
-            <DataTableItem2 isText text="จังหวัด" parentClassName="w-[45%]  "columnKey="" onSortSelected={ onSortSelected}/>
-            <DataTableItem2 isText text="เนื้อที่" header parentClassName="w-[20%]  "  columnKey="" onSortSelected={ onSortSelected}/>
-            <DataTableItem2 isText text="การกักเก็บคาร์บอน" header parentClassName="w-[25%]  rounded-tr-xl"columnKey="" onSortSelected={ onSortSelected}/>
-            <DataTableItem2 isText text="การจัดการ" header parentClassName="w-[25%]  rounded-tr-xl" columnKey="" onSortSelected={ onSortSelected}/>
+            <DataTableItem2 isText text="เลขฉโนดที่ดิน" header parentClassName="w-[10%]  " columnKey=""  icon={false}  onSortSelected={ onSortSelected}  sortByColumn={sortByColumn}/>
+            <DataTableItem2 isText text="จังหวัด" parentClassName="w-[45%]  "columnKey="" onSortSelected={ onSortSelected}  sortByColumn={sortByColumn}/>
+            <DataTableItem2 isText text="เนื้อที่   (ไร่-งาน-ตารางวา)" header parentClassName="w-[20%]  "  columnKey="" onSortSelected={ onSortSelected}  sortByColumn={sortByColumn}/>
+            <DataTableItem2 isText text="การกักเก็บคาร์บอน" header parentClassName="w-[25%]  rounded-tr-xl"columnKey="" onSortSelected={ onSortSelected}  sortByColumn={sortByColumn}/>
+            <DataTableItem2 isText text="การจัดการ" header parentClassName="w-[25%]  rounded-tr-xl" icon={false} columnKey="" onSortSelected={ onSortSelected}  sortByColumn={sortByColumn}/>
 
           </>
         )}
