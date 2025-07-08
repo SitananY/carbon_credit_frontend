@@ -18,6 +18,10 @@ type DataTableItem2={
     columnKey?: string, 
     onSortSelected?: (column: string, order: "asc" | "desc") => void,
     sortByColumn?: string | null;
+    rowId?: string;
+    selectedIds?: string[];
+    setSelectedIds?: React.Dispatch<React.SetStateAction<string[]>>;
+
 }
 
 export default function DataTableItem2 ({
@@ -28,7 +32,7 @@ export default function DataTableItem2 ({
     text,
     parentClassName="flex flex-row items-center px-[16px] py-[10px] h-full w-full",
     childClassName="",
-    selected,
+    selected=false,
     disabled,
     header,
     onClick,
@@ -37,10 +41,16 @@ export default function DataTableItem2 ({
     columnKey="",
     onSortSelected=()=>{},
     sortByColumn,
+    rowId,
+    selectedIds,
+    setSelectedIds,
+
     
 
 }:DataTableItem2){
     const style = 
+    (selected&&header)?"font-prompt font-medium text-base text-text-800 bg-gray-v1 border-cancel-700"
+    :
     selected
     ? "font-prompt text-base text-cancel-700 bg-neutral-500 border-neutral-700  "
     :disabled 
@@ -54,11 +64,32 @@ export default function DataTableItem2 ({
     ? " justify-center      py-[10px]"
     : "justify-between   pl-[16px] pr-[12px] py-[10px]"
     
+    const checkBoxHandle = 
+        header?selected
+        :selectedIds?.includes(rowId || "")
+    
     return(
                 <div  className={`  h-full flex flex-row items-center border-b-1 ${parentClassName} ${style} ${isCenter}`}>
                     <>
                         {isText && text}
-                        {isCheckbox && <CheckBox isChecked={selected} disabled={disabled} onClick={onClick}/>}
+                        {isCheckbox && 
+                                        <CheckBox 
+                                            
+                                            isChecked={checkBoxHandle} 
+                                            disabled={disabled} 
+                                            onClick={() => {
+                                            if (onClick) onClick(); 
+                                            if (!rowId || !setSelectedIds || !selectedIds) return;
+
+                                            if (selectedIds.includes(rowId)) {
+                                                setSelectedIds(prev => prev.filter(id => id !== rowId));
+                                            } else {
+                                                setSelectedIds(prev => [...prev, rowId]);
+                                            }
+                                            }}
+                                        />
+                                        }
+
                         {isAction && action}
                         {header? icon ?<SortFilterDropdown
                 type="sort"
