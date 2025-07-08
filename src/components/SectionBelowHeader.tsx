@@ -20,6 +20,7 @@ type SectionBelowHeaderProps ={
     add?:boolean,
     dashboard?:boolean,
     onFilterSelected?: (selected: string | string[]) => void,
+    children?:React.ReactNode
 }
 
 
@@ -34,7 +35,8 @@ export default function SectionBelowHeader({
     add,
     handleDeleteButton,
     dashboard,
-    onFilterSelected=()=>{}
+    onFilterSelected=()=>{},
+    children
 }:SectionBelowHeaderProps){
     const [isSwitchOpen,setSwitch] = useState(false);
     
@@ -53,6 +55,7 @@ export default function SectionBelowHeader({
                                     options={["ป่าดิบแล้ง", "ป่าเบญพรรณ", "ป่าเต็งรัง"]}
                                     onSelect={onFilterSelected}
                                   />
+                          {children}
                         </div>
             </div>
         :
