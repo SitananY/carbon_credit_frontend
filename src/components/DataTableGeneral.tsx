@@ -10,6 +10,8 @@ type DataTableGeneralProps = {
   landPlot?: boolean;
   onSortSelected?: (column: string, order: "asc" | "desc" | null) => void;
   sortByColumn?: string | null; 
+  selectedIds: string[];
+  setSelectedIds: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 export default function DataTableGeneral({
@@ -17,13 +19,12 @@ export default function DataTableGeneral({
   isGroup = false,
   landPlot = false,
   onSortSelected=()=>{},
-  sortByColumn
+  sortByColumn,
+  selectedIds,
+  setSelectedIds,
 }: DataTableGeneralProps) {
-
- 
- 
-
-   const [currentPage , setCurrentPage] = useState(1);
+  const [isSelected,setIsSelected] = useState(false)
+  const [currentPage , setCurrentPage] = useState(1);
   const pageSize = 7 ;
   const totalPages = Math.ceil(data.length/pageSize);
   
@@ -42,6 +43,22 @@ export default function DataTableGeneral({
 
   const paginateddata = data.slice(firstIndexInPage - 1, lastIndexInPage);
 
+  const [headerChecked, setHeaderChecked] = useState(false);
+
+  const toggleHeaderCheckbox = () => {
+    if (headerChecked) {
+      // unselect all on current page
+      const idsOnPage = paginateddata.map(item => item.id);
+      setSelectedIds(prev => prev.filter(id => !idsOnPage.includes(id)));
+      setHeaderChecked(false);
+    } else {
+      // select all on current page
+      const idsOnPage = paginateddata.map(item => item.id);
+      setSelectedIds(prev => [...new Set([...prev, ...idsOnPage])]);
+      setHeaderChecked(true);
+    }
+    setIsSelected(!isSelected);
+  };
 
   return (
     <div className="flex flex-col w-full h-[auto] bg-white">
@@ -49,7 +66,7 @@ export default function DataTableGeneral({
       <div className="w-full h-[40px] flex-row flex">
         {isGroup && (
           <>
-            <DataTableItem2 isCheckbox header parentClassName="w-[10%]  rounded-tl-xl " icon={false} />
+            <DataTableItem2 isCheckbox selected={isSelected} header parentClassName="w-[10%]  rounded-tl-xl " icon={false} onClick={toggleHeaderCheckbox}/>
             <DataTableItem2 isText text="หมวดข้อมูล" header parentClassName="w-[45%]  " columnKey="forestType"  onSortSelected={ onSortSelected} sortByColumn={sortByColumn}/>
             <DataTableItem2 isText text="จำนวนรายการ" header parentClassName="w-[20%]  "  columnKey="lands"  onSortSelected={ onSortSelected}  sortByColumn={sortByColumn}/>
             <DataTableItem2 isText text="อัพเดตล่าสุด" header parentClassName="w-[25%]   rounded-tr-xl"  columnKey="latestUpdate" onSortSelected={ onSortSelected} sortByColumn={sortByColumn}/>
@@ -58,7 +75,7 @@ export default function DataTableGeneral({
 
         {landPlot && (
           <>
-            <DataTableItem2 isCheckbox header parentClassName="w-[10%]"  />
+            <DataTableItem2 isCheckbox selected={isSelected} header parentClassName="w-[10%]" onClick={toggleHeaderCheckbox} />
             <DataTableItem2 isText text="เลขฉโนดที่ดิน" header parentClassName="w-[10%]  " columnKey=""  icon={false}  onSortSelected={ onSortSelected}  sortByColumn={sortByColumn}/>
             <DataTableItem2 isText text="จังหวัด" parentClassName="w-[45%]  "columnKey="" onSortSelected={ onSortSelected}  sortByColumn={sortByColumn}/>
             <DataTableItem2 isText text="เนื้อที่   (ไร่-งาน-ตารางวา)" header parentClassName="w-[20%]  "  columnKey="" onSortSelected={ onSortSelected}  sortByColumn={sortByColumn}/>
@@ -69,17 +86,7 @@ export default function DataTableGeneral({
         )}
       </div>
 
-      {/* Data rows */}
-      {/* <div className="w-full h-[auto] bg-red-500 ">
-          {paginatedData.map((item, i) => (
-        <DataTableRow
-          key={i}
-          data={item}
-          group={group}
-          landPlot={landPlot} className="w-full h-[40px] "
-        />
-      ))}
-      </div> */}
+  
       {isGroup && (
         <div className="w-full h-[auto] bg-red-500 ">
           {paginateddata.map((group) => (
@@ -89,6 +96,8 @@ export default function DataTableGeneral({
               group={isGroup}
               landPlot={landPlot}
               className="w-full h-[40px]"
+              selectedIds={selectedIds}
+              setSelectedIds={setSelectedIds}
             />
           ))}
         </div>
@@ -103,6 +112,8 @@ export default function DataTableGeneral({
               group={isGroup}
               landPlot={landPlot}
               className="w-full h-[40px]"
+              selectedIds={selectedIds}
+              setSelectedIds={setSelectedIds}
             />
           ))}
         </div>
