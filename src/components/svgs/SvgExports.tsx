@@ -34,6 +34,7 @@ import Check from "./icons/check.svg";
 import Close from "./icons/close.svg";
 import Filter_list from "./icons/filter_list.svg";
 import Help from "./icons/help.svg";
+import Import from "./icons/import.svg";
 
 
 
@@ -73,5 +74,6 @@ export default {
   Check,
   Close,
   Filter_list,
-  Help
+  Help,
+  Import
 };
