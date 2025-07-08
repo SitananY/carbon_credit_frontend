@@ -8,7 +8,8 @@ import Popup from "@/components/Popup";
 import DataTableGeneral from "@/components/DataTableGeneral";
 import SortFilterDropdown from "@/components/SortFilterDropdown";
 import { GeoJSONData, GeoJSONFeature, GroupedLand } from "@/types/types";
-
+import Button from "@/components/Button";
+import Icons from "@/components/svgs/SvgExports";
 export default function ManageData() {
   const router = useRouter();
   const [isShow, setIsShow] = useState(false);
@@ -103,7 +104,7 @@ export default function ManageData() {
     let valB: any;
 
     switch (column) {
-      case "landsCount":
+      case "lands":
         valA = a.lands.length;
         valB = b.lands.length;
         break;
@@ -143,13 +144,38 @@ export default function ManageData() {
     updateData(selectedFilters, sortByColumn, currentSortOrder);
   };
 
-const handlerSort = (column: string, order: "asc" | "desc" | null
-) => {
+const handlerSort = (column: string, order: "asc" | "desc" | null) => {
   console.log("Sort by", column, order);
-  setSortByColumn(column);
-  setCurrentSortOrder(order);
-  updateData(filters, column, order);
+
+ 
+  if (column === sortByColumn) {
+    setSortByColumn(null);
+    setCurrentSortOrder(null);
+    updateData(filters, null, null);
+  } else {
+    setSortByColumn(column);
+    setCurrentSortOrder(order);
+    updateData(filters, column, order);
+  }
 };
+
+  const filterButtons = filters.map(filter => (
+  <Button
+    key={filter}
+    variant="secondary"
+    text={filter}
+    className="h-[36px] rounded-full px-4 py-2 mr-2 mb-2 flex flex-row items-center"
+    onClick={() => {
+      const updatedFilters = filters.filter(f => f !== filter);
+      setFilters(updatedFilters);
+      updateData(updatedFilters, sortByColumn, currentSortOrder);
+    }
+    }
+    isClose
+  >
+    <Icons.Close className="w-[14px] h-[14px]" />
+  </Button>
+));
 
   if (error) return <div>Error: {error}</div>;
   if (!groupedData) return <div>No data</div>;
@@ -163,21 +189,13 @@ const handlerSort = (column: string, order: "asc" | "desc" | null
           manageData
           handleClick={handleClick}
           onFilterSelected={handlerFilter}
-        />
-
-
-        {/* <SortFilterDropdown
-          type="sort"
-          options={["landsCount น้อยไปมาก", "landsCount มากไปน้อย"]}
-          onSelect={(selected) => {
-            const [col, ordText] = (selected as string).split(" ");
-            const ord: "asc" | "desc" = ordText === "น้อยไปมาก" ? "asc" : "desc";
-            handlerSort(col, ord);
-          }}
-        /> */}
+        >{filterButtons}</SectionBelowHeader>
 
         <div className="mb-[50px] w-full">
-          <DataTableGeneral data={groupedData} isGroup onSortSelected={handlerSort}  />
+          <DataTableGeneral data={groupedData} 
+          isGroup 
+          onSortSelected={handlerSort}
+          sortByColumn={sortByColumn} />
         </div>
 
         <Popup
