@@ -6,6 +6,7 @@ import { ForestData, LandData } from "@/types/types";
 import Switch from "@/components/Switch";
 import { useState } from "react";
 import ExportDropDown from "@/app/dashboard/components/ExportDropDown";import SortFilterDropdown from "./SortFilterDropdown";
+import Link from "next/link";
  "@/app/dashboard/components/ExportDropDown";
 
 type SectionBelowHeaderProps ={
@@ -20,9 +21,14 @@ type SectionBelowHeaderProps ={
     add?:boolean,
     dashboard?:boolean,
     onFilterSelected?: (selected: string | string[]) => void,
-    children?:React.ReactNode
+    children?:React.ReactNode,
+    selectedIds?: string[];
 }
 
+// const handleDeleteSelected={()=>{
+//     console.log("Delete")
+// }}
+// const handleEditSelected={}
 
 export default function SectionBelowHeader({
     manageData,
@@ -36,7 +42,8 @@ export default function SectionBelowHeader({
     handleDeleteButton,
     dashboard,
     onFilterSelected=()=>{},
-    children
+    children,
+    selectedIds=[""]
 }:SectionBelowHeaderProps){
     const [isSwitchOpen,setSwitch] = useState(false);
     
@@ -48,7 +55,8 @@ export default function SectionBelowHeader({
                           <div className="w-auto h-[40px]  font-medium items-center flex text-xl">จัดการข้อมูล</div>
                           <div className="w-auto h-[40px] items-center flex"><Button text="เพิ่มข้อมูล" className="w-[113px] h-[40px] rounded-lg " onClick={handleClick}><Icons.Add /></Button></div>
                         </div>
-                        <div className="flex flex-row items-center gap-5">
+                        <div className="flex w-full flex-row items-center justify-between ">
+                          <div className="flex flex-row items-center gap-5">
                           <div className="w-[auto] h-[40px] items-center flex"><InputField iconSearch  className="w-[248px] h-[32px]" inputClassName="rounded-2xl pl-[35px]" placeholder="ค้นหาจากชื่อ" /></div>
                            <SortFilterDropdown
                                     type="filter"
@@ -56,7 +64,28 @@ export default function SectionBelowHeader({
                                     onSelect={onFilterSelected}
                                   />
                           {children}
+                          </div>
+                          <div className="w-[auto] h-[40px]">
+                            
+                             {selectedIds.length > 0 && (
+                              <div className="w-[224px] h-[50px] bg-neutral-300 rounded-2xl border border-neutral-700 flex flex-row items-center justify-center gap-5">
+                                <div>{selectedIds.length} รายการถูกเลือก</div>
+                                <div className="flex gap-4">
+              
+                                  <div onClick={(e) => e.stopPropagation()}>
+                                  <Link href={`/manage-data/0/edit`} >
+                                          <Icons.Import className={`h-[18px] w-[18px] text-primary-500 `} />
+                                  </Link> 
+                                  </div>
+                                  <div onClick={(e) => e.stopPropagation()}>
+                                  <Icons.Delete className={`h-[18px] w-[18px]  text-error-500`} onClick={handleDeleteButton}  />
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                          </div>
                         </div>
+                        
             </div>
         :
             viewSubGroup 
