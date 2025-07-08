@@ -39,6 +39,7 @@ type ButtonProps = {
   textClassName?:string;
   type?: "button" | "submit" | "reset";
   isClick?:boolean,
+  isClose?:boolean,
 };
 
 export default function Button({
@@ -50,7 +51,8 @@ export default function Button({
   className = "w-[72px] h-[48px] rounded-2xl",
   type = "button",
   textClassName = "text-base ",
-  isClick
+  isClick,
+  isClose
 }: ButtonProps) {
   return (
     <button
@@ -65,10 +67,15 @@ export default function Button({
          ${!disabled ? "active:scale-95 cursor-pointer" : ""}
           transition-all duration-100 ease-in-out`}
     >
-      <div className={`flex items-center gap-2 `}>
+      {isClose? <div className={`flex items-center gap-2 `}>
+         {text}{children}
+       
+      </div>
+      :<div className={`flex items-center gap-2 `}>
         {children}
         {text}
-      </div>
+      </div>}
+      
     </button>
   );
 }
