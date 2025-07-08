@@ -21,6 +21,7 @@ export default function ManageData() {
   const [filters, setFilters] = useState<string[]>([]);
   const [sortByColumn, setSortByColumn] = useState<string | null>(null);
   const [currentSortOrder, setCurrentSortOrder] = useState<"asc" | "desc" | null>(null);
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
   const handleClick = () => {
     router.push("/manage-data/new");
@@ -176,7 +177,7 @@ const handlerSort = (column: string, order: "asc" | "desc" | null) => {
     <Icons.Close className="w-[14px] h-[14px]" />
   </Button>
 ));
-
+  console.log(selectedIds.length)
   if (error) return <div>Error: {error}</div>;
   if (!groupedData) return <div>No data</div>;
 
@@ -189,13 +190,17 @@ const handlerSort = (column: string, order: "asc" | "desc" | null) => {
           manageData
           handleClick={handleClick}
           onFilterSelected={handlerFilter}
+          selectedIds={selectedIds}
         >{filterButtons}</SectionBelowHeader>
 
         <div className="mb-[50px] w-full">
           <DataTableGeneral data={groupedData} 
           isGroup 
           onSortSelected={handlerSort}
-          sortByColumn={sortByColumn} />
+          sortByColumn={sortByColumn} 
+          selectedIds={selectedIds}
+          setSelectedIds={setSelectedIds}
+          />
         </div>
 
         <Popup
