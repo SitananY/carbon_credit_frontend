@@ -22,7 +22,8 @@ type SectionBelowHeaderProps ={
     dashboard?:boolean,
     onFilterSelected?: (selected: string | string[]) => void,
     children?:React.ReactNode,
-    selectedIds?: string[];
+    selectedIds?: string[],
+    process?:boolean,
 }
 
 // const handleDeleteSelected={()=>{
@@ -43,7 +44,8 @@ export default function SectionBelowHeader({
     dashboard,
     onFilterSelected=()=>{},
     children,
-    selectedIds=[""]
+    selectedIds=[""],
+    process
 }:SectionBelowHeaderProps){
     const [isSwitchOpen,setSwitch] = useState(false);
     
@@ -157,6 +159,22 @@ export default function SectionBelowHeader({
                                 <InputField iconSearch iconDown placeholder="รายงานตามปี" className="w-[320px] h-[32px] " inputClassName="rounded-2xl pl-[35px]"/>
                                 <InputField iconSearch iconDown placeholder="รายงานตามพื้นที่" className="w-[320px] h-[32px] " inputClassName="rounded-2xl pl-[35px]"/>
                                 <ExportDropDown/>
+                  </div>
+                :process
+                ?
+                isSwitchOpen
+                ? <div className="w-full bg-red-500 h-[32px]  flex flex-row justify-between md:items-center gap-4">
+                      <div className=" text-base bg-red-700 md:text-xl font-prompt font-medium text-text-800 flex items-center ">
+                                  เพิ่มสูตรการคำนวณ
+                      </div>
+
+                </div>
+                :<div className="w-full bg-red-500 h-[32px]  flex flex-row justify-between md:items-center gap-4">
+                      <div className=" text-base bg-red-700 md:text-xl font-prompt font-medium text-text-800 flex items-center ">
+                                  สูตรการคำนวณ
+                      </div>
+                      <Button text="เพิ่ม" variant="secondary" className="w-[74px] h-[40px] rounded-lg" onClick={()=>{setSwitch(true)}}> <Icons.Add/> </Button>
+
                   </div>
                 :undefined
 
