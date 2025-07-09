@@ -13,7 +13,9 @@ type IconButtonProps = {
   size?: string;
   iconSize?: string;
   children?: React.ReactNode;
-  rounded?:string
+  rounded?:string,
+  outlineColor?:string;
+  newIconColor?:string
 };
 
 export default function IconButton({
@@ -26,7 +28,9 @@ export default function IconButton({
   size="w-[44px] h-[44px]",
   iconSize="w-[24px] h-[24px]" ,
   children,
-  rounded="rounded-full"
+  rounded="rounded-full",
+  outlineColor=" text-primary-500",
+  newIconColor = "text-primary-500",
 }: IconButtonProps) {
   // const IconComponent = Icons[icon];
   return (
@@ -39,7 +43,7 @@ export default function IconButton({
                  : filled
                  ? "border-[2.5px] bg-primary-500  hover:border-primary-700 border-primary-500 hover:bg-primary-700 cursor-pointer "
                  : outlined
-                 ? " border-[2.5px] bg-neutral-300 border-primary-500 hover:bg-primary-300 cursor-pointer "
+                 ? ` border-[2.5px] bg-neutral-300 ${outlineColor} hover:bg-primary-300 cursor-pointer `
                  : "hover:border-[2.5px]  hover:border-primary-300 hover:bg-primary-300 cursor-pointer"
              }   
              `}
@@ -53,7 +57,7 @@ export default function IconButton({
                 : filled
                 ? "text-neutral-300"
                 : outlined
-                ? " text-primary-500"
+                ? `${newIconColor}`
                 : "text-primary-500"
             }
             `}>{children} </div> 
