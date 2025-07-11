@@ -27,7 +27,8 @@ type SectionBelowHeaderProps ={
     process?:boolean,
     processHandle?:(textTitle:string , isDisabled:boolean)=>void;
     processTextTitle?:string,
-}
+    isEditProcess?:boolean,
+  }
 
 // const handleDeleteSelected={()=>{
 //     console.log("Delete")
@@ -48,6 +49,7 @@ export default function SectionBelowHeader({
     onFilterSelected=()=>{},
     children,
     selectedIds=[""],
+    isEditProcess,
     process,
     processHandle=()=>{},
     processTextTitle="เลือกกลุ่มสูตร"
@@ -55,9 +57,10 @@ export default function SectionBelowHeader({
     const [isSwitchOpen,setSwitch] = useState(false);
     const dropDownText = ["ทั่วไป","ป่าเต็งรัง / ป่าเบญจพรรณ","ป่าดิบแล้ง","ดูจากปริมาณน้ำฝน"]
     const [isOpen,setIsOpen] = useState(false);
-    // const handleSelected = (type:string)=>{
-    //     processHandle(typ,isSwitchOpen);
-    // }
+    const handleSelected = (type:string)=>{
+        processHandle(type,isSwitchOpen);
+    }
+    const [isDisabled,setIsDisabled] = useState(false);
     return(
      <>
         {manageData ?
@@ -171,6 +174,7 @@ export default function SectionBelowHeader({
                   </div>
                 :process
                 ?
+                isEditProcess?
                 isSwitchOpen
                 ? <div className="w-full  h-[auto]  flex flex-col  gap-4">
                       <div className=" text-base  md:text-xl font-prompt font-medium text-text-800 flex items-center ">
@@ -178,13 +182,58 @@ export default function SectionBelowHeader({
                       </div>
                       <div className="w-full h-[auto]  gap-[16px] p-[24px] flex flex-col border border-neutral-700 rounded-xl ">
                             <div className="w-full h-auto  flex flex-row gap-[10px]">
-                              <div className="w-full h-[auto] flex flex-col">
+                              <div className="w-full h-[auto] flex flex-col gap-[10px]">
                                   <div className="font-prompt text-text-800">ชื่อสูตร</div>
                                   <InputField placeholder="ระบุชื่อสูตร" className="w-full h-[32px]" inputClassName="rounded-lg pl-[10px]"/>
                               </div>
-                              <div className="w-full h-[auto] flex flex-col">
+                              <div className="w-full h-[auto] flex flex-col gap-[10px]">
                                   <div className="font-prompt text-text-800">สูตร</div>
                                   <InputField placeholder="ระบุสูตร" className="w-full h-[32px]" inputClassName="rounded-lg pl-[10px]"/>
+                              </div>
+                             
+                            </div>
+                            <div className="relative flex flex-row justify-end gap-[10px] ">
+                                  
+                                  <Button className="w-[auto] h-[40px] rounded-xl p-[10px]" text={processTextTitle} variant="tonal" isClose onClick={()=>setIsOpen(!isOpen)}><Icons.Down className="h-[18px] w-[18px]"/></Button>
+                                  <Button className="w-[86px] h-[40px] rounded-lg p-[10px]" text="ยืนยัน"  ></Button>
+                                  <Button className="w-[86px] h-[40px] rounded-lg p-[10px]" text="ยกเลิก" variant="secondary" onClick={()=>{setSwitch(false);setIsDisabled(!isDisabled);processHandle(processTextTitle,isDisabled)}} ></Button>
+                                  <div
+                                                  className={`
+                                                  absolute top-full right-[190px]  w-[203px] h-[auto] 
+                                                  transition-all duration-300 ease-in-out z-100
+                                                  ${isOpen ? "opacity-100  pointer-events-auto" : "opacity-0  pointer-events-none"}
+                                                  `}
+                                              >
+                                                  {dropDownText.map((type, index) => (
+                                                  <ListItem  key={index} className="h-[42px] w-[203px]  " textPxGap="pl-[16px]" item={type} onClick={()=>handleSelected(type)} />
+                                                  ))}
+                                              </div>
+                            </div>
+                      </div>
+
+                </div>
+                :<div className="w-full  h-[auto]  flex flex-row justify-between md:items-center gap-4">
+                      <div className=" text-base  md:text-xl font-prompt font-medium text-text-800 flex items-center ">
+                                  สูตรการคำนวณ
+                      </div>
+                      <Button text="เพิ่ม" variant="secondary" className="w-[74px] h-[40px] rounded-lg" onClick={()=>{setIsDisabled(true);processHandle(processTextTitle,isDisabled);
+                        setSwitch(true)}}> <Icons.Add/> </Button>
+
+                  </div>
+                :undefined  
+                : <div className="w-full  h-[auto]  flex flex-col  gap-4">
+                      <div className=" text-base  md:text-xl font-prompt font-medium text-text-800 flex items-center ">
+                                  แก้ไขสูตรคำนวณ
+                      </div>
+                      <div  className="w-full h-[auto]  gap-[16px] p-[24px] flex flex-col border border-neutral-700 rounded-xl ">
+                            <div className="w-full h-auto  flex flex-row gap-[10px]">
+                              <div className="w-full h-[auto] flex flex-col gap-[10px]">
+                                  <div className="font-prompt text-text-800">ชื่อสูตร</div>
+                                  <InputField placeholder={"ระบุชื่อสูตร"} className="w-full h-[32px]" inputClassName="rounded-lg pl-[10px]"/>
+                              </div>
+                              <div className="w-full h-[auto] flex flex-col gap-[10px]">
+                                  <div className="font-prompt text-text-800">สูตร</div>
+                                  <InputField placeholder={"ระบุสูตร"} className="w-full h-[32px]" inputClassName="rounded-lg pl-[10px]"/>
                               </div>
                              
                             </div>
@@ -201,22 +250,13 @@ export default function SectionBelowHeader({
                                                   `}
                                               >
                                                   {dropDownText.map((type, index) => (
-                                                  <ListItem  key={index} className="h-[42px] w-[203px]  " textPxGap="pl-[16px]" item={type} />
+                                                  <ListItem  key={index} className="h-[42px] w-[203px]  " textPxGap="pl-[16px]" item={type} onClick={()=>handleSelected(type)} />
                                                   ))}
                                               </div>
                             </div>
                       </div>
 
                 </div>
-                :<div className="w-full  h-[auto]  flex flex-row justify-between md:items-center gap-4">
-                      <div className=" text-base  md:text-xl font-prompt font-medium text-text-800 flex items-center ">
-                                  สูตรการคำนวณ
-                      </div>
-                      <Button text="เพิ่ม" variant="secondary" className="w-[74px] h-[40px] rounded-lg" onClick={()=>{processHandle(processTextTitle,isSwitchOpen);
-                        setSwitch(true)}}> <Icons.Add/> </Button>
-
-                  </div>
-                :undefined
 
         }
     
