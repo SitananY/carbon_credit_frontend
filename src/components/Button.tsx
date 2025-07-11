@@ -40,6 +40,7 @@ type ButtonProps = {
   type?: "button" | "submit" | "reset";
   isClick?:boolean,
   isClose?:boolean,
+  alignment?:string,
 };
 
 export default function Button({
@@ -52,14 +53,15 @@ export default function Button({
   type = "button",
   textClassName = "text-base ",
   isClick,
-  isClose
+  isClose,
+  alignment="justify-center"
 }: ButtonProps) {
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={` ${className} ${textClassName} font-prompt  flex items-center justify-center ${getVariantStyles(
+      className={` ${className} ${textClassName} font-prompt  flex items-center ${alignment} ${getVariantStyles(
         variant,
         disabled,
         isClick
