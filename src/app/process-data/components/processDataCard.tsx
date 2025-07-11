@@ -7,15 +7,18 @@ import IconButton from "@/components/IconButton";
 
 type ProcessDataCardProps ={
     isDisabled?:boolean
+    processHandle?:()=>void
 }
 
 type BlockProps={
     labelText:string,
     itemText:string,
+    
 }
 export function Block({
     labelText
-    ,itemText
+    ,itemText,
+    
 }:BlockProps){
     
     return(
@@ -33,7 +36,9 @@ export function Block({
 
 
 export default function ProcessDataCard(
-    { isDisabled  }:ProcessDataCardProps
+    { isDisabled ,
+        processHandle
+      }:ProcessDataCardProps
 ){
     const [isSelected,setIsSelected] = useState("1");
     const handleSelected=(key:string)=>{
