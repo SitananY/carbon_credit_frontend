@@ -8,6 +8,7 @@ type DataTableRowProps = {
   data: any; // data ของแถวนี้
   group?: boolean;
   landPlot?: boolean;
+  progress?:boolean;
   className?:string;
   disabled?:boolean;
   selectedIds: string[];
@@ -21,7 +22,8 @@ export default function DataTableRow({
   className =" w-full h-full",
   disabled,
   selectedIds,
-  setSelectedIds
+  setSelectedIds,
+  progress=false
 }: DataTableRowProps) {
   const [isClick, setIsClick] = useState(false);
 
@@ -91,29 +93,17 @@ export default function DataTableRow({
         <DataTableItem2
           isText
           rowId={data.id}
-          selectedIds={selectedIds}
-          setSelectedIds={setSelectedIds}
-          selected={selectedIds.includes(data.id)}
-          text={data.landNumber}
           parentClassName="w-[20%] "
         />
         <DataTableItem2
           isText
           rowId={data.id}
-          selectedIds={selectedIds}
-          setSelectedIds={setSelectedIds}
-          selected={selectedIds.includes(data.id)}
-
           text={data.province}
           parentClassName="w-[30%] "
         />
         <DataTableItem2
           isText
           rowId={data.id}
-          selectedIds={selectedIds}
-          setSelectedIds={setSelectedIds}
-          selected={selectedIds.includes(data.id)}
-
           text={data.area}
           parentClassName="w-[20%] "
         />
@@ -134,6 +124,28 @@ export default function DataTableRow({
       </Link>
     );
   }
+  if (progress) {
+  return (
+    <div className="w-full flex flex-row">
+      <DataTableItem2
+        isText
+        text={data.p1} // ตัวแปร
+        parentClassName="w-[20%]"
+      />
+      <DataTableItem2
+        isText
+        text={data.p2} // ความหมาย
+        parentClassName="w-[50%]"
+      />
+      <DataTableItem2
+        isText
+        text={data.p3} // หน่วย
+        parentClassName="w-[30%]"
+      />
+    </div>
+  );
+}
+
 
   return null;
 }
