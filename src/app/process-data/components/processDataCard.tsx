@@ -6,7 +6,7 @@ import { useState } from "react";
 import IconButton from "@/components/IconButton";
 
 type ProcessDataCardProps ={
-    
+    isDisabled?:boolean
 }
 
 type BlockProps={
@@ -33,21 +33,21 @@ export function Block({
 
 
 export default function ProcessDataCard(
-    {   }:ProcessDataCardProps
+    { isDisabled  }:ProcessDataCardProps
 ){
     const [isSelected,setIsSelected] = useState("1");
     const handleSelected=(key:string)=>{
-        return (isSelected===key) ? "bg-primary-500 text-white" : "bg-cancel-300 text-text-800"
+        return (isSelected===key) ? isDisabled ? "bg-cancel-500 text-white" : "bg-primary-500 text-white" : "bg-cancel-300 text-text-800"
     }
     const ButtonClassName = "w-[auto] h-full px-[8px]  rounded-tl-2xl rounded-tr-2xl  font-prompt  items-center justify-center flex"
     
     return(
         <div className="w-full h-auto  flex flex-col font-propmt">
-              <div className="w-full h-[40px] flex flex-row ">
-                    <div key={1} className={`${ButtonClassName} ${handleSelected("1")}`} onClick={()=>{setIsSelected("1")}}>ทั่วไป</div>
-                    <div key={2} className={`${ButtonClassName} ${handleSelected("2")}`} onClick={()=>{setIsSelected("2")}}>ป่าเต็งรัง</div>
-                    <div key={3} className={`${ButtonClassName} ${handleSelected("3")}`} onClick={()=>{setIsSelected("3")}}>ป่าดิบแล้ง</div>
-                    <div key={4} className={`${ButtonClassName} ${handleSelected("4")}`} onClick={()=>{setIsSelected("4")}}>ดูจากปริมาณน้ำฝน</div>
+              <div className="w-full h-[40px] flex flex-row cursor-pointer">
+                    <div key={1} className={`${ButtonClassName} ${handleSelected("1")}`} onClick={()=>{isDisabled ? undefined :setIsSelected("1")}}>ทั่วไป</div>
+                    <div key={2} className={`${ButtonClassName} ${handleSelected("2")}`} onClick={()=>{isDisabled ? undefined :setIsSelected("2")}}>ป่าเต็งรัง</div>
+                    <div key={3} className={`${ButtonClassName} ${handleSelected("3")}`} onClick={()=>{isDisabled ? undefined :setIsSelected("3")}}>ป่าดิบแล้ง</div>
+                    <div key={4} className={`${ButtonClassName} ${handleSelected("4")}`} onClick={()=>{isDisabled ? undefined :setIsSelected("4")}}>ดูจากปริมาณน้ำฝน</div>
               </div>  
             <div className="w-full h-full flex flex-col bg-white border border-neutral-700  rounded-bl-2xl rounded-br-2xl rounded-tr-2xl px-[24px] py-[16px]  gap-3">
                     {isSelected=="1"  ? 
