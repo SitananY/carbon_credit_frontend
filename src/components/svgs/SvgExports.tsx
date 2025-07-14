@@ -78,5 +78,8 @@ export default {
   Close,
   Filter_list,
   Help,
-  Import
+  Import,
+  SquareChart,
+  BarHorizoneChart,
+  BarLineChart
 };
