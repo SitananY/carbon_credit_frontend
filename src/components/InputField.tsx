@@ -64,16 +64,16 @@ export default function InputField({
         </p>
       )}
       {iconSearch && (
-        <Icons.Search className={`text-cencel-500 absolute left-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} />
+        <Icons.Search className={`text-cancel-500 absolute left-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} />
       )}
       {leftItem && (
-        <div className={`text-cencel-500 absolute left-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} >{leftItem}</div>
+        <div className={`text-cancel-500 absolute left-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} >{leftItem}</div>
       )}
       {iconDown && (
-        <Icons.Down className={`text-cencel-500 absolute right-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} />
+        <Icons.Down className={`text-cancel-500 absolute right-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} />
       )}
       {rightItem && (
-        <div className={`text-cencel-500 absolute right-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} >{rightItem}</div>
+        <div className={`text-cancel-500 absolute right-3 top-1/2 -translate-y-1/2 h-[18px] w-[18px] ${canPoint}  `} >{rightItem}</div>
       )}      
     </div>
   );
