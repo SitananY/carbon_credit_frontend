@@ -27,6 +27,8 @@ export default function SectionHeader  ({ title, backHref,dashBoard }: SectionHe
     return(
         <div className=" w-full h-[40px] flex flex-row justify-between  items-center">
            
+           {dashBoard ?
+            <>
             <div className="w-full  h-[40px] font-prompt text-text-800 text-xl gap-[15px] md:text-2xl font-medium flex justify-start  items-center justify-center">
              {backHref && (
             
@@ -41,7 +43,19 @@ export default function SectionHeader  ({ title, backHref,dashBoard }: SectionHe
 
             )}
             </div>
+            </>
+           :
+           <>
+            {backHref && (
             
+                <Icons.Backward className="w-[40px] h-[40px] cursor-pointer" onClick={backHrefHandle} />
+          
+            )}
+            <div className="w-full  h-[40px] font-prompt text-text-800 text-xl gap-[15px] md:text-2xl font-medium flex justify-start  items-center justify-center">
+             
+            {title}
+            </div>
+            </>}
         </div>
         );
 
