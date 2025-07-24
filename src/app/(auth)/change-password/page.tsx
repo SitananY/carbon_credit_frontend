@@ -18,7 +18,7 @@ export default function ChangePassword() {
     }
 
   return (
-    <div className="w-screen h-screen flex  items-center justify-center ">
+    <div className="w-screen h-screen flex  items-center justify-center bg-[url('/LoginBG.png')] bg-cover bg-center ">
         <div className="w-[40%] max-md:w-[70%] h-[70%] bg-[#DDDDDC] flex items-center justify-center rounded-[56px] 
         pb-[62px] pt-[42px] pl-[80px] pr-[80px] 
         max-md:pb-[30px] max-md:pt-[38px]  max-md:pl-[40px] max-md:pr-[40px]

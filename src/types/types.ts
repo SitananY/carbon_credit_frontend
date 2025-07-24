@@ -112,6 +112,7 @@ export type FeatureProperties = {
   province: string;
   area: string;
   forestType: string;
+  forestTypeSlug: string;
   annualRainfall: string;
   'carbon-credit': number;
   trees: Tree[];
@@ -134,6 +135,7 @@ export type GeoJSONData = {
 
 export type GroupedLand = {
       forestType: string;
+      forestTypeSlug: string; 
       lands: GeoJSONFeature[];
       id:string;
       latestUpdate:string;

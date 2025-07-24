@@ -12,6 +12,7 @@ import ListItem from "@/components/ListItem";
 
 type SectionBelowHeaderProps ={
     manageData?:boolean,
+    manageData2?:boolean,
     viewSubGroup?:boolean,
     land?:boolean
     view?:boolean,
@@ -28,6 +29,8 @@ type SectionBelowHeaderProps ={
     processHandle?:(textTitle:string , isDisabled:boolean)=>void;
     processTextTitle?:string,
     isEditProcess?:boolean,
+    forestText?:string,
+    
   }
 
 // const handleDeleteSelected={()=>{
@@ -52,7 +55,9 @@ export default function SectionBelowHeader({
     isEditProcess,
     process,
     processHandle=()=>{},
-    processTextTitle="เลือกกลุ่มสูตร"
+    processTextTitle="เลือกกลุ่มสูตร",
+    manageData2,
+    forestText
 }:SectionBelowHeaderProps){
     const [isSwitchOpen,setSwitch] = useState(false);
     const dropDownText = ["ทั่วไป","ป่าเต็งรัง / ป่าเบญจพรรณ","ป่าดิบแล้ง","ดูจากปริมาณน้ำฝน"]
@@ -64,6 +69,45 @@ export default function SectionBelowHeader({
     return(
      <>
         {manageData ?
+            manageData2 ?
+            <div className=" w-full h-[auto]  font-prompt text-text-800  my-[24px] max-sm:flex-col flex flex-col gap-4  max-sm:gap-3 max-sm:h-[auto] ">
+                        <div className="items-center  flex  flex-row justify-between">
+                          <div className="w-auto h-[40px]  font-medium items-center flex text-xl">จัดการข้อมูล <Icons.Forward/> {forestText}</div>
+                          <div className="w-auto h-[40px] items-center flex"><Button text="เพิ่มข้อมูล" className="w-[113px] h-[40px] rounded-lg " onClick={handleClick}><Icons.Add /></Button></div>
+                        </div>
+                        <div className="flex w-full flex-row items-center justify-between ">
+                          <div className="flex flex-row items-center gap-5">
+                          <div className="w-[auto] h-[40px] items-center flex"><InputField iconSearch  className="w-[248px] h-[32px]" inputClassName="rounded-2xl pl-[35px]" placeholder="ค้นหาจากชื่อ" /></div>
+                           <SortFilterDropdown
+                                    type="filter"
+                                    options={["ป่าดิบแล้ง", "ป่าเบญพรรณ", "ป่าเต็งรัง"]}
+                                    onSelect={onFilterSelected}
+                                  />
+                          {children}
+                          </div>
+                          <div className="w-[auto] h-[40px]">
+                            
+                             {selectedIds.length > 1 && (
+                              <div className="w-[224px] h-[50px] bg-neutral-300 rounded-2xl border border-neutral-700 flex flex-row items-center justify-center gap-5">
+                                <div>{selectedIds.length} รายการถูกเลือก</div>
+                                <div className="flex gap-4">
+              
+                                  <div onClick={(e) => e.stopPropagation()}>
+                                  <Link href={`/manage-data/0/edit`} >
+                                          <Icons.Import className={`h-[18px] w-[18px] text-primary-500 `} />
+                                  </Link> 
+                                  </div>
+                                  <div onClick={(e) => e.stopPropagation()}>
+                                  <Icons.Delete className={`h-[18px] w-[18px]  text-error-500`} onClick={handleDeleteButton}  />
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        
+            </div>
+            :
             <div className=" w-full h-[auto]  font-prompt text-text-800  my-[24px] max-sm:flex-col flex flex-col gap-4  max-sm:gap-3 max-sm:h-[auto] ">
                         <div className="items-center  flex  flex-row justify-between">
                           <div className="w-auto h-[40px]  font-medium items-center flex text-xl">จัดการข้อมูล</div>
@@ -120,7 +164,7 @@ export default function SectionBelowHeader({
                     <div className="w-full my-[24px] flex flex-col md:flex-row md:justify-between md:items-center gap-4">
                       
                                 <div className="text-base md:text-xl font-prompt font-medium text-text-800">
-                                  {land ? "แปลงที่ " :"พรรณที่ " } {data?.number}
+                                  เลขโฉนดที่ดิน  {forestText}
                                 </div>
                     
                                 

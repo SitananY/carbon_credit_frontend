@@ -16,8 +16,9 @@
         "subdistrict": "ปากทรง",
         "district": "พะโต๊ะ",
         "province": "ชุมพร",
-        "area": "50 ไร่",
+        "area": "50-0-0",
         "forestType": "ป่าเบญพรรณ",
+        "forestTypeSlug": "deciduous-forest",
         "annualRainfall": "2500 mm/ปี",
         "carbon-credit": 0,
         "trees": [
@@ -103,8 +104,9 @@
         "subdistrict": "บ้านหลวง",
         "district": "จอมทอง",
         "province": "เชียงใหม่",
-        "area": "80 ไร่",
+        "area": "80-0-0",
         "forestType": "ป่าดิบแล้ง",
+        "forestTypeSlug": "dry-evergreen-forest",
         "annualRainfall": "3200 mm/ปี",
         "carbon-credit": 0,
         "trees": [
@@ -212,8 +214,9 @@
         "subdistrict": "หมูสี",
         "district": "ปากช่อง",
         "province": "นครราชสีมา",
-        "area": "120 ไร่",
+        "area": "120-0-0",
         "forestType": "ป่าเต็งรัง",
+        "forestTypeSlug": "dipterocarp-forest",
         "annualRainfall": "1400 mm/ปี",
         "carbon-credit": 0,
         "trees": [
@@ -313,8 +316,9 @@
         "subdistrict": "ทุ่งลุยลาย",
         "district": "คอนสาร",
         "province": "ชัยภูมิ",
-        "area": "150 ไร่",
+        "area": "150-0-0",
         "forestType": "ป่าเต็งรัง",
+         "forestTypeSlug": "dipterocarp-forest",
         "annualRainfall": "1600 mm/ปี",
         "carbon-credit": 0,
         "trees": [

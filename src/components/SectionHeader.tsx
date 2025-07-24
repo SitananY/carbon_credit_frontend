@@ -10,9 +10,10 @@ type SectionHeaderProps = {
   title: string;
   backHref?: boolean; 
   dashBoard?: boolean;
+  manageData?:boolean;
 };
 
-export default function SectionHeader  ({ title, backHref,dashBoard }: SectionHeaderProps){
+export default function SectionHeader  ({ title, backHref,dashBoard,manageData }: SectionHeaderProps){
     
     const rounter = useRouter();
 
@@ -51,7 +52,7 @@ export default function SectionHeader  ({ title, backHref,dashBoard }: SectionHe
                 <Icons.Backward className="w-[40px] h-[40px] cursor-pointer" onClick={backHrefHandle} />
           
             )}
-            <div className="w-full  h-[40px] font-prompt text-text-800 text-xl gap-[15px] md:text-2xl font-medium flex justify-start  items-center justify-center">
+            <div className="w-full  h-[40px] font-prompt text-text-800 text-xl gap-[15px] md:text-2xl font-medium flex justify-end  items-center justify-center">
              
             {title}
             </div>
