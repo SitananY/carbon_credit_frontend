@@ -19,7 +19,7 @@ export default function ChangePassword() {
 
   return (
     <div className="w-screen h-screen flex  items-center justify-center bg-[url('/LoginBG.png')] bg-cover bg-center ">
-        <div className="w-[40%] max-md:w-[70%] h-[70%] bg-[#DDDDDC] flex items-center justify-center rounded-[56px] 
+        <div className="w-[40%] max-md:w-[70%] h-[70%] bg-white border border-neutral-700 flex items-center justify-center rounded-[56px] 
         pb-[62px] pt-[42px] pl-[80px] pr-[80px] 
         max-md:pb-[30px] max-md:pt-[38px]  max-md:pl-[40px] max-md:pr-[40px]
         font-prompt font-medium">
@@ -30,16 +30,19 @@ export default function ChangePassword() {
                   
                     <div className="flex flex-col gap-[20px]  w-full h-full items-center "> 
                         <div className="flex flex-col w-full gap-[16px] text-[20px]  ">
-                          อีเมลสำหรับรับรหัสยืนยัน 
-                          <InputField className=" w-full h-[52px]"/>  
-                        </div>
+                            <div className="flex flex-row text-error-500">* <div className="text-text-800">อีเมลสำหรับรับรหัสยืนยัน  </div></div>
+                            
+                            <InputField type="email" className=" w-full h-[52px]" placeholder="กรอกอีเมลที่ใช้รับรหัสยืนยัน"/>  
+                          </div>
+                        
                         <div className="flex flex-col w-full gap-[16px] text-[20px]  ">
-                          รหัสยืนยัน 
-                          <InputField className=" w-full h-[52px]"/>  
+                          <div className="flex flex-row text-error-500">* <div className="text-text-800">รหัสยืนยัน</div></div> 
+                          <InputField className=" w-full h-[52px] " placeholder="รหัสยืนยัน 6 หลัก"/>  
                         </div>
                         <div className="flex flex-col w-full gap-[16px] text-[20px] ">
-                          รหัสผ่านใหม่ 
-                          <InputField className="w-full h-[52px]" rightItem={isVisible ?<Icons.Visibility onClick={()=>setIsVisible(!isVisible)}/> :<Icons.Visibility_off onClick={()=>setIsVisible(!isVisible)}/>} canPoint=""/>  
+                          <div className="flex flex-row text-error-500">* <div className="text-text-800">รหัสผ่านใหม่</div></div> 
+                           
+                          <InputField className="w-full h-[52px]" rightItem={isVisible ?<Icons.Visibility onClick={()=>setIsVisible(!isVisible)}/> :<Icons.Visibility_off onClick={()=>setIsVisible(!isVisible)}/>} canPoint="" placeholder="กรอกอย่างน้อย 8 ตัวอักษร"/>  
                         </div>
                     </div>
                     <div className="flex flex-col w-full h-full ">

@@ -1,4 +1,5 @@
 'use client'
+import InputField from "@/components/InputField";
 import Label from "@/components/Label";
 import Radio from "@/components/Radio";
 import SectionHeader from "@/components/SectionHeader";
@@ -35,11 +36,9 @@ export default function MapPage() {
   };
 
   const [switchesA, setSwitchesA] = useState([
-    { label: "Label", isOpen: false },
-    { label: "Label", isOpen: false },
-    { label: "Label", isOpen: false },
-    { label: "Label", isOpen: false },
-    { label: "Label", isOpen: false },
+    { label: "การกักเก็บคาร์บอน", isOpen: false },
+    { label: "แปลงสำรวจ", isOpen: false },
+    { label: "ตำแหน่งต้นไม้ที่สำรวจ", isOpen: false },
   ]);
 
   const [switchesB, setSwitchesB] = useState([
@@ -72,49 +71,7 @@ export default function MapPage() {
 
   return (
     <div className=" flex flex-row w-full h-full ">
-
-      <div className="w-[352px] h-full bg-[#DDDDDC] px-[32px] pt-[20px] pb-[6px] flex flex-col font-prompt ">
-        <div className="h-[54px] font-medium text-xl flex items-center">เปิด/ปิด ชั้นข้อมูล</div>
-        <div className="w-[288px] h-[240px] flex flex-col">
-          {switchesA.map((sw, i) => (
-            <div key={i} className=" w-full flex flex-row justify-between items-center ">
-              <Label label={sw.label} />
-              <Switch
-                isOpen={sw.isOpen}
-                onClick={() => toggleA(i)}
-              />
-            </div>))}
-        </div>
-        <div className="h-[54px] font-medium text-xl flex items-center">ข้อมูลสารสนเทศพื้นฐาน</div>
-        <div className="w-full h-[144px] flex flex-col">
-          {switchesB.map((sw, i) => (
-            <div key={i} className=" w-full flex flex-row justify-between items-center ">
-              <Label label={sw.label} />
-              <Switch
-                isOpen={sw.isOpen}
-                onClick={() => toggleB(i)}
-              />
-            </div>))}
-        </div>
-        <div className="h-[54px] font-medium text-xl flex items-center">แผนที่ฐาน</div>
-
-        <div className="w-full h-[240px] flex flex-col">
-          <div className=" w-full flex flex-row justify-between items-center pr-[28px]">
-            <Label label="Label" />
-            <div><Radio value="option1" name="name" checked={selectedOption === 'option1'} onChange={handleOptionChange} /></div>
-          </div>
-          <div className=" w-full flex flex-row justify-between items-center pr-[28px]">
-            <Label label="Label" />
-            <div><Radio value="option2" name="name" checked={selectedOption === 'option2'} onChange={handleOptionChange} /></div>
-          </div>
-          <div className=" w-full flex flex-row justify-between items-center pr-[28px]">
-            <Label label="Label" />
-            <div><Radio value="option3" name="name" checked={selectedOption === 'option3'} onChange={handleOptionChange} /></div>
-          </div>
-        </div>
-      </div>
-
-      <div className=" p-8  w-full  h-full flex flex-col items-center ">
+       <div className=" p-8  w-full  h-full flex flex-col items-center ">
         <SectionHeader title="ระบบฐานข้อมูลการสำรวจศักยภาพการกักเก็บคาร์บอนในพื้นที่ป่าไม้" backHref />
         
           <div className="w-full  h-full pt-[24px]  rounded-xl shadow-xl items-center flex justify-center">
@@ -128,6 +85,51 @@ export default function MapPage() {
          
         
       </div>
+      <div  className="w-[352px] h-[850px] bg-white rounded-xl border border-neutral-700 px-[32px] mr-[32px] my-[32px] pt-[20px] pb-[6px] flex flex-col font-prompt ">
+        <div className="h-[54px] font-medium text-xl flex items-center">เปิด/ปิด ชั้นข้อมูล</div>
+        <div className="w-[288px] h-[auto] flex flex-col">
+          {switchesA.map((sw, i) => (
+            <div key={i} className=" w-full flex flex-row justify-between items-center ">
+              <Label label={sw.label} />
+              <Switch
+                isOpen={sw.isOpen}
+                onClick={() => toggleA(i)}
+              />
+            </div>))}
+        </div>
+        <div className="h-[54px] font-medium text-xl flex items-center">ขอบเขต</div>
+        <div className="w-full h-[auto] flex flex-col">
+              <div className="flex flex-col gap-[5px] text-base">
+                จังหวัด
+                <InputField  iconSearch iconDown placeholder="เลือกจังหวัด" className="w-full h-[40px] " inputClassName="rounded-2xl pl-[35px]"/>    
+                </div>
+                
+                <div className="flex flex-col gap-[5px] text-base">
+                อำเภอ
+                <InputField iconSearch iconDown placeholder="เลือกอำเภอ" className="w-full h-[40px] " inputClassName="rounded-2xl pl-[35px]"/>    
+                </div>
+
+                <div className="flex flex-col gap-[5px] text-base">
+                ตำบล
+                <InputField iconSearch iconDown placeholder="เลือกตำบล" className="w-full h-[40px] " inputClassName="rounded-2xl pl-[35px]"/>    
+                </div>
+        </div>
+        <div className="h-[54px] font-medium text-xl flex items-center">แผนที่ฐาน</div>
+
+        <div className="w-full h-[auto] flex flex-col">
+          <div className=" w-full flex flex-row justify-between items-center pr-[28px]">
+            <Label label="Open Street Map" />
+            <div><Radio value="option1" name="name" checked={selectedOption === 'option1'} onChange={handleOptionChange} /></div>
+          </div>
+          <div className=" w-full flex flex-row justify-between items-center pr-[28px]">
+            <Label label="Google Street" />
+            <div><Radio value="option2" name="name" checked={selectedOption === 'option2'} onChange={handleOptionChange} /></div>
+          </div>
+          
+        </div>
+      </div>
+
+     
     </div>
   );
 }

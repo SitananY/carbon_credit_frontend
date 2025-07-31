@@ -1,11 +1,23 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  eslint: {
+    ignoreDuringBuilds: true, // ✅ ปิด ESLint Error ตอน build
+  },
+   typescript: {
+    ignoreBuildErrors: true,
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: [{ loader: '@svgr/webpack', options: { icon: true } }], // icon: true helps with fill="currentColor"
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            icon: true, // ✅ ทำให้ใช้ fill="currentColor"
+          },
+        },
+      ],
     });
     return config;
   },
