@@ -5,7 +5,7 @@ import SectionHeader from "@/components/SectionHeader";
 import Icons from "@/components/svgs/SvgExports";
 import { useState } from "react";
 import DataTableGeneral from "@/components/DataTableGeneral";
-import ProcessDataCard from "./components/ProcessDataCard";
+import ProcessDataCard from "@/components/ProcessDataCard";
 
 
 export default function ProcessData() {
