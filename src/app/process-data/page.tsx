@@ -1,13 +1,11 @@
 "use client"
 import Button from "@/components/Button";
-import InputField from "@/components/InputField";
-import ListItem from "@/components/ListItem";
 import SectionBelowHeader from "@/components/SectionBelowHeader";
 import SectionHeader from "@/components/SectionHeader";
 import Icons from "@/components/svgs/SvgExports";
-import ProcessDataCard from "@/app/process-data/components/ProcessDataCard";
 import { useState } from "react";
 import DataTableGeneral from "@/components/DataTableGeneral";
+import ProcessDataCard from "./components/ProcessDataCard";
 
 
 export default function ProcessData() {
@@ -52,7 +50,7 @@ console.log(isDisabled);
                   
                   :   <Icons.Forward className="w-[18px] h-[18px]"/>}
                   </Button>
-                  {isDescrip && <DataTableGeneral data={[]} selectedIds={[]} setSelectedIds={()=>{}} isPage={false} progress />}
+                  {isDescrip && <DataTableGeneral dataType="group" data={[]} selectedIds={[]} setSelectedIds={()=>{}} isPage={false} progress />}
                 </div>          
             
             </div>
